@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { aboutTabs } from '../../data/mock';
+import { Flag } from 'lucide-react';
 
 const TABS = [
-  { key: 'process', label: 'PROCESS' },
-  { key: 'skills', label: 'SKILLS' },
-  { key: 'obsessions', label: 'OBSESSIONS' },
-  { key: 'peeves', label: 'PET PEEVES' }
+  { key: 'process', label: 'Process' },
+  { key: 'skills', label: 'Skills' },
+  { key: 'obsessions', label: 'Obsessions' },
+  { key: 'peeves', label: 'Pet Peeves' }
 ];
 
 export default function About() {
@@ -13,76 +14,75 @@ export default function About() {
   const items = aboutTabs[tab];
 
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-24 border-t" style={{ borderColor: 'rgba(245,165,36,0.2)' }}>
-      <div className="grid lg:grid-cols-12 gap-10">
-        <div className="lg:col-span-5">
-          <div className="text-[10px] mb-3" style={{ color: 'var(--muted-2)', letterSpacing: '0.2em' }}>&gt; CAT ~/ABOUT.md</div>
-          <h2 className="text-[44px] md:text-[60px] font-bold leading-tight glow" style={{ color: 'var(--amber)' }}>
-            Not a bio.<br />
-            A <span className="hard-glow" style={{ color: 'var(--amber-2)' }}>personality</span> map.
-          </h2>
-          <p className="mt-6 text-[13px] leading-relaxed max-w-md" style={{ color: 'var(--muted)' }}>
-            I&#39;m Saksham — a product designer who turns complex problems into intuitive, beautiful
-            experiences. Research-driven design and pixel-level craft. Currently exploring the edge
-            between conversational AI, spatial UI and good old-fashioned terminals.
-          </p>
-
-          <div className="mt-8 space-y-2 text-[12px]" style={{ color: 'var(--muted)' }}>
-            <div><span style={{ color: 'var(--amber)' }}>location</span> — New Delhi → Remote</div>
-            <div><span style={{ color: 'var(--amber)' }}>role</span> — Sr. Product Designer</div>
-            <div><span style={{ color: 'var(--amber)' }}>status</span> — <span style={{ color: 'var(--amber-2)' }}>● available for Q3 2026</span></div>
-            <div><span style={{ color: 'var(--amber)' }}>tools</span> — Figma, Cursor, Framer, Origami, Blender</div>
-          </div>
-        </div>
-
-        <div className="lg:col-span-7">
-          {/* Tabs */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {TABS.map((t) => {
-              const on = tab === t.key;
-              return (
-                <button
-                  key={t.key}
-                  onClick={() => setTab(t.key)}
-                  className="px-4 py-2 text-[11px] rounded-md transition-colors"
-                  style={{
-                    background: on ? 'var(--amber)' : 'transparent',
-                    color: on ? '#0a0704' : 'var(--amber)',
-                    border: '1px solid rgba(245,165,36,0.45)',
-                    letterSpacing: '0.15em',
-                    fontWeight: on ? 600 : 400
-                  }}
-                >
-                  {t.label}
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-3">
-            {items.map((it) => (
-              <div key={it.n} className="panel panel-hover px-5 py-5">
-                <div className="text-[11px] mb-3" style={{ color: 'var(--muted-2)' }}>{it.n}</div>
-                <div className="text-[18px] font-semibold" style={{ color: 'var(--amber-2)' }}>{it.title}</div>
-                <div className="mt-2 text-[12px] leading-relaxed" style={{ color: 'var(--muted)' }}>{it.text}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Quote panel */}
-          <div className="mt-6 panel px-5 py-6">
-            <div className="flex items-center gap-2 text-[10px] mb-3" style={{ color: 'var(--muted-2)', letterSpacing: '0.25em' }}>
-              <span>QUOTE.txt</span>
-              <span className="flex-1 h-px" style={{ background: 'rgba(245,165,36,0.2)' }} />
-              <span>001/999</span>
-            </div>
-            <div className="text-[18px] leading-relaxed" style={{ color: 'var(--amber-2)' }}>
-              &ldquo;Design is the silent ambassador of your brand.&rdquo;
-            </div>
-            <div className="mt-2 text-[11px]" style={{ color: 'var(--muted)' }}>— Paul Rand</div>
-          </div>
-        </div>
+    <section className="px-6 md:px-10 lg:px-12 py-8 border-t" style={{ borderColor: 'rgba(245,165,36,0.24)' }}>
+      <div className="mb-4 flex items-center gap-3 text-[13px]" style={{ color: 'var(--amber)', letterSpacing: '0.15em' }}>
+        <span className="font-semibold">WRITE — ABOUT</span>
+        <span className="flex-1 h-px" style={{ background: 'rgba(245,165,36,0.2)' }} />
       </div>
+
+      <div className="flex items-center gap-3 mb-4">
+        {TABS.map((t) => {
+          const on = tab === t.key;
+          return (
+            <button key={t.key} onClick={() => setTab(t.key)} className="px-4 py-2 text-[14px] font-medium" style={{ border: `1px solid ${on ? 'var(--amber-2)' : 'rgba(245,165,36,0.45)'}`, color: on ? 'var(--amber-2)' : 'var(--amber)', borderRadius: 2, background: 'transparent', boxShadow: on ? '0 0 0 1px rgba(245,165,36,0.35)' : 'none' }}>
+              {t.label}
+            </button>
+          );
+        })}
+      </div>
+
+      <article className="rounded-sm p-5 md:p-6" style={{ border: '1px solid var(--amber)' }}>
+        <div className="flex items-center justify-between flex-wrap gap-2 text-[13px]" style={{ color: 'var(--amber)' }}>
+          <div className="flex items-center gap-2">
+            <span>@saksham_shukla</span>
+            <span>◉</span>
+            <span>L</span>
+            <span>∽</span>
+          </div>
+          <div className="opacity-80">draft • auto-saved • v3</div>
+        </div>
+
+        <div className="mt-3">
+          <a href="#" className="text-[16px] font-semibold underline underline-offset-[3px]" style={{ color: 'var(--amber-2)' }}>
+            V2026.02 — {TABS.find((t) => t.key === tab).label}
+          </a>
+        </div>
+
+        <p className="mt-2 text-[14px] leading-relaxed max-w-3xl" style={{ color: 'var(--amber)' }}>
+          I&apos;m Saksham — a product designer turning complex problems into intuitive, beautiful experiences. Research-driven design and pixel-level craft. Currently exploring the edge between conversational AI, spatial UI and terminals.
+        </p>
+
+        <div className="my-4 h-px" style={{ background: 'rgba(245,165,36,0.28)' }} />
+
+        <div className="grid sm:grid-cols-2 gap-3">
+          {items.map((it) => (
+            <div key={it.n} className="px-4 py-4" style={{ border: '1px solid rgba(245,165,36,0.4)', borderRadius: 2 }}>
+              <div className="text-[11px] mb-2" style={{ color: 'var(--muted)' }}>{it.n}</div>
+              <div className="text-[16px] font-semibold underline underline-offset-[3px]" style={{ color: 'var(--amber-2)' }}>{it.title}</div>
+              <div className="mt-1 text-[13px] leading-relaxed" style={{ color: 'var(--amber)' }}>{it.text}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="my-4 h-px" style={{ background: 'rgba(245,165,36,0.28)' }} />
+
+        <div className="text-[14px]" style={{ color: 'var(--amber)' }}>
+          &quot;Design is the silent ambassador of your brand.&quot; — Paul Rand
+        </div>
+
+        <div className="mt-5 flex items-center justify-between flex-wrap gap-3">
+          <div className="text-[12px]" style={{ color: 'var(--muted)' }}>
+            <span style={{ color: 'var(--amber)' }}>[↵]</span> Open&nbsp;&nbsp;
+            <span style={{ color: 'var(--amber)' }}>[S]</span> Save
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[12px] px-2.5 py-1" style={{ border: '1px solid rgba(245,165,36,0.55)', color: 'var(--amber)', borderRadius: 2 }}>about</span>
+            <span className="text-[12px] px-2.5 py-1" style={{ border: '1px solid rgba(245,165,36,0.55)', color: 'var(--amber)', borderRadius: 2 }}>process</span>
+            <span className="text-[12px] px-2.5 py-1" style={{ border: '1px solid rgba(245,165,36,0.55)', color: 'var(--amber)', borderRadius: 2 }}>craft</span>
+            <Flag size={14} style={{ color: 'var(--amber)' }} />
+          </div>
+        </div>
+      </article>
     </section>
   );
 }

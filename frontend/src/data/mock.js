@@ -1,47 +1,83 @@
-// Mocked portfolio data - content sourced from sakshamshukla.com
+// Portfolio data — content sourced from sakshamshukla.com, adapted into terminal-UI shape
 
 export const stats = [
   { value: '4+', label: 'YEARS' },
   { value: '30+', label: 'PROJECTS' },
-  { value: '12', label: 'CLIENTS' },
+  { value: '12', label: 'CLIENTS' }
 ];
 
 export const caseStudies = [
   {
     id: 'hyundai-bo',
+    version: 'V2024.4',
     title: 'Hyundai \u00d7 Bang & Olufsen',
     category: 'CONCEPT',
     role: 'UX/UI DESIGNER',
     year: '2024',
-    description: 'Reimagining premium in-cabin audio for the next-gen EV experience. Spatial mixer, adaptive DSP presets and haptic-forward controls.',
-    tags: ['AUTOMOTIVE', 'AUDIO', 'SPATIAL UI']
+    words: 68,
+    saves: 24,
+    replies: 12,
+    bullets: [
+      'Designed spatial audio mixer for the in-cabin experience',
+      'Adaptive DSP presets react to cabin acoustics + passengers',
+      'Haptic-forward controls with quiet-mode default state'
+    ],
+    caption: 'Reimagining premium in-cabin audio for next-gen EVs.',
+    tags: ['automotive', 'audio', 'spatial-ui']
   },
   {
     id: 'bracket',
+    version: 'V2024.2',
     title: 'Bracket',
     category: 'WEB APP',
     role: 'PRODUCT DESIGNER',
     year: '2024',
-    description: 'End-to-end product design for a bracketing tournament platform. From onboarding to live-scoring dashboards for 12k concurrent users.',
-    tags: ['SAAS', 'B2B', 'DASHBOARDS']
+    words: 54,
+    saves: 18,
+    replies: 7,
+    bullets: [
+      'Onboarding shrunk from 9 steps to 3 with zero drop in retention',
+      'Live-scoring dashboards optimised for 12k concurrent users',
+      'Component library shipped in Figma + storybook parity'
+    ],
+    caption: 'End-to-end product design for a bracketing tournament SaaS.',
+    tags: ['saas', 'b2b', 'dashboards']
   },
   {
     id: 'harman-kardon',
+    version: 'V2023.3',
     title: 'Harman Kardon',
     category: 'CONNECTED AUDIO',
     role: 'UX/UI DESIGNER',
     year: '2023',
-    description: 'Companion app redesign for connected speakers. Multi-room grouping, EQ profiles, and a delightfully quiet first-run experience.',
-    tags: ['IOT', 'MOBILE', 'AUDIO']
+    words: 44,
+    saves: 15,
+    replies: 5,
+    bullets: [
+      'Multi-room grouping with a quiet first-run experience',
+      'Custom EQ profiles saved per room and per source',
+      'Companion app redesign shipped across iOS + Android'
+    ],
+    caption: 'Companion app redesign for connected speakers.',
+    tags: ['iot', 'mobile', 'audio']
   },
   {
     id: 'verizon-tello',
+    version: 'V2023.1',
     title: 'Verizon \u2014 Tello.ai',
     category: 'CONVERSATIONAL AI',
     role: 'PRODUCT DESIGNER',
     year: '2023',
-    description: 'A voice-first AI assistant for customer support. Designed the turn-taking model, error recovery and a friendly personality system.',
-    tags: ['AI', 'VOICE', 'SUPPORT']
+    words: 61,
+    saves: 22,
+    replies: 9,
+    bullets: [
+      'Designed turn-taking model + error recovery for voice AI',
+      'Built a friendly personality system with 4 tone presets',
+      'Reduced average call time by 38% in pilot with 4k users'
+    ],
+    caption: 'A voice-first AI assistant for customer support.',
+    tags: ['ai', 'voice', 'support']
   }
 ];
 
@@ -93,19 +129,19 @@ export const playground = [
 ];
 
 export const contactPrompts = [
-  'I need a designer who can...',
-  'Let\u2019s collaborate on...',
-  'I have this wild idea about...',
-  'Help me redesign...'
+  'I need a designer who can…',
+  'Let\u2019s collaborate on…',
+  'I have this wild idea about…',
+  'Help me redesign…'
 ];
 
 export const navItems = [
-  { key: 'home', label: 'Home', shortcut: 'H' },
+  { key: 'home', label: 'Feed', shortcut: 'H' },
   { key: 'work', label: 'Work', shortcut: 'W' },
-  { key: 'art', label: 'Art', shortcut: 'A' },
-  { key: 'about', label: 'About', shortcut: 'B' },
+  { key: 'art', label: 'Journal', shortcut: 'J' },
+  { key: 'about', label: 'Write', shortcut: 'B' },
   { key: 'play', label: 'Playground', shortcut: 'P' },
-  { key: 'contact', label: 'Contact', shortcut: 'C' }
+  { key: 'contact', label: 'C-Mail', shortcut: 'C', badge: 9 }
 ];
 
 export const socials = [
@@ -114,3 +150,11 @@ export const socials = [
   { label: 'Instagram', href: '#' },
   { label: 'Twitter', href: '#' }
 ];
+
+export const profile = {
+  handle: '@saksham_shukla',
+  joined: 'Joined March 12, 2020',
+  bio: 'This is not a portfolio — it\u2019s a controlled design experiment.',
+  followers: 2140,
+  following: 128
+};
