@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { caseStudies } from '../../data/mock';
-import { ChevronRight, Eye, Zap, BrainCircuit, Music, Check, X, ArrowRight, Sparkles, Wrench, Clock, Cpu } from 'lucide-react';
+import { ChevronRight, Eye, Zap, BrainCircuit, Music, Check, X, ArrowRight, Sparkles, Wrench, Clock, Cpu, Database, Route, Bot, FileText, RefreshCw, LineChart, Users } from 'lucide-react';
 
-const PRINCIPLE_ICONS = { Eye, Zap, BrainCircuit, Music };
+const ICONS = { Eye, Zap, BrainCircuit, Music, Database, Sparkles, Route, Bot, FileText, RefreshCw, LineChart, Users };
 
 export default function Work() {
   const [selectedId, setSelectedId] = useState(caseStudies[0].id);
@@ -33,7 +33,6 @@ export default function Work() {
       </div>
 
       <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-4">
-        {/* Project list */}
         <div className="lg:col-span-4 rounded-sm overflow-hidden" style={{ border: '1px solid var(--amber)' }}>
           <ul>
             {caseStudies.map((c) => {
@@ -66,7 +65,6 @@ export default function Work() {
           </ul>
         </div>
 
-        {/* Detail panel */}
         <article ref={scrollerRef} className="lg:col-span-8 rounded-sm p-5 md:p-6 flex flex-col min-h-0 overflow-y-auto" style={{ border: '1px solid var(--amber)' }}>
           <div className="text-[12px]" style={{ color: 'var(--muted-2)' }}>
             <span style={{ color: 'var(--amber)' }}>&gt;</span> Case study loaded.
@@ -83,6 +81,9 @@ export default function Work() {
 }
 
 function DetailedCaseStudy({ cs }) {
+  const hasBullets = cs.challenge && cs.challenge.items && cs.challenge.items.length > 0;
+  const researchIsArray = Array.isArray(cs.research);
+
   return (
     <div className="mt-4">
       {/* Hero */}
@@ -91,8 +92,23 @@ function DetailedCaseStudy({ cs }) {
       </h1>
       <p className="mt-2 text-[15px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.subtitle}</p>
 
-      {/* Results */}
-      <SectionLabel>Results</SectionLabel>
+      {/* Images (dummy — easy to replace) */}
+      {cs.images && cs.images.length > 0 && (
+        <div className="mt-4 grid md:grid-cols-2 gap-3">
+          {cs.images.map((img, i) => (
+            <figure key={i} className="relative overflow-hidden" style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, aspectRatio: '16/10' }}>
+              <img src={img.src} alt={img.caption || 'case study image'} className="w-full h-full object-cover" />
+              <figcaption className="absolute inset-x-0 bottom-0 px-2 py-1 text-[10px] flex items-center gap-2" style={{ color: 'var(--amber)', background: 'linear-gradient(180deg, transparent, rgba(5,5,5,0.9))', letterSpacing: '0.05em' }}>
+                <span className="opacity-70">IMG.{String(i + 1).padStart(2, '0')}</span>
+                <span className="truncate">{img.caption}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
+
+      {/* Results / Impact */}
+      <SectionLabel>{cs.resultsLabel || 'Results'}</SectionLabel>
       <div className="mt-2 grid grid-cols-2 md:grid-cols-4 gap-2">
         {cs.results.map((r) => (
           <div key={r.label} className="px-3 py-3 hover-lift" style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 2 }}>
@@ -124,36 +140,63 @@ function DetailedCaseStudy({ cs }) {
 
       {/* Challenge */}
       <SectionLabel>The Challenge</SectionLabel>
-      <p className="mt-2 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.challenge.lead}</p>
-      <p className="mt-3 text-[13px]" style={{ color: 'var(--muted)' }}>{cs.challenge.body}</p>
-      <ul className="mt-2 space-y-1 text-[14px]" style={{ color: 'var(--amber)' }}>
-        {cs.challenge.items.map((it, i) => (<li key={i} className="flex gap-2"><span style={{ color: 'var(--amber-2)' }}>›</span>{it}</li>))}
-      </ul>
+      <p className="mt-2 text-[15px] leading-relaxed font-semibold" style={{ color: 'var(--amber-2)' }}>{cs.challenge.lead}</p>
+      {cs.challenge.paragraphs && cs.challenge.paragraphs.map((p, i) => (
+        <p key={i} className="mt-3 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{p}</p>
+      ))}
+      {hasBullets && (
+        <>
+          <p className="mt-3 text-[13px]" style={{ color: 'var(--muted)' }}>{cs.challenge.body}</p>
+          <ul className="mt-2 space-y-1 text-[14px]" style={{ color: 'var(--amber)' }}>
+            {cs.challenge.items.map((it, i) => (<li key={i} className="flex gap-2"><span style={{ color: 'var(--amber-2)' }}>›</span>{it}</li>))}
+          </ul>
+        </>
+      )}
 
       {/* Research */}
       <SectionLabel>Research & Insights</SectionLabel>
-      <p className="mt-2 text-[13px]" style={{ color: 'var(--muted)' }}>While studying existing infotainment systems, four recurring problems became clear:</p>
-      <div className="mt-3 grid md:grid-cols-2 gap-2">
-        {cs.research.map((r, i) => (
-          <div key={i} className="px-4 py-3 hover-lift" style={{ border: '1px solid rgba(245,165,36,0.4)', borderRadius: 2 }}>
-            <div className="text-[14px] font-semibold" style={{ color: 'var(--amber-2)' }}>{r.title}</div>
-            <div className="mt-1 text-[13px] leading-relaxed" style={{ color: 'var(--amber)' }}>{r.text}</div>
+      {researchIsArray ? (
+        <>
+          <p className="mt-2 text-[13px]" style={{ color: 'var(--muted)' }}>While studying existing systems, four recurring problems became clear:</p>
+          <div className="mt-3 grid md:grid-cols-2 gap-2">
+            {cs.research.map((r, i) => (
+              <div key={i} className="px-4 py-3 hover-lift" style={{ border: '1px solid rgba(245,165,36,0.4)', borderRadius: 2 }}>
+                <div className="text-[14px] font-semibold" style={{ color: 'var(--amber-2)' }}>{r.title}</div>
+                <div className="mt-1 text-[13px] leading-relaxed" style={{ color: 'var(--amber)' }}>{r.text}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      ) : (
+        <>
+          {cs.research.intro && (
+            <p className="mt-2 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.research.intro}</p>
+          )}
+          {cs.research.paragraphs && cs.research.paragraphs.map((p, i) => (
+            <p key={i} className="mt-1.5 text-[15px] leading-relaxed" style={{ color: 'var(--amber-2)', fontWeight: 500 }}>{p}</p>
+          ))}
+          {cs.research.listLead && (
+            <p className="mt-3 text-[13px]" style={{ color: 'var(--muted)' }}>{cs.research.listLead}</p>
+          )}
+          {cs.research.items && (
+            <ul className="mt-2 space-y-1 text-[14px]" style={{ color: 'var(--amber)' }}>
+              {cs.research.items.map((it, i) => (<li key={i} className="flex gap-2"><span style={{ color: 'var(--amber-2)' }}>›</span>{it}</li>))}
+            </ul>
+          )}
+        </>
+      )}
 
-      {/* Key insight callout */}
-      <div className="mt-5 rounded-sm p-5 md:p-6" style={{ background: 'var(--amber)', color: '#0a0704' }}>
+      {/* Key Insight callout */}
+      <div className="mt-6 rounded-sm p-5 md:p-6" style={{ background: 'var(--amber)', color: '#0a0704' }}>
         <div className="text-[10px] mb-2" style={{ letterSpacing: '0.2em', opacity: 0.7 }}>KEY INSIGHT</div>
         <div className="font-bold leading-[1.15]" style={{ fontSize: 'clamp(20px, 2vw, 28px)' }}>{cs.insight}</div>
       </div>
 
-      {/* Design Principles */}
-      <SectionLabel>Design Principles</SectionLabel>
-      <p className="mt-2 text-[13px]" style={{ color: 'var(--muted)' }}>Everything in the experience followed four simple principles.</p>
+      {/* Principles */}
+      <SectionLabel>{cs.principlesLabel || 'Design Principles'}</SectionLabel>
       <div className="mt-3 grid md:grid-cols-2 gap-2">
         {cs.principles.map((p, i) => {
-          const Icon = PRINCIPLE_ICONS[p.icon] || Sparkles;
+          const Icon = ICONS[p.icon] || Sparkles;
           return (
             <div key={i} className="px-4 py-3 hover-lift" style={{ border: '1px solid rgba(245,165,36,0.4)', borderRadius: 2 }}>
               <div className="flex items-center gap-2 text-[14px] font-semibold" style={{ color: 'var(--amber-2)' }}>
@@ -167,8 +210,8 @@ function DetailedCaseStudy({ cs }) {
       </div>
 
       {/* Exploration */}
-      <SectionLabel>Exploration</SectionLabel>
-      <p className="mt-2 text-[13px]" style={{ color: 'var(--muted)' }}>I explored several interaction models before arriving at the final direction.</p>
+      <SectionLabel>{cs.explorationLabel || 'Exploration'}</SectionLabel>
+      <p className="mt-2 text-[13px]" style={{ color: 'var(--muted)' }}>{cs.explorationIntro || 'I explored several interaction models before arriving at the final direction.'}</p>
       <div className="mt-3 space-y-2">
         {cs.exploration.map((ex, i) => (
           <div
@@ -180,10 +223,7 @@ function DetailedCaseStudy({ cs }) {
               borderRadius: 2
             }}
           >
-            <div
-              className="shrink-0 mt-0.5 inline-flex items-center justify-center"
-              style={{ width: 18, height: 18, borderRadius: 99, background: ex.ok ? '#22c55e' : 'rgba(239,68,68,0.9)', color: '#0a0704' }}
-            >
+            <div className="shrink-0 mt-0.5 inline-flex items-center justify-center" style={{ width: 18, height: 18, borderRadius: 99, background: ex.ok ? '#22c55e' : 'rgba(239,68,68,0.9)', color: '#0a0704' }}>
               {ex.ok ? <Check size={11} strokeWidth={3} /> : <X size={11} strokeWidth={3} />}
             </div>
             <div className="flex-1 min-w-0">
@@ -195,31 +235,80 @@ function DetailedCaseStudy({ cs }) {
       </div>
 
       {/* Final Solution */}
-      <SectionLabel>Final Solution</SectionLabel>
-      <p className="mt-2 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.finalSolution.lead}</p>
-      <p className="mt-3 text-[13px]" style={{ color: 'var(--muted)' }}>{cs.finalSolution.body}</p>
-      <ul className="mt-2 space-y-1 text-[14px]" style={{ color: 'var(--amber)' }}>
-        {cs.finalSolution.items.map((it, i) => (<li key={i} className="flex gap-2"><span style={{ color: 'var(--amber-2)' }}>›</span>{it}</li>))}
-      </ul>
-      <p className="mt-3 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.finalSolution.close}</p>
-      <div className="mt-4">
-        <div className="text-[13px]" style={{ color: 'var(--muted)' }}>{cs.finalSolution.distraction.title}</div>
-        <ul className="mt-2 space-y-1 text-[14px]" style={{ color: 'var(--amber)' }}>
-          {cs.finalSolution.distraction.items.map((it, i) => (<li key={i} className="flex gap-2"><span style={{ color: 'var(--amber-2)' }}>›</span>{it}</li>))}
-        </ul>
-      </div>
+      <SectionLabel>{cs.finalSolutionLabel || 'Final Solution'}</SectionLabel>
+      <p className="mt-2 text-[15px] leading-relaxed font-semibold" style={{ color: 'var(--amber-2)' }}>{cs.finalSolution.lead}</p>
+      <p className="mt-3 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.finalSolution.body}</p>
 
-      {/* Key Takeaways */}
-      <SectionLabel>Key Takeaways</SectionLabel>
-      <p className="mt-2 text-[13px]" style={{ color: 'var(--muted)' }}>{cs.takeaway.lead}</p>
-      <blockquote className="mt-2 pl-4 py-2" style={{ borderLeft: '2px solid var(--amber)' }}>
-        <div className="text-[16px] leading-relaxed" style={{ color: 'var(--amber-2)' }}>{cs.takeaway.quote}</div>
-      </blockquote>
-      <p className="mt-3 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.takeaway.body}</p>
+      {cs.finalSolution.workflow && (
+        <div className="mt-4 flex items-center flex-wrap gap-1.5 text-[13px]">
+          {cs.finalSolution.workflow.map((step, i) => (
+            <React.Fragment key={step}>
+              <span className="px-3 py-1.5" style={{ border: '1px solid var(--amber)', color: 'var(--amber-2)', borderRadius: 2, fontWeight: 600 }}>{step}</span>
+              {i < cs.finalSolution.workflow.length - 1 && <ArrowRight size={14} style={{ color: 'var(--amber)' }} />}
+            </React.Fragment>
+          ))}
+        </div>
+      )}
 
-      {/* What I'd improve */}
-      <SectionLabel>What I&apos;d Improve</SectionLabel>
-      <p className="mt-2 text-[13px]" style={{ color: 'var(--muted)' }}>If I continued this concept, I would focus on:</p>
+      {cs.finalSolution.items && (
+        <>
+          <p className="mt-3 text-[13px]" style={{ color: 'var(--muted)' }}>Behind each mode, the system automatically adjusts:</p>
+          <ul className="mt-2 space-y-1 text-[14px]" style={{ color: 'var(--amber)' }}>
+            {cs.finalSolution.items.map((it, i) => (<li key={i} className="flex gap-2"><span style={{ color: 'var(--amber-2)' }}>›</span>{it}</li>))}
+          </ul>
+        </>
+      )}
+
+      {cs.finalSolution.close && (
+        <p className="mt-3 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.finalSolution.close}</p>
+      )}
+
+      {cs.finalSolution.distraction && (
+        <div className="mt-4">
+          <div className="text-[13px]" style={{ color: 'var(--muted)' }}>{cs.finalSolution.distraction.title}</div>
+          <ul className="mt-2 space-y-1 text-[14px]" style={{ color: 'var(--amber)' }}>
+            {cs.finalSolution.distraction.items.map((it, i) => (<li key={i} className="flex gap-2"><span style={{ color: 'var(--amber-2)' }}>›</span>{it}</li>))}
+          </ul>
+        </div>
+      )}
+
+      {/* Core Features (for Bracket) */}
+      {cs.features && cs.features.length > 0 && (
+        <>
+          <SectionLabel>Core Features</SectionLabel>
+          <div className="mt-3 grid md:grid-cols-2 gap-2">
+            {cs.features.map((f, i) => {
+              const Icon = ICONS[f.icon] || Sparkles;
+              return (
+                <div key={i} className="px-4 py-3 hover-lift" style={{ border: '1px solid rgba(245,165,36,0.4)', borderRadius: 2 }}>
+                  <div className="flex items-center gap-2 text-[14px] font-semibold" style={{ color: 'var(--amber-2)' }}>
+                    <Icon size={14} strokeWidth={1.75} />
+                    <span>{f.title}</span>
+                  </div>
+                  <div className="mt-1 text-[13px] leading-relaxed" style={{ color: 'var(--amber)' }}>{f.text}</div>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
+
+      {/* Takeaway */}
+      <SectionLabel>{cs.takeawayLabel || 'Key Takeaways'}</SectionLabel>
+      {cs.takeaway.lead && <p className="mt-2 text-[13px]" style={{ color: 'var(--muted)' }}>{cs.takeaway.lead}</p>}
+      {cs.takeaway.quote && (
+        <blockquote className="mt-2 pl-4 py-2" style={{ borderLeft: '2px solid var(--amber)' }}>
+          <div className="text-[16px] leading-relaxed" style={{ color: 'var(--amber-2)' }}>{cs.takeaway.quote}</div>
+        </blockquote>
+      )}
+      {cs.takeaway.body && <p className="mt-3 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.takeaway.body}</p>}
+      {cs.takeaway.paragraphs && cs.takeaway.paragraphs.map((p, i) => (
+        <p key={i} className="mt-2 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{p}</p>
+      ))}
+
+      {/* Improvements / What's Next */}
+      <SectionLabel>{cs.improvementsLabel || "What I'd Improve"}</SectionLabel>
+      <p className="mt-2 text-[13px]" style={{ color: 'var(--muted)' }}>{cs.improvementsIntro || 'If I continued this concept, I would focus on:'}</p>
       <ul className="mt-2 space-y-1 text-[14px] mb-3" style={{ color: 'var(--amber)' }}>
         {cs.improvements.map((it, i) => (
           <li key={i} className="flex items-start gap-2">

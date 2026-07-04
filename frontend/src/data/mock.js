@@ -8,6 +8,115 @@ export const stats = [
 
 export const caseStudies = [
   {
+    id: 'bracket',
+    version: 'V2026.1',
+    title: 'Bracket',
+    subtitle: 'An AI Decision OS for designers and freelancers that turns messy briefs into client-ready decisions, documents, and review workflows.',
+    category: 'AI DECISION OS',
+    role: 'Founder \u00b7 Product Designer \u00b7 UX Research \u00b7 Product Strategy',
+    year: '2026',
+    duration: '2026 \u2013 Present',
+    platform: 'Web \u00b7 AI \u00b7 SaaS',
+    tools: ['Figma', 'Framer', 'Linear', 'Cursor', 'Emergent'],
+    words: 54, saves: 18, replies: 7,
+    caption: 'AI Decision OS for freelancers and designers.',
+    description: 'AI Decision OS that turns messy briefs into structured decisions and docs.',
+    tags: ['ai', 'saas', 'design-tools'],
+    detailed: true,
+    images: [
+      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Bracket+%E2%80%94+Workspace+%28replace%29&font=roboto', caption: 'Bracket workspace \u2014 replace this dummy image' },
+      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Bracket+%E2%80%94+AI+Decisions+%28replace%29&font=roboto', caption: 'AI decision flow \u2014 replace this dummy image' }
+    ],
+    resultsLabel: 'Impact',
+    results: [
+      { value: '2K+', label: 'Early waitlist signups' },
+      { value: '6+', label: 'Hours saved weekly per freelancer' },
+      { value: '80%', label: 'Reduction in context switching' },
+      { value: '50%', label: 'Less administrative work' }
+    ],
+    overview: [
+      'Freelancers don\u2019t struggle because they lack tools.',
+      'They struggle because every project lives across disconnected documents, chats, proposals, contracts, and invoices.',
+      'Bracket reimagines project management as an AI-native operating system that transforms messy client briefs into structured decisions, documentation, review workflows, and project execution \u2014 all from a single source of truth.'
+    ],
+    challenge: {
+      lead: 'Creative work starts with ambiguity.',
+      paragraphs: [
+        'Clients share scattered messages, incomplete requirements, and changing expectations across multiple channels. Designers spend as much time organizing information as they do solving problems.',
+        'The challenge was to create a workspace that helps freelancers move from uncertainty to execution without constantly switching between tools.'
+      ]
+    },
+    research: {
+      intro: 'After interviewing freelancers and designers, one pattern appeared repeatedly.',
+      paragraphs: [
+        'People weren\u2019t frustrated by Figma.',
+        'They weren\u2019t frustrated by Notion.',
+        'They weren\u2019t frustrated by Google Docs.',
+        'They were frustrated by everything between them.'
+      ],
+      listLead: 'Every project required:',
+      items: [
+        'Copying information across tools',
+        'Rewriting the same decisions',
+        'Searching through chats',
+        'Managing endless revisions',
+        'Manually documenting discussions'
+      ]
+    },
+    insight: 'The real problem isn\u2019t fragmented tools. It\u2019s fragmented decisions.',
+    principlesLabel: 'Product Principles',
+    principles: [
+      { icon: 'Database', title: 'One source of truth', text: 'Information should be created once and flow throughout the project automatically.' },
+      { icon: 'Sparkles', title: 'AI should organize, not generate noise', text: 'Instead of another chatbot, AI should help structure conversations into decisions and actions.' },
+      { icon: 'Zap', title: 'Progress over administration', text: 'Less time documenting. More time designing.' },
+      { icon: 'Route', title: 'Every decision should be traceable', text: 'Ideas evolve. Projects change. Every important decision should have context, ownership, and history.' }
+    ],
+    explorationLabel: 'Exploring the Product',
+    explorationIntro: 'I explored three possible directions before defining Bracket.',
+    exploration: [
+      { ok: false, title: 'Project Management Tool', text: 'Powerful, but became another task manager competing with existing products.' },
+      { ok: false, title: 'Documentation Platform', text: 'Organized information well but failed to connect decisions with execution.' },
+      { ok: false, title: 'AI Chat Assistant', text: 'Useful for answering questions, but conversations quickly became difficult to revisit and impossible to manage at scale.' },
+      { ok: true, title: 'AI Decision OS', text: 'Instead of replacing existing creative tools, Bracket became the layer that connects requirements, decisions, documentation, reviews, and deliverables into one continuous workflow.' }
+    ],
+    finalSolutionLabel: 'The Solution',
+    finalSolution: {
+      lead: 'Bracket transforms unstructured conversations into structured project knowledge.',
+      body: 'Instead of asking users to manually organize every meeting, message, and requirement, the platform automatically builds a living project workspace where every decision is connected.',
+      workflow: ['Brief', 'Decisions', 'Documentation', 'Reviews', 'Deliverables'],
+      close: 'As projects evolve, every document, review, and change request stays synchronized \u2014 reducing repetitive work and helping teams maintain clarity throughout the project lifecycle.'
+    },
+    features: [
+      { icon: 'Bot', title: 'AI Brief Analysis', text: 'Convert scattered client requirements into structured project plans.' },
+      { icon: 'FileText', title: 'Smart Documentation', text: 'Generate proposals, project documentation, and decision records automatically.' },
+      { icon: 'RefreshCw', title: 'Review Workflows', text: 'Track feedback, revisions, approvals, and change requests in one place.' },
+      { icon: 'LineChart', title: 'Project Timeline', text: 'Maintain a complete history of project decisions from kickoff to delivery.' },
+      { icon: 'Users', title: 'Client Workspace', text: 'Share progress, documents, and approvals without long email threads.' }
+    ],
+    takeawayLabel: 'What I Learned',
+    takeaway: {
+      paragraphs: [
+        'Building Bracket changed the way I think about product design.',
+        'I realized freelancers don\u2019t need another productivity tool \u2014 they need a system that reduces decision fatigue.',
+        'The biggest opportunity wasn\u2019t designing better interfaces. It was designing a product that quietly removes the invisible work happening between every project milestone.'
+      ]
+    },
+    improvementsLabel: 'What\u2019s Next',
+    improvementsIntro: 'Bracket is evolving into an AI-native operating system for creative work. Future iterations focus on:',
+    improvements: [
+      'Smarter project memory',
+      'AI-assisted decision making',
+      'Automated documentation',
+      'Team collaboration',
+      'Cross-project knowledge'
+    ],
+    bullets: [
+      'Onboarding shrunk from 9 steps to 3 with zero drop in retention',
+      'Live-scoring dashboards optimised for 12k concurrent users',
+      'Component library shipped in Figma + storybook parity'
+    ]
+  },
+  {
     id: 'hyundai-bo',
     version: 'V2024.4',
     title: 'Hyundai \u00d7 Bang & Olufsen',
@@ -94,24 +203,6 @@ export const caseStudies = [
       'Adaptive DSP presets react to cabin acoustics + passengers',
       'Haptic-forward controls with quiet-mode default state'
     ]
-  },
-  {
-    id: 'bracket',
-    version: 'V2024.2',
-    title: 'Bracket',
-    category: 'WEB APP',
-    role: 'PRODUCT DESIGNER',
-    year: '2024',
-    words: 54,
-    saves: 18,
-    replies: 7,
-    bullets: [
-      'Onboarding shrunk from 9 steps to 3 with zero drop in retention',
-      'Live-scoring dashboards optimised for 12k concurrent users',
-      'Component library shipped in Figma + storybook parity'
-    ],
-    caption: 'End-to-end product design for a bracketing tournament SaaS.',
-    tags: ['saas', 'b2b', 'dashboards']
   },
   {
     id: 'harman-kardon',
