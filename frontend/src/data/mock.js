@@ -7,6 +7,7 @@ export const stats = [
 ];
 
 export const caseStudies = [
+
   {
     id: 'bracket',
     openDesignsUrl: '#',
@@ -117,212 +118,16 @@ export const caseStudies = [
       'Component library shipped in Figma + storybook parity'
     ]
   },
-  {
-    id: 'hyundai-bo',
-    openDesignsUrl: '#',
-    version: 'V2024.4',
-    title: 'Hyundai \u00d7 Bang & Olufsen',
-    subtitle: 'Rethinking in-car audio for safer, distraction-free driving.',
-    category: 'CONCEPT',
-    role: 'Lead Product Designer',
-    year: '2024',
-    duration: '12 Weeks',
-    platform: 'Automotive Infotainment',
-    tools: ['Figma', 'ProtoPie', 'After Effects', 'Blender'],
-    words: 68,
-    saves: 24,
-    replies: 12,
-    caption: 'Reimagining premium in-cabin audio for next-gen EVs.',
-    description: 'Reimagining premium in-cabin audio for the next-gen EV experience.',
-    tags: ['automotive', 'audio', 'spatial-ui'],
-    detailed: true,
-    results: [
-      { value: '40%', label: 'Faster audio interactions' },
-      { value: '3 \u2192 1', label: 'Navigation layers reduced' },
-      { value: '92%', label: 'User satisfaction' },
-      { value: '60%', label: 'Reduction in driver distraction' }
-    ],
-    overview: [
-      'Modern infotainment systems often borrow interaction patterns from smartphones \u2014 multiple menus, small touch targets, and feature-heavy interfaces. While these work on mobile devices, they become distractions inside a moving vehicle.',
-      'This concept explores how a premium audio experience for Hyundai \u00d7 Bang & Olufsen could prioritize driver attention without compromising the richness of the sound experience.'
-    ],
-    challenge: {
-      lead: 'Design an audio system that allows drivers to control music with minimal cognitive effort while maintaining Bang & Olufsen\u2019s premium brand experience.',
-      body: 'The experience needed to:',
-      items: [
-        'Reduce interaction time',
-        'Minimize visual distraction',
-        'Preserve premium audio controls',
-        'Work within real automotive constraints'
-      ]
-    },
-    research: [
-      { title: 'Touch Interfaces', text: 'Small touch targets increased interaction time and required drivers to repeatedly glance away from the road.' },
-      { title: 'Voice Controls', text: 'Voice commands became unreliable in noisy environments and while music was playing.' },
-      { title: 'Gesture Controls', text: 'Most users struggled to remember available gestures, making them difficult to discover and trust.' },
-      { title: 'Overwhelming Audio Controls', text: 'Drivers wanted music to feel better \u2014 not adjust equalizers, frequencies, or technical parameters.' }
-    ],
-    insight: 'People don\u2019t think in frequencies. They think in feelings.',
-    principles: [
-      { icon: 'Eye', title: 'Keep eyes on the road', text: 'Every interaction should require only a quick glance.' },
-      { icon: 'Zap', title: 'Reduce interaction steps', text: 'One action should accomplish one task whenever possible.' },
-      { icon: 'BrainCircuit', title: 'Adapt to context', text: 'The system should respond to driving conditions instead of relying on manual adjustments.' },
-      { icon: 'Music', title: 'Design for emotion', text: 'Expose meaningful choices while hiding unnecessary complexity.' }
-    ],
-    exploration: [
-      { ok: false, title: 'Traditional EQ Controls', text: 'Powerful but visually overwhelming.' },
-      { ok: false, title: 'Multi-level Navigation', text: 'Required too many interactions for common tasks.' },
-      { ok: false, title: 'Voice-first Experience', text: 'Promising in theory, but unreliable in noisy driving environments.' },
-      { ok: true, title: 'Emotion-based Audio Modes', text: 'Replacing technical audio settings with three simple modes \u2014 Calm, Focus, and Energize \u2014 allowed drivers to make faster decisions while the system handled the complexity behind the scenes.' }
-    ],
-    finalSolution: {
-      lead: 'Instead of exposing dozens of audio settings, the interface presents three emotion-driven listening modes.',
-      body: 'Behind each mode, the system automatically adjusts:',
-      items: ['Equalizer', 'Spatial audio', 'Dynamic range', 'Volume behavior'],
-      close: 'The result is a premium listening experience that requires almost no configuration from the driver.',
-      distraction: {
-        title: 'To further reduce distraction:',
-        items: [
-          'Frequently used controls remain accessible with a single interaction.',
-          'Volume stays on a physical haptic dial.',
-          'Ambient lighting provides subtle confirmation when switching modes.',
-          'Interface elements are optimized for quick recognition during driving.'
-        ]
-      }
-    },
-    takeaway: {
-      lead: 'This project reinforced an important lesson:',
-      quote: 'Designing for automotive experiences isn\u2019t about adding features \u2014 it\u2019s about removing unnecessary decisions.',
-      body: 'By focusing on driver attention instead of interface complexity, I was able to create an experience that feels simpler, safer, and more aligned with the way people naturally interact with music while driving.'
-    },
-    improvements: [
-      'Personalized audio recommendations based on driving behavior.',
-      'Better passenger controls without distracting the driver.',
-      'Smarter contextual automation using route and environmental data.'
-    ],
-    bullets: [
-      'Designed spatial audio mixer for the in-cabin experience',
-      'Adaptive DSP presets react to cabin acoustics + passengers',
-      'Haptic-forward controls with quiet-mode default state'
-    ]
-  },
-  {
-    id: 'harman-kardon',
-    openDesignsUrl: '#',
-    version: 'V2023.3',
-    title: 'One Audio: Designed for Harman Kardon',
-    subtitle: 'Designing a connected audio ecosystem that feels like one product \u2014 not many.',
-    category: 'CONNECTED AUDIO',
-    role: 'UX/UI Designer',
-    year: '2023',
-    duration: '2023',
-    platform: 'IoT \u00b7 Connected Audio',
-    tools: ['Figma', 'ProtoPie', 'Principle', 'After Effects'],
-    words: 44, saves: 15, replies: 5,
-    caption: 'Connected audio ecosystem for Harman Kardon.',
-    description: 'One connected ecosystem across speakers, headphones and soundbars.',
-    tags: ['audio', 'iot', 'ecosystem'],
-    detailed: true,
-    images: [
-      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=One+Audio+%E2%80%94+Space+View+%28replace%29&font=roboto', caption: 'One Audio space view \u2014 replace this dummy image' },
-      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=One+Audio+%E2%80%94+Handoff+%28replace%29&font=roboto', caption: 'Instant audio handoff \u2014 replace this dummy image' }
-    ],
-    resultsLabel: 'Results',
-    results: [
-      { value: '65%', label: 'Faster device setup' },
-      { value: '+40%', label: 'Increase in multi-device usage' },
-      { value: '\u26054.8', label: 'Prototype satisfaction rating' },
-      { value: '-55%', label: 'Projected reduction in support requests' }
-    ],
-    overview: [
-      'Harman Kardon offers a premium range of speakers, headphones, and soundbars, but each product behaves like an independent device with its own setup, controls, and companion app.',
-      'This concept reimagines the ecosystem as a connected experience where devices share context, preferences, and audio seamlessly, allowing users to move between products without interruption.'
-    ],
-    challenge: {
-      lead: 'How might we create a connected ecosystem where multiple Harman Kardon devices work together as naturally as they sound?',
-      body: 'The experience needed to:',
-      items: [
-        'Reduce friction between devices',
-        'Create a consistent interaction model',
-        'Preserve premium audio experiences',
-        'Scale across multiple product categories'
-      ]
-    },
-    research: {
-      intro: 'While studying existing connected audio products, one insight became obvious.',
-      paragraphs: [
-        'The devices were connected.',
-        'The experience wasn\u2019t.'
-      ],
-      listLead: 'Users frequently switched between speakers, headphones, and soundbars, but every transition required reopening apps, changing settings, and manually reconnecting devices. Instead of feeling like one ecosystem, every product behaved like its own island.',
-      items: []
-    },
-    insight: 'People don\u2019t think about devices. They think about spaces.',
-    principlesLabel: 'Product Principles',
-    principles: [
-      { icon: 'Route', title: 'Context travels with the user', text: 'Preferences should move between devices automatically.' },
-      { icon: 'BrainCircuit', title: 'Design for spaces', text: 'People manage music by where they are \u2014 not by which hardware they\u2019re using.' },
-      { icon: 'Zap', title: 'One interaction model', text: 'Every Harman Kardon device should feel familiar regardless of category.' },
-      { icon: 'Sparkles', title: 'Smart when needed', text: 'Automation should reduce effort without taking control away from the user.' }
-    ],
-    explorationLabel: 'Exploration',
-    explorationIntro: 'I explored three ecosystem models before defining the final direction.',
-    exploration: [
-      { ok: false, title: 'Device-first Management', text: 'Easy to implement, but reinforced fragmentation.' },
-      { ok: false, title: 'Fully Automated Switching', text: 'Removed too much user control and produced inconsistent experiences.' },
-      { ok: true, title: 'Space-based Ecosystem', text: 'Organizing devices around spaces such as Living Room, Office, and Bedroom created a mental model users immediately understood while keeping audio handoff simple and predictable.' }
-    ],
-    finalSolutionLabel: 'The Solution',
-    finalSolution: {
-      lead: 'Instead of managing individual products, users manage spaces.',
-      body: 'Every connected device becomes part of a larger ecosystem where preferences, playback, and controls follow the user instead of remaining locked to individual hardware.',
-      items: [
-        'Space-based device organization',
-        'One-tap audio handoff',
-        'Unified sound preferences',
-        'Shared playback controls',
-        'Context-aware automation'
-      ],
-      close: 'The result is an ecosystem that feels cohesive rather than a collection of separate products.'
-    },
-    features: [
-      { icon: 'Home', title: 'Space-first Organization', text: 'Manage rooms instead of individual devices.' },
-      { icon: 'RefreshCw', title: 'Instant Audio Handoff', text: 'Move playback between products with a single interaction.' },
-      { icon: 'SlidersHorizontal', title: 'Shared Preferences', text: 'Volume, EQ, and listening profiles travel across devices.' },
-      { icon: 'Bot', title: 'Context-aware Automation', text: 'Automatically adapt playback based on location, activity, and time.' }
-    ],
-    takeawayLabel: 'What I Learned',
-    takeaway: {
-      paragraphs: [
-        'Designing ecosystems is fundamentally different from designing individual products.',
-        'The challenge isn\u2019t creating better interfaces \u2014 it\u2019s creating a shared mental model that makes multiple devices feel like one experience.',
-        'This project reinforced that consistency, context, and continuity are often more valuable than adding new features.'
-      ]
-    },
-    improvementsLabel: 'What\u2019s Next',
-    improvementsIntro: 'Future iterations would focus on:',
-    improvements: [
-      'Smarter context detection',
-      'Personalized automation',
-      'Cross-device AI recommendations',
-      'Firmware-level synchronization',
-      'Deeper ecosystem integrations'
-    ],
-    bullets: [
-      'Multi-room grouping with a quiet first-run experience',
-      'Custom EQ profiles saved per room and per source',
-      'Companion app redesign shipped across iOS + Android'
-    ]
-  },
+
   {
     id: 'verizon-tello',
-    version: 'V2023.1',
+    version: 'V2025.1',
     title: 'Verizon \u2014 Tello.ai',
     subtitle: 'Verizon doesn\u2019t have an information problem \u2014 they have 47 plans on their website. The problem is that giving people more data doesn\u2019t help them decide. I designed Tello.ai to replace comparison tables with a conversational AI that narrows options down and explains why, turning a 15-minute research task into a 3-minute conversation.',
     category: 'CONVERSATIONAL AI',
     role: 'Product Designer',
-    year: '2023',
-    duration: '2023',
+    year: '2025',
+    duration: '2025',
     platform: 'AI \u00b7 Telecom \u00b7 Conversational',
     tools: ['Figma', 'ProtoPie', 'GPT-4 API', 'Maze', 'Lottie'],
     words: 61, saves: 22, replies: 9,
@@ -444,6 +249,209 @@ export const caseStudies = [
       'Designed turn-taking model + error recovery for voice AI',
       'Built a friendly personality system with 4 tone presets',
       'Reduced average call time by 38% in pilot with 4k users'
+    ]
+  },
+
+  {
+    id: 'hyundai-bo',
+    openDesignsUrl: '#',
+    version: 'V2024.4',
+    title: 'Hyundai \u00d7 Bang & Olufsen',
+    subtitle: 'Rethinking in-car audio for safer, distraction-free driving.',
+    category: 'CONCEPT',
+    role: 'Lead Product Designer',
+    year: '2024',
+    duration: '12 Weeks',
+    platform: 'Automotive Infotainment',
+    tools: ['Figma', 'ProtoPie', 'After Effects', 'Blender'],
+    words: 68,
+    saves: 24,
+    replies: 12,
+    caption: 'Reimagining premium in-cabin audio for next-gen EVs.',
+    description: 'Reimagining premium in-cabin audio for the next-gen EV experience.',
+    tags: ['automotive', 'audio', 'spatial-ui'],
+    detailed: true,
+    images: [
+      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Hyundai+%C3%97+B%26O+%E2%80%94+In-Cabin+%28replace%29&font=roboto', caption: 'In-cabin audio UI — replace this dummy image' },
+      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Hyundai+%C3%97+B%26O+%E2%80%94+Emotion+Modes+%28replace%29&font=roboto', caption: 'Emotion-based audio modes — replace this dummy image' }
+    ],
+    results: [
+      { value: '40%', label: 'Faster audio interactions' },
+      { value: '3 \u2192 1', label: 'Navigation layers reduced' },
+      { value: '92%', label: 'User satisfaction' },
+      { value: '60%', label: 'Reduction in driver distraction' }
+    ],
+    overview: [
+      'Modern infotainment systems often borrow interaction patterns from smartphones \u2014 multiple menus, small touch targets, and feature-heavy interfaces. While these work on mobile devices, they become distractions inside a moving vehicle.',
+      'This concept explores how a premium audio experience for Hyundai \u00d7 Bang & Olufsen could prioritize driver attention without compromising the richness of the sound experience.'
+    ],
+    challenge: {
+      lead: 'Design an audio system that allows drivers to control music with minimal cognitive effort while maintaining Bang & Olufsen\u2019s premium brand experience.',
+      body: 'The experience needed to:',
+      items: [
+        'Reduce interaction time',
+        'Minimize visual distraction',
+        'Preserve premium audio controls',
+        'Work within real automotive constraints'
+      ]
+    },
+    research: [
+      { title: 'Touch Interfaces', text: 'Small touch targets increased interaction time and required drivers to repeatedly glance away from the road.' },
+      { title: 'Voice Controls', text: 'Voice commands became unreliable in noisy environments and while music was playing.' },
+      { title: 'Gesture Controls', text: 'Most users struggled to remember available gestures, making them difficult to discover and trust.' },
+      { title: 'Overwhelming Audio Controls', text: 'Drivers wanted music to feel better \u2014 not adjust equalizers, frequencies, or technical parameters.' }
+    ],
+    insight: 'People don\u2019t think in frequencies. They think in feelings.',
+    principles: [
+      { icon: 'Eye', title: 'Keep eyes on the road', text: 'Every interaction should require only a quick glance.' },
+      { icon: 'Zap', title: 'Reduce interaction steps', text: 'One action should accomplish one task whenever possible.' },
+      { icon: 'BrainCircuit', title: 'Adapt to context', text: 'The system should respond to driving conditions instead of relying on manual adjustments.' },
+      { icon: 'Music', title: 'Design for emotion', text: 'Expose meaningful choices while hiding unnecessary complexity.' }
+    ],
+    exploration: [
+      { ok: false, title: 'Traditional EQ Controls', text: 'Powerful but visually overwhelming.' },
+      { ok: false, title: 'Multi-level Navigation', text: 'Required too many interactions for common tasks.' },
+      { ok: false, title: 'Voice-first Experience', text: 'Promising in theory, but unreliable in noisy driving environments.' },
+      { ok: true, title: 'Emotion-based Audio Modes', text: 'Replacing technical audio settings with three simple modes \u2014 Calm, Focus, and Energize \u2014 allowed drivers to make faster decisions while the system handled the complexity behind the scenes.' }
+    ],
+    finalSolution: {
+      lead: 'Instead of exposing dozens of audio settings, the interface presents three emotion-driven listening modes.',
+      body: 'Behind each mode, the system automatically adjusts:',
+      items: ['Equalizer', 'Spatial audio', 'Dynamic range', 'Volume behavior'],
+      close: 'The result is a premium listening experience that requires almost no configuration from the driver.',
+      distraction: {
+        title: 'To further reduce distraction:',
+        items: [
+          'Frequently used controls remain accessible with a single interaction.',
+          'Volume stays on a physical haptic dial.',
+          'Ambient lighting provides subtle confirmation when switching modes.',
+          'Interface elements are optimized for quick recognition during driving.'
+        ]
+      }
+    },
+    takeaway: {
+      lead: 'This project reinforced an important lesson:',
+      quote: 'Designing for automotive experiences isn\u2019t about adding features \u2014 it\u2019s about removing unnecessary decisions.',
+      body: 'By focusing on driver attention instead of interface complexity, I was able to create an experience that feels simpler, safer, and more aligned with the way people naturally interact with music while driving.'
+    },
+    improvements: [
+      'Personalized audio recommendations based on driving behavior.',
+      'Better passenger controls without distracting the driver.',
+      'Smarter contextual automation using route and environmental data.'
+    ],
+    bullets: [
+      'Designed spatial audio mixer for the in-cabin experience',
+      'Adaptive DSP presets react to cabin acoustics + passengers',
+      'Haptic-forward controls with quiet-mode default state'
+    ]
+  },
+
+  {
+    id: 'harman-kardon',
+    openDesignsUrl: '#',
+    version: 'V2023.3',
+    title: 'One Audio: Designed for Harman Kardon',
+    subtitle: 'Designing a connected audio ecosystem that feels like one product \u2014 not many.',
+    category: 'CONNECTED AUDIO',
+    role: 'UX/UI Designer',
+    year: '2023',
+    duration: '2023',
+    platform: 'IoT \u00b7 Connected Audio',
+    tools: ['Figma', 'ProtoPie', 'Principle', 'After Effects'],
+    words: 44, saves: 15, replies: 5,
+    caption: 'Connected audio ecosystem for Harman Kardon.',
+    description: 'One connected ecosystem across speakers, headphones and soundbars.',
+    tags: ['audio', 'iot', 'ecosystem'],
+    detailed: true,
+    images: [
+      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=One+Audio+%E2%80%94+Space+View+%28replace%29&font=roboto', caption: 'One Audio space view \u2014 replace this dummy image' },
+      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=One+Audio+%E2%80%94+Handoff+%28replace%29&font=roboto', caption: 'Instant audio handoff \u2014 replace this dummy image' }
+    ],
+    resultsLabel: 'Results',
+    results: [
+      { value: '65%', label: 'Faster device setup' },
+      { value: '+40%', label: 'Increase in multi-device usage' },
+      { value: '\u26054.8', label: 'Prototype satisfaction rating' },
+      { value: '-55%', label: 'Projected reduction in support requests' }
+    ],
+    overview: [
+      'Harman Kardon offers a premium range of speakers, headphones, and soundbars, but each product behaves like an independent device with its own setup, controls, and companion app.',
+      'This concept reimagines the ecosystem as a connected experience where devices share context, preferences, and audio seamlessly, allowing users to move between products without interruption.'
+    ],
+    challenge: {
+      lead: 'How might we create a connected ecosystem where multiple Harman Kardon devices work together as naturally as they sound?',
+      body: 'The experience needed to:',
+      items: [
+        'Reduce friction between devices',
+        'Create a consistent interaction model',
+        'Preserve premium audio experiences',
+        'Scale across multiple product categories'
+      ]
+    },
+    research: {
+      intro: 'While studying existing connected audio products, one insight became obvious.',
+      paragraphs: [
+        'The devices were connected.',
+        'The experience wasn\u2019t.'
+      ],
+      listLead: 'Users frequently switched between speakers, headphones, and soundbars, but every transition required reopening apps, changing settings, and manually reconnecting devices. Instead of feeling like one ecosystem, every product behaved like its own island.',
+      items: []
+    },
+    insight: 'People don\u2019t think about devices. They think about spaces.',
+    principlesLabel: 'Product Principles',
+    principles: [
+      { icon: 'Route', title: 'Context travels with the user', text: 'Preferences should move between devices automatically.' },
+      { icon: 'BrainCircuit', title: 'Design for spaces', text: 'People manage music by where they are \u2014 not by which hardware they\u2019re using.' },
+      { icon: 'Zap', title: 'One interaction model', text: 'Every Harman Kardon device should feel familiar regardless of category.' },
+      { icon: 'Sparkles', title: 'Smart when needed', text: 'Automation should reduce effort without taking control away from the user.' }
+    ],
+    explorationLabel: 'Exploration',
+    explorationIntro: 'I explored three ecosystem models before defining the final direction.',
+    exploration: [
+      { ok: false, title: 'Device-first Management', text: 'Easy to implement, but reinforced fragmentation.' },
+      { ok: false, title: 'Fully Automated Switching', text: 'Removed too much user control and produced inconsistent experiences.' },
+      { ok: true, title: 'Space-based Ecosystem', text: 'Organizing devices around spaces such as Living Room, Office, and Bedroom created a mental model users immediately understood while keeping audio handoff simple and predictable.' }
+    ],
+    finalSolutionLabel: 'The Solution',
+    finalSolution: {
+      lead: 'Instead of managing individual products, users manage spaces.',
+      body: 'Every connected device becomes part of a larger ecosystem where preferences, playback, and controls follow the user instead of remaining locked to individual hardware.',
+      items: [
+        'Space-based device organization',
+        'One-tap audio handoff',
+        'Unified sound preferences',
+        'Shared playback controls',
+        'Context-aware automation'
+      ],
+      close: 'The result is an ecosystem that feels cohesive rather than a collection of separate products.'
+    },
+    features: [
+      { icon: 'Home', title: 'Space-first Organization', text: 'Manage rooms instead of individual devices.' },
+      { icon: 'RefreshCw', title: 'Instant Audio Handoff', text: 'Move playback between products with a single interaction.' },
+      { icon: 'SlidersHorizontal', title: 'Shared Preferences', text: 'Volume, EQ, and listening profiles travel across devices.' },
+      { icon: 'Bot', title: 'Context-aware Automation', text: 'Automatically adapt playback based on location, activity, and time.' }
+    ],
+    takeawayLabel: 'What I Learned',
+    takeaway: {
+      paragraphs: [
+        'Designing ecosystems is fundamentally different from designing individual products.',
+        'The challenge isn\u2019t creating better interfaces \u2014 it\u2019s creating a shared mental model that makes multiple devices feel like one experience.',
+        'This project reinforced that consistency, context, and continuity are often more valuable than adding new features.'
+      ]
+    },
+    improvementsLabel: 'What\u2019s Next',
+    improvementsIntro: 'Future iterations would focus on:',
+    improvements: [
+      'Smarter context detection',
+      'Personalized automation',
+      'Cross-device AI recommendations',
+      'Firmware-level synchronization',
+      'Deeper ecosystem integrations'
+    ],
+    bullets: [
+      'Multi-room grouping with a quiet first-run experience',
+      'Custom EQ profiles saved per room and per source',
+      'Companion app redesign shipped across iOS + Android'
     ]
   }
 ];
