@@ -70,10 +70,7 @@ export default function Experience() {
           <div className="my-4 h-px" style={{ background: 'rgba(245,165,36,0.28)' }} />
 
           <div className="flex items-center justify-between flex-wrap gap-3">
-            <div className="text-[12px]" style={{ color: 'var(--muted)' }}>
-              <span style={{ color: 'var(--amber)' }}>[↵]</span> Open&nbsp;&nbsp;
-              <span style={{ color: 'var(--amber)' }}>[S]</span> Save
-            </div>
+            
             <div className="flex items-center gap-2">
               {e.tags.map((t) => (
                 <span key={t} className="text-[12px] px-2.5 py-1" style={{ border: '1px solid rgba(245,165,36,0.55)', color: 'var(--amber)', borderRadius: 2 }}>{t}</span>

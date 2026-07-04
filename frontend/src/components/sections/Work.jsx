@@ -76,11 +76,7 @@ export default function Work() {
 
           <div className="flex-1" />
 
-          <div className="mt-4 flex items-center justify-between flex-wrap gap-3">
-            <div className="text-[12px]" style={{ color: 'var(--muted)' }}>
-              <span style={{ color: 'var(--amber)' }}>[↵]</span> Open&nbsp;&nbsp;
-              <span style={{ color: 'var(--amber)' }}>[S]</span> Save
-            </div>
+          <div className="mt-4 flex items-center justify-end flex-wrap gap-3">
             <div className="flex items-center gap-2">
               {cs.tags.map((t) => (
                 <span key={t} className="text-[12px] px-2.5 py-1" style={{ border: '1px solid rgba(245,165,36,0.55)', color: 'var(--amber)', borderRadius: 2 }}>{t}</span>

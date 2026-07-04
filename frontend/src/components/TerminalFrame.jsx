@@ -3,12 +3,12 @@ import React from 'react';
 // Full-viewport terminal container. No browser chrome — matches the reference.
 export default function TerminalFrame({ children }) {
   return (
-    <div className="px-3 md:px-4 pt-3 pb-11">
+    <div className="px-3 md:px-4 py-3">
       <div
         className="relative mx-auto overflow-hidden"
         style={{
           maxWidth: '1560px',
-          height: 'calc(100vh - 56px)',
+          height: 'calc(100vh - 24px)',
           borderRadius: 14,
           background: '#0a0503',
           boxShadow:

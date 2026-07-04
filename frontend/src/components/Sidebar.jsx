@@ -1,10 +1,10 @@
 import React from 'react';
 import { navItems } from '../data/mock';
-import { PanelLeft, Server, Wrench, Menu, LogOut, User, FolderKanban, Palette, Briefcase, Cog, Mail } from 'lucide-react';
+import { PanelLeft, User, FolderKanban, Palette, Briefcase, Cog, Mail } from 'lucide-react';
 
 const ICONS = { User, FolderKanban, Palette, Briefcase, Cog, Mail };
 
-export default function Sidebar({ active, onNavigate, collapsed, onToggle, booting }) {
+export default function Sidebar({ active, onNavigate, collapsed, onToggle }) {
   const width = collapsed ? 72 : 260;
 
   return (
@@ -15,7 +15,6 @@ export default function Sidebar({ active, onNavigate, collapsed, onToggle, booti
         borderRight: '1px solid rgba(245,165,36,0.3)'
       }}
     >
-      {/* Brand */}
       <div className={`pt-5 pb-3 ${collapsed ? 'px-3 flex justify-center' : 'px-5'}`}>
         {collapsed ? (
           <div
@@ -38,7 +37,6 @@ export default function Sidebar({ active, onNavigate, collapsed, onToggle, booti
         )}
       </div>
 
-      {/* Collapse toggle */}
       <div className={`pb-5 ${collapsed ? 'px-3 flex justify-center' : 'px-5'}`}>
         <button
           onClick={onToggle}
@@ -51,7 +49,6 @@ export default function Sidebar({ active, onNavigate, collapsed, onToggle, booti
         </button>
       </div>
 
-      {/* Nav */}
       <nav className="flex-1 px-2">
         <ul className="space-y-0.5">
           {navItems.map((item) => {
@@ -90,20 +87,7 @@ export default function Sidebar({ active, onNavigate, collapsed, onToggle, booti
         </ul>
       </nav>
 
-      {/* Version */}
-      <div className={`pb-2 ${collapsed ? 'px-2 text-center' : 'px-5 text-center'}`}>
-        <div className="text-[12px]" style={{ color: 'var(--muted)' }}>
-          {collapsed ? 'v1.0.8' : (booting ? 'Booting…' : 'CyberOS v1.0.8')}
-        </div>
-      </div>
-
-      {/* Bottom icons */}
-      <div className={`pb-5 flex items-center ${collapsed ? 'justify-center px-2 flex-wrap gap-2' : 'px-5 gap-4'}`} style={{ color: 'var(--muted)' }}>
-        <Server size={14} />
-        <Wrench size={14} />
-        {!collapsed && <Menu size={14} />}
-        <LogOut size={14} />
-      </div>
+      <div className="pb-5" />
     </aside>
   );
 }
