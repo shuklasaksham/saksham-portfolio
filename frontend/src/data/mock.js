@@ -191,3 +191,31 @@ export const profile = {
   followers: 2140,
   following: 128
 };
+
+// Tools in the current design stack
+export const toolStack = [
+  { name: 'Figma', icon: 'PenTool' },
+  { name: 'Cursor', icon: 'Terminal' },
+  { name: 'Framer', icon: 'Frame' },
+  { name: 'Notion', icon: 'FileText' },
+  { name: 'Linear', icon: 'GitBranch' },
+  { name: 'Loom', icon: 'Video' },
+  { name: 'Origami', icon: 'Layers' },
+  { name: 'Miro', icon: 'Grid3x3' }
+];
+
+// Design principles a product designer ships by
+export const principles = [
+  { n: '01', title: 'Ship the smallest thing', text: 'A small thing shipped beats a big thing planned. Cut scope, keep intent.' },
+  { n: '02', title: 'Design with real content', text: 'Lorem lies. Use messy, real, live copy — empty states included.' },
+  { n: '03', title: 'Systems over screens', text: 'One tile at a time — but each tile snaps into the whole grid.' },
+  { n: '04', title: 'Read the room', text: 'Product is people. Watch faces in usability tests, not just the screen.' }
+];
+
+// Live "currently" status
+export const currentStatus = {
+  headline: 'Building Bracket — an AI Decision OS',
+  detail: 'Shipping v0.4 workspace: shareable decision docs, AI-assisted briefs, keyboard-first reviews.',
+  availability: 'Open to freelance & advisory · Q3 2026',
+  responseTime: 'Usually replies within 24h'
+};
