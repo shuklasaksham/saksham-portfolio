@@ -2,11 +2,11 @@ import React from 'react';
 import { digitalArt } from '../../data/mock';
 import { Flag } from 'lucide-react';
 
-export default function Art() {
+export default function Illustrations() {
   return (
     <section className="px-6 md:px-10 lg:px-12 py-8 border-t" style={{ borderColor: 'rgba(245,165,36,0.24)' }}>
       <div className="mb-4 flex items-center gap-3 text-[13px]" style={{ color: 'var(--amber)', letterSpacing: '0.15em' }}>
-        <span className="font-semibold">JOURNAL — DIGITAL ART</span>
+        <span className="font-semibold">ILLUSTRATIONS</span>
         <span className="flex-1 h-px" style={{ background: 'rgba(245,165,36,0.2)' }} />
         <span className="opacity-70">{digitalArt.length} entries</span>
       </div>
@@ -24,7 +24,7 @@ export default function Art() {
 
         <div className="mt-3">
           <a href="#" className="text-[16px] font-semibold underline underline-offset-[3px]" style={{ color: 'var(--amber-2)' }}>
-            V2026.03 — Illustrations, sketches & concept art
+            V2026.03 — Digital art & concept sketches
           </a>
         </div>
 

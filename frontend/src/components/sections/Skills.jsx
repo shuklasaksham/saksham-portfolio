@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { aboutTabs } from '../../data/mock';
+import { skillsData } from '../../data/mock';
 import { Flag } from 'lucide-react';
 
 const TABS = [
@@ -9,18 +9,18 @@ const TABS = [
   { key: 'peeves', label: 'Pet Peeves' }
 ];
 
-export default function About() {
+export default function Skills() {
   const [tab, setTab] = useState('process');
-  const items = aboutTabs[tab];
+  const items = skillsData[tab];
 
   return (
     <section className="px-6 md:px-10 lg:px-12 py-8 border-t" style={{ borderColor: 'rgba(245,165,36,0.24)' }}>
       <div className="mb-4 flex items-center gap-3 text-[13px]" style={{ color: 'var(--amber)', letterSpacing: '0.15em' }}>
-        <span className="font-semibold">WRITE — ABOUT</span>
+        <span className="font-semibold">SKILLS AND PROCESS</span>
         <span className="flex-1 h-px" style={{ background: 'rgba(245,165,36,0.2)' }} />
       </div>
 
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-3 mb-4 flex-wrap">
         {TABS.map((t) => {
           const on = tab === t.key;
           return (
@@ -39,7 +39,7 @@ export default function About() {
             <span>L</span>
             <span>∽</span>
           </div>
-          <div className="opacity-80">draft • auto-saved • v3</div>
+          <div className="opacity-80">notebook • always evolving</div>
         </div>
 
         <div className="mt-3">
@@ -49,7 +49,7 @@ export default function About() {
         </div>
 
         <p className="mt-2 text-[14px] leading-relaxed max-w-3xl" style={{ color: 'var(--amber)' }}>
-          I&apos;m Saksham — a product designer turning complex problems into intuitive, beautiful experiences. Research-driven design and pixel-level craft. Currently exploring the edge between conversational AI, spatial UI and terminals.
+          Research-driven design and pixel-level craft. Below is a snapshot of my current toolkit and the way I move from ambiguity to shipped product.
         </p>
 
         <div className="my-4 h-px" style={{ background: 'rgba(245,165,36,0.28)' }} />
@@ -64,21 +64,15 @@ export default function About() {
           ))}
         </div>
 
-        <div className="my-4 h-px" style={{ background: 'rgba(245,165,36,0.28)' }} />
-
-        <div className="text-[14px]" style={{ color: 'var(--amber)' }}>
-          &quot;Design is the silent ambassador of your brand.&quot; — Paul Rand
-        </div>
-
         <div className="mt-5 flex items-center justify-between flex-wrap gap-3">
           <div className="text-[12px]" style={{ color: 'var(--muted)' }}>
             <span style={{ color: 'var(--amber)' }}>[↵]</span> Open&nbsp;&nbsp;
             <span style={{ color: 'var(--amber)' }}>[S]</span> Save
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[12px] px-2.5 py-1" style={{ border: '1px solid rgba(245,165,36,0.55)', color: 'var(--amber)', borderRadius: 2 }}>about</span>
             <span className="text-[12px] px-2.5 py-1" style={{ border: '1px solid rgba(245,165,36,0.55)', color: 'var(--amber)', borderRadius: 2 }}>process</span>
             <span className="text-[12px] px-2.5 py-1" style={{ border: '1px solid rgba(245,165,36,0.55)', color: 'var(--amber)', borderRadius: 2 }}>craft</span>
+            <span className="text-[12px] px-2.5 py-1" style={{ border: '1px solid rgba(245,165,36,0.55)', color: 'var(--amber)', borderRadius: 2 }}>notes</span>
             <Flag size={14} style={{ color: 'var(--amber)' }} />
           </div>
         </div>

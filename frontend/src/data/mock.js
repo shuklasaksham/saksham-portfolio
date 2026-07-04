@@ -94,7 +94,46 @@ export const digitalArt = [
   { id: 10, title: 'Dystopian van', src: 'https://www.sakshamshukla.com/assets/art-07-thumb-CIw37Mbj.webp' }
 ];
 
-export const aboutTabs = {
+export const experience = [
+  {
+    company: 'Verizon',
+    role: 'Senior Product Designer',
+    period: '2023 — Present',
+    location: 'Remote',
+    bullets: [
+      'Lead designer for Tello.ai — a voice-first customer support agent',
+      'Ship design system components consumed by 40+ engineers across 3 pods',
+      'Mentor 4 junior designers on research-driven design practice'
+    ],
+    tags: ['ai', 'voice', 'leadership']
+  },
+  {
+    company: 'Harman International',
+    role: 'UX/UI Designer',
+    period: '2022 — 2023',
+    location: 'Bengaluru',
+    bullets: [
+      'Redesigned Harman Kardon companion app (iOS + Android)',
+      'Prototyped multi-room grouping flows validated with 40 users',
+      'Established motion + haptic language shipped across 3 hardware lines'
+    ],
+    tags: ['audio', 'iot', 'mobile']
+  },
+  {
+    company: 'Freelance',
+    role: 'Product Designer',
+    period: '2020 — 2022',
+    location: 'New Delhi',
+    bullets: [
+      'Shipped 18+ products for early-stage startups across fintech and SaaS',
+      'Owned end-to-end design from discovery workshops to dev handoff',
+      'Built reusable systems that shortened design cycles by 3–4 weeks'
+    ],
+    tags: ['startup', 'saas', 'systems']
+  }
+];
+
+export const skillsData = {
   process: [
     { n: '01', title: 'Discover', text: 'Research, interviews, competitive analysis' },
     { n: '02', title: 'Define', text: 'Personas, user flows, information architecture' },
@@ -121,13 +160,6 @@ export const aboutTabs = {
   ]
 };
 
-export const playground = [
-  { id: 'shy', category: 'INTERACTION', title: 'The Shy Button', hint: 'Try to click' },
-  { id: 'elastic', category: 'MOTION', title: 'Elastic Card', hint: 'DRAG' },
-  { id: 'glitch', category: 'VISUAL', title: 'Glitch Type', hint: 'BREAK ME' },
-  { id: 'gravity', category: 'CONCEPT', title: 'Gravity UI', hint: 'enable gravity' }
-];
-
 export const contactPrompts = [
   'I need a designer who can…',
   'Let\u2019s collaborate on…',
@@ -135,13 +167,14 @@ export const contactPrompts = [
   'Help me redesign…'
 ];
 
+// 6 portfolio-focused menu items with lucide icon names
 export const navItems = [
-  { key: 'home', label: 'Feed', shortcut: 'H' },
-  { key: 'work', label: 'Work', shortcut: 'W' },
-  { key: 'art', label: 'Journal', shortcut: 'J' },
-  { key: 'about', label: 'Write', shortcut: 'B' },
-  { key: 'play', label: 'Playground', shortcut: 'P' },
-  { key: 'contact', label: 'C-Mail', shortcut: 'C', badge: 9 }
+  { key: 'about', label: 'About Me', shortcut: 'A', icon: 'User' },
+  { key: 'work', label: 'Case Studies & Projects', shortcut: 'W', icon: 'FolderKanban', badge: 4 },
+  { key: 'illustrations', label: 'Illustrations', shortcut: 'I', icon: 'Palette' },
+  { key: 'experience', label: 'Experience', shortcut: 'E', icon: 'Briefcase' },
+  { key: 'skills', label: 'Skills and Process', shortcut: 'S', icon: 'Cog' },
+  { key: 'contact', label: 'Contact', shortcut: 'C', icon: 'Mail' }
 ];
 
 export const socials = [

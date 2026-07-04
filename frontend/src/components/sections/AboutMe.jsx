@@ -1,6 +1,6 @@
 import React from 'react';
 import { stats, profile } from '../../data/mock';
-import { Eye } from 'lucide-react';
+import { Eye, Flag } from 'lucide-react';
 
 function AsciiAvatar() {
   const rows = [
@@ -24,11 +24,11 @@ function AsciiAvatar() {
   );
 }
 
-export default function Hero() {
+export default function AboutMe() {
   return (
     <section className="px-6 md:px-10 lg:px-12 py-8 min-h-full">
       <div className="mb-4 flex items-center gap-3 text-[13px]" style={{ color: 'var(--amber)', letterSpacing: '0.15em' }}>
-        <span className="font-semibold">PROFILE</span>
+        <span className="font-semibold">ABOUT ME</span>
         <span className="flex-1 h-px" style={{ background: 'rgba(245,165,36,0.2)' }} />
       </div>
 
@@ -60,7 +60,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-3">
             <ActionBtn label="[P] Portfolio" />
-            <ActionBtn label="[C] C-Mail" />
+            <ActionBtn label="[C] Contact" />
             <ActionBtn label="[F] Follow" />
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function Hero() {
 
         <div className="mt-4">
           <a href="#" className="text-[16px] font-semibold underline underline-offset-[3px]" style={{ color: 'var(--amber-2)' }}>
-            V2026.1 — About this build
+            V2026.1 — A little about me
           </a>
         </div>
 
@@ -93,12 +93,13 @@ export default function Hero() {
           <li>• Product designer with {stats[0].value} years shipping real interfaces</li>
           <li>• Delivered {stats[1].value} projects across {stats[2].value} clients — automotive, audio, AI</li>
           <li>• Currently obsessed with terminal UIs, voice agents and spatial design</li>
+          <li>• Based in New Delhi, working remotely with teams in SF, Seoul and Berlin</li>
         </ul>
 
         <div className="my-4 h-px" style={{ background: 'rgba(245,165,36,0.28)' }} />
 
         <div className="text-[14px]" style={{ color: 'var(--amber)' }}>
-          Scroll to explore — or press <span className="font-bold">[W]</span> for work, <span className="font-bold">[A]</span> for art, <span className="font-bold">[C]</span> for contact.
+          Scroll to explore — or press <span className="font-bold">[W]</span> Work, <span className="font-bold">[I]</span> Illustrations, <span className="font-bold">[E]</span> Experience, <span className="font-bold">[S]</span> Skills, <span className="font-bold">[C]</span> Contact.
         </div>
 
         <div className="mt-5 flex items-center justify-between flex-wrap gap-3">
@@ -107,9 +108,10 @@ export default function Hero() {
             <span style={{ color: 'var(--amber)' }}>[S]</span> Save
           </div>
           <div className="flex items-center gap-2">
-            <Chip label="portfolio" />
-            <Chip label="cyberos" />
             <Chip label="designer" />
+            <Chip label="cyberos" />
+            <Chip label="portfolio" />
+            <Flag size={14} style={{ color: 'var(--amber)' }} />
           </div>
         </div>
       </div>
@@ -124,7 +126,6 @@ function ActionBtn({ label }) {
     </button>
   );
 }
-
 function TabBtn({ label, active }) {
   return (
     <button className="px-4 py-2 text-[14px] font-medium" style={{ border: `1px solid ${active ? 'var(--amber-2)' : 'rgba(245,165,36,0.45)'}`, color: active ? 'var(--amber-2)' : 'var(--amber)', borderRadius: 2, background: 'transparent', boxShadow: active ? '0 0 0 1px rgba(245,165,36,0.35)' : 'none' }}>
@@ -132,7 +133,6 @@ function TabBtn({ label, active }) {
     </button>
   );
 }
-
 function Chip({ label }) {
   return (
     <span className="text-[12px] px-2.5 py-1" style={{ border: '1px solid rgba(245,165,36,0.55)', color: 'var(--amber)', borderRadius: 2 }}>
