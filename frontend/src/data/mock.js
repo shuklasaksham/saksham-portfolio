@@ -207,20 +207,109 @@ export const caseStudies = [
   {
     id: 'harman-kardon',
     version: 'V2023.3',
-    title: 'Harman Kardon',
+    title: 'One Audio: Designed for Harman Kardon',
+    subtitle: 'Designing a connected audio ecosystem that feels like one product \u2014 not many.',
     category: 'CONNECTED AUDIO',
-    role: 'UX/UI DESIGNER',
+    role: 'UX/UI Designer',
     year: '2023',
-    words: 44,
-    saves: 15,
-    replies: 5,
+    duration: '2023',
+    platform: 'IoT \u00b7 Connected Audio',
+    tools: ['Figma', 'ProtoPie', 'Principle', 'After Effects'],
+    words: 44, saves: 15, replies: 5,
+    caption: 'Connected audio ecosystem for Harman Kardon.',
+    description: 'One connected ecosystem across speakers, headphones and soundbars.',
+    tags: ['audio', 'iot', 'ecosystem'],
+    detailed: true,
+    images: [
+      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=One+Audio+%E2%80%94+Space+View+%28replace%29&font=roboto', caption: 'One Audio space view \u2014 replace this dummy image' },
+      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=One+Audio+%E2%80%94+Handoff+%28replace%29&font=roboto', caption: 'Instant audio handoff \u2014 replace this dummy image' }
+    ],
+    resultsLabel: 'Results',
+    results: [
+      { value: '65%', label: 'Faster device setup' },
+      { value: '+40%', label: 'Increase in multi-device usage' },
+      { value: '\u26054.8', label: 'Prototype satisfaction rating' },
+      { value: '-55%', label: 'Projected reduction in support requests' }
+    ],
+    overview: [
+      'Harman Kardon offers a premium range of speakers, headphones, and soundbars, but each product behaves like an independent device with its own setup, controls, and companion app.',
+      'This concept reimagines the ecosystem as a connected experience where devices share context, preferences, and audio seamlessly, allowing users to move between products without interruption.'
+    ],
+    challenge: {
+      lead: 'How might we create a connected ecosystem where multiple Harman Kardon devices work together as naturally as they sound?',
+      body: 'The experience needed to:',
+      items: [
+        'Reduce friction between devices',
+        'Create a consistent interaction model',
+        'Preserve premium audio experiences',
+        'Scale across multiple product categories'
+      ]
+    },
+    research: {
+      intro: 'While studying existing connected audio products, one insight became obvious.',
+      paragraphs: [
+        'The devices were connected.',
+        'The experience wasn\u2019t.'
+      ],
+      listLead: 'Users frequently switched between speakers, headphones, and soundbars, but every transition required reopening apps, changing settings, and manually reconnecting devices. Instead of feeling like one ecosystem, every product behaved like its own island.',
+      items: []
+    },
+    insight: 'People don\u2019t think about devices. They think about spaces.',
+    principlesLabel: 'Product Principles',
+    principles: [
+      { icon: 'Route', title: 'Context travels with the user', text: 'Preferences should move between devices automatically.' },
+      { icon: 'BrainCircuit', title: 'Design for spaces', text: 'People manage music by where they are \u2014 not by which hardware they\u2019re using.' },
+      { icon: 'Zap', title: 'One interaction model', text: 'Every Harman Kardon device should feel familiar regardless of category.' },
+      { icon: 'Sparkles', title: 'Smart when needed', text: 'Automation should reduce effort without taking control away from the user.' }
+    ],
+    explorationLabel: 'Exploration',
+    explorationIntro: 'I explored three ecosystem models before defining the final direction.',
+    exploration: [
+      { ok: false, title: 'Device-first Management', text: 'Easy to implement, but reinforced fragmentation.' },
+      { ok: false, title: 'Fully Automated Switching', text: 'Removed too much user control and produced inconsistent experiences.' },
+      { ok: true, title: 'Space-based Ecosystem', text: 'Organizing devices around spaces such as Living Room, Office, and Bedroom created a mental model users immediately understood while keeping audio handoff simple and predictable.' }
+    ],
+    finalSolutionLabel: 'The Solution',
+    finalSolution: {
+      lead: 'Instead of managing individual products, users manage spaces.',
+      body: 'Every connected device becomes part of a larger ecosystem where preferences, playback, and controls follow the user instead of remaining locked to individual hardware.',
+      items: [
+        'Space-based device organization',
+        'One-tap audio handoff',
+        'Unified sound preferences',
+        'Shared playback controls',
+        'Context-aware automation'
+      ],
+      close: 'The result is an ecosystem that feels cohesive rather than a collection of separate products.'
+    },
+    features: [
+      { icon: 'Home', title: 'Space-first Organization', text: 'Manage rooms instead of individual devices.' },
+      { icon: 'RefreshCw', title: 'Instant Audio Handoff', text: 'Move playback between products with a single interaction.' },
+      { icon: 'SlidersHorizontal', title: 'Shared Preferences', text: 'Volume, EQ, and listening profiles travel across devices.' },
+      { icon: 'Bot', title: 'Context-aware Automation', text: 'Automatically adapt playback based on location, activity, and time.' }
+    ],
+    takeawayLabel: 'What I Learned',
+    takeaway: {
+      paragraphs: [
+        'Designing ecosystems is fundamentally different from designing individual products.',
+        'The challenge isn\u2019t creating better interfaces \u2014 it\u2019s creating a shared mental model that makes multiple devices feel like one experience.',
+        'This project reinforced that consistency, context, and continuity are often more valuable than adding new features.'
+      ]
+    },
+    improvementsLabel: 'What\u2019s Next',
+    improvementsIntro: 'Future iterations would focus on:',
+    improvements: [
+      'Smarter context detection',
+      'Personalized automation',
+      'Cross-device AI recommendations',
+      'Firmware-level synchronization',
+      'Deeper ecosystem integrations'
+    ],
     bullets: [
       'Multi-room grouping with a quiet first-run experience',
       'Custom EQ profiles saved per room and per source',
       'Companion app redesign shipped across iOS + Android'
-    ],
-    caption: 'Companion app redesign for connected speakers.',
-    tags: ['iot', 'mobile', 'audio']
+    ]
   },
   {
     id: 'verizon-tello',

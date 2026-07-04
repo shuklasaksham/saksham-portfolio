@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { caseStudies } from '../../data/mock';
-import { ChevronRight, Eye, Zap, BrainCircuit, Music, Check, X, ArrowRight, Sparkles, Wrench, Clock, Cpu, Database, Route, Bot, FileText, RefreshCw, LineChart, Users } from 'lucide-react';
+import { ChevronRight, Eye, Zap, BrainCircuit, Music, Check, X, ArrowRight, Sparkles, Wrench, Clock, Cpu, Database, Route, Bot, FileText, RefreshCw, LineChart, Users, Home, SlidersHorizontal } from 'lucide-react';
 
-const ICONS = { Eye, Zap, BrainCircuit, Music, Database, Sparkles, Route, Bot, FileText, RefreshCw, LineChart, Users };
+const ICONS = { Eye, Zap, BrainCircuit, Music, Database, Sparkles, Route, Bot, FileText, RefreshCw, LineChart, Users, Home, SlidersHorizontal };
 
 export default function Work() {
   const [selectedId, setSelectedId] = useState(caseStudies[0].id);
@@ -178,7 +178,7 @@ function DetailedCaseStudy({ cs }) {
           {cs.research.listLead && (
             <p className="mt-3 text-[13px]" style={{ color: 'var(--muted)' }}>{cs.research.listLead}</p>
           )}
-          {cs.research.items && (
+          {cs.research.items && cs.research.items.length > 0 && (
             <ul className="mt-2 space-y-1 text-[14px]" style={{ color: 'var(--amber)' }}>
               {cs.research.items.map((it, i) => (<li key={i} className="flex gap-2"><span style={{ color: 'var(--amber-2)' }}>›</span>{it}</li>))}
             </ul>
