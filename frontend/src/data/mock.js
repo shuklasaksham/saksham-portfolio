@@ -9,6 +9,7 @@ export const stats = [
 export const caseStudies = [
   {
     id: 'bracket',
+    openDesignsUrl: '#',
     version: 'V2026.1',
     title: 'Bracket',
     subtitle: 'An AI Decision OS for designers and freelancers that turns messy briefs into client-ready decisions, documents, and review workflows.',
@@ -118,6 +119,7 @@ export const caseStudies = [
   },
   {
     id: 'hyundai-bo',
+    openDesignsUrl: '#',
     version: 'V2024.4',
     title: 'Hyundai \u00d7 Bang & Olufsen',
     subtitle: 'Rethinking in-car audio for safer, distraction-free driving.',
@@ -206,6 +208,7 @@ export const caseStudies = [
   },
   {
     id: 'harman-kardon',
+    openDesignsUrl: '#',
     version: 'V2023.3',
     title: 'One Audio: Designed for Harman Kardon',
     subtitle: 'Designing a connected audio ecosystem that feels like one product \u2014 not many.',
@@ -315,19 +318,133 @@ export const caseStudies = [
     id: 'verizon-tello',
     version: 'V2023.1',
     title: 'Verizon \u2014 Tello.ai',
+    subtitle: 'Verizon doesn\u2019t have an information problem \u2014 they have 47 plans on their website. The problem is that giving people more data doesn\u2019t help them decide. I designed Tello.ai to replace comparison tables with a conversational AI that narrows options down and explains why, turning a 15-minute research task into a 3-minute conversation.',
     category: 'CONVERSATIONAL AI',
-    role: 'PRODUCT DESIGNER',
+    role: 'Product Designer',
     year: '2023',
-    words: 61,
-    saves: 22,
-    replies: 9,
+    duration: '2023',
+    platform: 'AI \u00b7 Telecom \u00b7 Conversational',
+    tools: ['Figma', 'ProtoPie', 'GPT-4 API', 'Maze', 'Lottie'],
+    words: 61, saves: 22, replies: 9,
+    caption: 'Voice-first AI assistant for customer support.',
+    description: 'Conversational AI turning 15-minute plan research into a 3-minute chat.',
+    tags: ['ai', 'telecom', 'conversational'],
+    openDesignsUrl: '#',
+    detailed: true,
+    images: [
+      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Tello.ai+%E2%80%94+Conversation+%28replace%29&font=roboto', caption: 'Tello.ai conversation UI \u2014 replace this dummy image' },
+      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Tello.ai+%E2%80%94+Recommendation+%28replace%29&font=roboto', caption: 'Recommendation card \u2014 replace this dummy image' }
+    ],
+    resultsLabel: 'Results',
+    results: [
+      { value: '5x', label: 'Faster Selection' },
+      { value: '+35%', label: 'Conversion Rate' },
+      { value: '+28%', label: 'Customer Satisfaction' },
+      { value: '60%', label: 'Drop-off Reduced' }
+    ],
+    problem: {
+      label: 'The Problem',
+      lead: 'More information doesn\u2019t mean better decisions',
+      body: 'Telecom companies have spent years adding transparency \u2014 more plan details, bigger comparison tables, detailed breakdowns. And it hasn\u2019t helped. Abandonment rates are still 60%. Selection time is still 15 minutes. Customer regret is still high. I dug into the analytics and found something counterintuitive: users who viewed more plan details were less likely to convert, not more. Every additional comparison column increased the probability of abandonment. The problem isn\u2019t hidden information \u2014 it\u2019s that displaying 47 options with 12 variables each exceeds human working memory. Cognitive psychology says we can hold 4\u00b11 items in working memory. We were asking users to process 564 data points. Nobody was making an informed decision. They were either exhausted into picking something or exhausted into leaving.'
+    },
+    researchLabel: 'How People Actually Try to Choose',
+    research: [
+      { icon: 'BarChart3', title: 'Comparison Tables', text: '12 columns, 47 rows. Users scroll, get overwhelmed, open a new tab to \u201ccome back later.\u201d Most don\u2019t come back.' },
+      { icon: 'Store', title: 'Store Visits', text: 'The most effective channel \u2014 a human narrows it down. But it requires a 30-minute trip and often a wait. Doesn\u2019t scale.' },
+      { icon: 'Phone', title: 'Phone Support', text: 'Average hold time: 8 minutes. Then you explain your situation to someone reading the same comparison table you already saw.' },
+      { icon: 'Frown', title: 'Decision Fatigue', text: '60% abandon. Of the 40% who convert, a third contact support within 30 days \u2014 many wanting to switch plans they just chose.' }
+    ],
+    targetUser: {
+      label: 'Who I Was Designing For',
+      lead: 'People who need confidence, not information',
+      body: 'My target user isn\u2019t a telecom enthusiast who enjoys comparing plans. It\u2019s someone who needs a phone plan and wants to stop thinking about it as quickly as possible. They don\u2019t know what \u201c50GB premium data\u201d means in practice. They don\u2019t know the difference between \u201chotspot\u201d and \u201cmobile hotspot.\u201d They know they use their phone for streaming, texting, and occasional GPS \u2014 and they want someone to tell them which plan covers that without overpaying. The critical context: most plan purchases happen during moments of urgency. You just moved. Your kid needs a phone for school. Your contract expired and you\u2019re getting charged full price. These aren\u2019t users browsing casually \u2014 they\u2019re under time pressure with limited patience for complexity. I designed for that state of mind: anxious, time-constrained, and looking for reassurance that they\u2019re making the right call.'
+    },
+    insightLabel: 'The Key Insight',
+    insight: 'People don\u2019t want to compare \u2014 they want to be told what\u2019s right.',
+    insightBody: 'In every store visit I observed, the interaction followed the same pattern. Customer walks in: \u201cI need a new plan.\u201d Rep asks 3\u20134 questions: how many lines, how much streaming, any international travel, budget range. Rep recommends 1\u20132 plans with a brief explanation. Customer picks one. Total time: 2\u20133 minutes. The rep doesn\u2019t show a comparison table. They don\u2019t explain all 47 options. They use their knowledge to filter down to what\u2019s relevant \u2014 and their explanation builds enough trust for the customer to commit. That\u2019s the interaction I needed to replicate digitally. Not a chatbot. Not a search filter. A guided decision engine that asks, filters, explains, and recommends.',
+    principlesLabel: 'Principles for AI-Guided Decision Making',
+    principlesIntro: 'Designing with AI isn\u2019t just a technology choice \u2014 it changes the user\u2019s role from decision-maker to decision-approver. That shift requires specific design principles I hadn\u2019t needed before.',
+    principles: [
+      { icon: 'HelpCircle', title: 'Ask, don\u2019t display', text: 'The AI asks about behavior (\u201cHow much do you stream?\u201d), not specs (\u201cHow many GB?\u201d). Users know their habits. They don\u2019t know how habits translate to data consumption. That translation is the AI\u2019s job, not theirs.' },
+      { icon: 'Search', title: 'Show your work', text: 'Every recommendation comes with reasoning. Not \u201cWe recommend Plan X\u201d but \u201cPlan X because you stream 2+ hours daily, share with 2 family members, and rarely travel internationally.\u201d If the user can\u2019t verify the logic, they won\u2019t trust it.' },
+      { icon: 'Minimize2', title: 'Reduce, then reveal', text: 'Start with one recommendation. Let users expand to see 2\u20133 alternatives. Let them drill into details on demand. Never show all 47 plans. The whole point is that the AI did the filtering \u2014 don\u2019t undo that by displaying everything.' },
+      { icon: 'DoorOpen', title: 'Always leave an exit', text: 'Some users will never trust AI recommendations. That\u2019s fine. At any point, they can switch to traditional comparison mode. The AI\u2019s job is to be the better path, not the only path.' }
+    ],
+    explorationLabel: 'Approaches I Tested \u2014 and Why Most Missed the Point',
+    explorationIntro: 'I prototyped three fundamentally different approaches to plan selection. The question wasn\u2019t \u201cshould we use AI?\u201d \u2014 it was \u201cwhat role should the AI play in the decision?\u201d',
+    exploration: [
+      {
+        ok: false,
+        title: 'Smart filters \u2014 AI-enhanced traditional comparison',
+        text: 'Same comparison table, but with an AI layer that highlights \u201cbest match\u201d rows based on a brief quiz. Familiar pattern, lower risk. But in testing, users still felt overwhelmed. Highlighting 3 rows in a 47-row table doesn\u2019t solve the problem \u2014 it just adds another signal to an already overloaded display. Users said: \u201cI still see all the other options and wonder if I\u2019m missing something.\u201d',
+        why: 'Reducing noise by 6% isn\u2019t enough when the baseline is 564 data points. Users need the noise removed, not dimmed.',
+        whyLabel: 'Why rejected'
+      },
+      {
+        ok: false,
+        title: 'Recommendation engine \u2014 show top 3 without conversation',
+        text: 'Skip the conversation. Use behavioral data (usage patterns, current plan, billing history) to recommend 3 plans immediately. Fast, low-friction, no chat UI needed. But users didn\u2019t trust it. \u201cHow does it know what I need?\u201d Without the conversation, the recommendation felt like an upsell, not advice. Trust scores were 40% lower than the conversational approach.',
+        why: 'Recommendations without visible reasoning feel like marketing. Users need to see the logic \u2014 and the conversation is the mechanism for building that trust.',
+        whyLabel: 'Why rejected'
+      },
+      {
+        ok: true,
+        title: 'Conversational AI \u2014 ask, narrow, explain, recommend',
+        text: '3\u20135 questions in natural language. AI narrows 47 plans to 1\u20132. Each recommendation includes reasoning tied to the user\u2019s answers. Users can ask follow-ups, compare alternatives, or switch to traditional view. Average interaction: 2.5 minutes.',
+        why: 'Trust scores 2.3\u00d7 higher than silent recommendations. 35% higher conversion. Users consistently said: \u201cI feel like it actually understood what I need.\u201d The conversation isn\u2019t just UI \u2014 it\u2019s trust-building infrastructure.',
+        whyLabel: 'Why selected'
+      }
+    ],
+    coreDecisions: [
+      {
+        title: 'Why conversational UI instead of traditional filters',
+        body: 'This was debated heavily with the Verizon product team. Conversational UI is expensive to build, harder to maintain, and introduces AI reliability risks. Filters are proven, scalable, and predictable. I argued that filters solve a navigation problem, but plan selection is a decision problem. Filters help you find things. Conversations help you decide things. When someone asks a store rep for help, they\u2019re not filtering \u2014 they\u2019re offloading cognitive work to someone who can process the variables faster. The AI replicates that offloading. The trade-off I accepted: conversational UI means we lose the ability to show everything at once. Users who want to browse all options need to exit the AI flow. About 15% of users did this in testing \u2014 which means 85% preferred the guided path. I was okay with serving the 85% brilliantly and the 15% adequately.'
+      },
+      {
+        title: 'Why the AI explains its reasoning \u2014 and why that was harder than building the AI',
+        body: 'The recommendation engine itself took 3 weeks. Making it explain itself took 5. Every recommendation in Tello.ai shows a reasoning chain: \u201cRecommended because: you stream 2+ hours daily (\u2192 need 15GB+ data), you share with 2 family members (\u2192 family plan saves $40/mo), you rarely travel (\u2192 no international add-on needed).\u201d Building this required mapping every AI decision variable to a human-readable explanation. It\u2019s not the AI \u201cthinking out loud\u201d \u2014 it\u2019s a parallel system that translates model weights into language. I pushed hard for this because trust is the entire product. In testing, users who saw explanations were 2.3\u00d7 more likely to complete the purchase than users who got the same recommendation without reasoning. The explanation is doing more work than the recommendation itself.'
+      }
+    ],
+    aiInteraction: {
+      title: 'AI Interaction Design',
+      subtitle: 'How the conversation is structured \u2014 and what happens when the AI is wrong',
+      body: 'The conversation follows a deliberate arc: establish context (2 questions), narrow options (1\u20132 questions), recommend (with reasoning), and confirm. I limited the flow to 3\u20135 questions because testing showed that engagement drops sharply after the 5th message. Each question is phrased in terms the user already understands. Not \u201cWhat\u2019s your desired data allowance?\u201d but \u201cDo you stream videos on your phone?\u201d The AI translates the answer into technical requirements invisibly. When the AI is wrong \u2014 and it is, about 12% of the time based on our testing \u2014 the user can say \u201cthat\u2019s not quite right\u201d and the AI adjusts. I designed the correction flow to feel like a natural conversation, not an error state. \u201cGot it, let me rethink that\u201d rather than a jarring restart. The AI also surfaces a confidence signal: \u201cStrong match\u201d vs \u201cGood option \u2014 here\u2019s why you might also consider\u2026\u201d That transparency helps users calibrate their own trust.'
+    },
+    finalSolutionLabel: 'The Solution \u2014 Guided Decision-Making',
+    finalSolution: {
+      lead: '47 plans narrowed to 1\u20132 through a 3-minute conversation. Every recommendation shows its reasoning. Details expand on demand. Users can switch to traditional comparison at any point. The AI doesn\u2019t choose for you \u2014 it helps you choose with confidence.',
+      workflow: ['Ask', 'Understand', 'Recommend']
+    },
+    finalUI: {
+      title: 'Final UI',
+      body: 'The visual language is deliberately warm and un-corporate. Telecom websites feel like they\u2019re trying to sell you something. Tello.ai feels like it\u2019s trying to help you. Rounded corners, conversational bubbles, a friendly illustration style \u2014 all calibrated to reduce the \u201cis this going to upsell me?\u201d anxiety. The chat interface uses a single-column layout optimized for mobile \u2014 78% of plan purchases happen on phones. The recommendation card is the centerpiece: plan name, price, the 3 most relevant features for this user, and the reasoning chain. Everything else is expandable. I set a rule: the recommendation card can\u2019t exceed the height of one mobile viewport. If you have to scroll to see the full recommendation, I\u2019ve failed to prioritize.'
+    },
+    impactNarrative: {
+      title: 'How I Measured Impact',
+      subtitle: 'A/B test with 2,400 users \u2014 and what the numbers actually mean',
+      body: '5\u00d7 faster selection: Average time dropped from 15 minutes to 2.8 minutes. But context matters \u2014 the AI flow is shorter partly because it shows less information. The question is whether users are making worse decisions faster, or better decisions faster. The 30-day support contact rate suggests it\u2019s the latter. +35% conversion: A/B tested over 4 weeks with 2,400 users randomly assigned. The AI flow converted at 52% vs. 38.5% for the comparison table. Statistical significance was strong (p<0.01). The lift came primarily from users who\u2019d previously abandoned mid-funnel. +28% customer satisfaction: Post-purchase CSAT survey. The AI flow scored 4.3/5 vs. 3.4/5 for traditional. The most-cited reason: \u201cI understood what I was buying.\u201d \u201340% support contacts in 30 days: Users who purchased through Tello.ai were significantly less likely to call support about their plan. This suggests better decision quality, not just faster decisions. Honest caveat: this was a 4-week test. Seasonal effects, promotional periods, and novelty bias could all be factors. I\u2019d want 6 months of data before treating these as stable numbers.'
+    },
+    keyFeaturesLabel: 'Key Features',
+    keyFeatures: [
+      'Conversational plan discovery \u2014 the AI asks about usage, not specs. \u201cHow much do you stream?\u201d not \u201cHow many GB do you need?\u201d',
+      'Explainable recommendations \u2014 every suggestion shows the reasoning: \u201cThis plan because you said you stream 2+ hours daily and share with 2 family members.\u201d',
+      'Progressive disclosure \u2014 the recommendation is 3 lines. Details expand on demand. Fine print is translated into plain language on tap.',
+      'Hybrid flow \u2014 users can switch between AI conversation and traditional comparison at any point. No lock-in to either paradigm.'
+    ],
+    learnings: {
+      title: 'What I Learned About Designing With AI',
+      intro: 'This was my first project where AI was the core interaction model, not a feature. It changed how I think about user agency and trust.',
+      items: [
+        { title: 'What didn\u2019t work as well as I\u2019d hoped?', body: 'The AI\u2019s handling of edge cases. Family plans with mixed needs (one person streams heavily, another barely uses data), business accounts, international travel requirements \u2014 the conversational flow gets clunky when the scenario is complex. The AI asks more questions, the responses get longer, and the conversation starts to feel like a form. For V2, I\u2019d redesign the flow to handle complexity through branching, not longer conversations. Detect early that this is a complex scenario and switch to a hybrid mode \u2014 AI narrows the field, then surfaces a simplified comparison of the remaining 3\u20134 options. Let the user do the final selection with enough context but not all 47 plans.' },
+        { title: 'What trade-offs am I still uncomfortable with?', body: 'Speed vs. control. The AI flow is fast because it limits what users see. Some people want to browse \u2014 they enjoy comparing, they want to feel like they\u2019ve done their due diligence. The 15% who switched to traditional comparison mode in testing aren\u2019t wrong. They have a different decision-making style, and Tello.ai doesn\u2019t serve them as well. The other tension: AI reliability. A 12% error rate sounds low, but that\u2019s roughly 1 in 8 users getting a recommendation that doesn\u2019t perfectly match their needs. At Verizon\u2019s scale, that\u2019s hundreds of thousands of suboptimal recommendations per month. Each one is a potential support call, a plan switch, a trust violation. I designed correction mechanisms, but the root fix is model improvement \u2014 which is an engineering problem I could influence but not own.' },
+        { title: 'What changed about how I think about AI in product design?', body: 'That explainability isn\u2019t a nice-to-have \u2014 it\u2019s the product. The recommendation engine is technically impressive but emotionally meaningless without the reasoning layer. Users don\u2019t trust AI because it\u2019s accurate. They trust it because they can see why it said what it said. That insight applies beyond telecom: any AI-driven product that makes recommendations needs to show its work. The other lesson: AI changes the designer\u2019s role. I wasn\u2019t designing screens \u2014 I was designing a conversation. The flow, the phrasing, the error recovery, the confidence calibration. That\u2019s a different skill set than layout and visual design. I spent more time writing conversation scripts than I did in Figma. The design artifact wasn\u2019t a mockup \u2014 it was a decision tree.' }
+      ]
+    },
     bullets: [
       'Designed turn-taking model + error recovery for voice AI',
       'Built a friendly personality system with 4 tone presets',
       'Reduced average call time by 38% in pilot with 4k users'
-    ],
-    caption: 'A voice-first AI assistant for customer support.',
-    tags: ['ai', 'voice', 'support']
+    ]
   }
 ];
 
