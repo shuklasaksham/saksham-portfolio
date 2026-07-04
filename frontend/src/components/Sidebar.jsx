@@ -1,8 +1,8 @@
 import React from 'react';
 import { navItems } from '../data/mock';
-import { PanelLeft, User, FolderKanban, Palette, Briefcase, Cog, Mail } from 'lucide-react';
+import { PanelLeft, User, FolderKanban, Palette, Briefcase, MonitorDot, Mail } from 'lucide-react';
 
-const ICONS = { User, FolderKanban, Palette, Briefcase, Cog, Mail };
+const ICONS = { User, FolderKanban, Palette, Briefcase, MonitorDot, Mail };
 
 export default function Sidebar({ active, onNavigate, collapsed, onToggle }) {
   const width = collapsed ? 72 : 260;
@@ -72,13 +72,9 @@ export default function Sidebar({ active, onNavigate, collapsed, onToggle }) {
                   onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.color = 'var(--amber)'; }}
                 >
                   {Icon && <Icon size={15} strokeWidth={1.75} />}
-                  {!collapsed && (
-                    <span className="flex-1 truncate">{item.label}</span>
-                  )}
+                  {!collapsed && (<span className="flex-1 truncate">{item.label}</span>)}
                   {!collapsed && item.badge && (
-                    <span className="text-[12px]" style={{ color: isActive ? '#0a0704' : 'var(--amber)' }}>
-                      {item.badge}
-                    </span>
+                    <span className="text-[12px]" style={{ color: isActive ? '#0a0704' : 'var(--amber)' }}>{item.badge}</span>
                   )}
                 </button>
               </li>

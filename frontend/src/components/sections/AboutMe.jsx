@@ -73,9 +73,7 @@ export default function AboutMe({ onNavigate }) {
                 <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#0a0704' }} />
                 Product Designer
               </span>
-              <span>Verizon</span>
-              <span className="opacity-70">·</span>
-              <span>New Delhi → Remote</span>
+              <span className="opacity-80">Simplifying complexity, one pixel at a time.</span>
             </div>
           </div>
         </div>

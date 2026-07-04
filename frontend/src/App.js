@@ -8,7 +8,7 @@ import AboutMe from './components/sections/AboutMe';
 import Work from './components/sections/Work';
 import Illustrations from './components/sections/Illustrations';
 import Experience from './components/sections/Experience';
-import Skills from './components/sections/Skills';
+import BehindThePixels from './components/sections/BehindThePixels';
 import Contact from './components/sections/Contact';
 import { navItems } from './data/mock';
 
@@ -17,7 +17,7 @@ const SECTION_MAP = {
   work: Work,
   illustrations: Illustrations,
   experience: Experience,
-  skills: Skills,
+  pixels: BehindThePixels,
   contact: Contact
 };
 

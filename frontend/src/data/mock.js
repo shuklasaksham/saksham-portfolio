@@ -173,7 +173,7 @@ export const navItems = [
   { key: 'work', label: 'Case Studies & Projects', shortcut: 'W', icon: 'FolderKanban', badge: 4 },
   { key: 'illustrations', label: 'Illustrations', shortcut: 'I', icon: 'Palette' },
   { key: 'experience', label: 'Experience', shortcut: 'E', icon: 'Briefcase' },
-  { key: 'skills', label: 'Skills and Process', shortcut: 'S', icon: 'Cog' },
+  { key: 'pixels', label: 'Behind the Pixels', shortcut: 'B', icon: 'MonitorDot' },
   { key: 'contact', label: 'Contact', shortcut: 'C', icon: 'Mail' }
 ];
 
