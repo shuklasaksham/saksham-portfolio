@@ -83,11 +83,7 @@ export default function AboutMe({ onNavigate }) {
       <div className="grid lg:grid-cols-12 gap-4 flex-1 min-h-0">
         {/* Left: Bio + Stats */}
         <div className="lg:col-span-7 rounded-sm p-5 md:p-6 flex flex-col min-h-0 overflow-hidden" style={{ border: '1px solid var(--amber)' }}>
-          <a href="#" className="text-[14px] font-semibold underline underline-offset-[3px]" style={{ color: 'var(--amber-2)' }}>
-            V2026.1 — A little about me
-          </a>
-
-          <p className="mt-3 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>
+          <p className="text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>
             I&apos;m Saksham, a Product Designer with 4.5+ years of experience creating enterprise and AI-powered products across telecom and automotive. Currently at Verizon, and building <span className="underline underline-offset-[3px]" style={{ color: 'var(--amber-2)' }}>Bracket</span> — an AI Decision OS that transforms messy briefs into structured decisions, documentation, and collaborative workflows.
           </p>
           <p className="mt-2 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>
@@ -156,7 +152,7 @@ export default function AboutMe({ onNavigate }) {
 
           {/* Tool stack */}
           <div className="rounded-sm p-4" style={{ border: '1px solid var(--amber)' }}>
-            <div className="text-[11px] mb-2" style={{ color: 'var(--muted-2)', letterSpacing: '0.18em' }}>STACK</div>
+            <div className="text-[11px] mb-2" style={{ color: 'var(--muted-2)', letterSpacing: '0.18em' }}>WORKBENCH</div>
             <div className="flex flex-wrap gap-1.5">
               {toolStack.map((t) => {
                 const Icon = ICONS[t.icon];

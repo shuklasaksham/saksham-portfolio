@@ -23,23 +23,7 @@ export default function Contact() {
       </div>
 
       <article className="rounded-sm p-5 md:p-6 flex-1 min-h-0 overflow-hidden flex flex-col" style={{ border: '1px solid var(--amber)' }}>
-        <div className="flex items-center justify-between flex-wrap gap-2 text-[13px]" style={{ color: 'var(--amber)' }}>
-          <div className="flex items-center gap-2">
-            <span>saksham@design</span>
-            <span>◉</span>
-            <span>L</span>
-            <span>∽</span>
-          </div>
-          <div className="opacity-80">draft • auto-saved</div>
-        </div>
-
-        <div className="mt-3">
-          <a href="#" className="text-[15px] font-semibold underline underline-offset-[3px]" style={{ color: 'var(--amber-2)' }}>
-            V2026.05 — Let&apos;s build something that shouldn&apos;t exist
-          </a>
-        </div>
-
-        <h1 className="mt-3 font-bold leading-[1.1] hard-glow" style={{ color: 'var(--amber-2)', fontSize: 'clamp(22px, 2vw, 32px)' }}>
+        <h1 className="font-bold leading-[1.1] hard-glow" style={{ color: 'var(--amber-2)', fontSize: 'clamp(22px, 2vw, 32px)' }}>
           Say hi — or send a wild idea.
         </h1>
         <p className="mt-2 text-[13px]" style={{ color: 'var(--amber)' }}>Complete a sentence or write your own.</p>

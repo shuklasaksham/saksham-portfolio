@@ -100,11 +100,20 @@ export const experience = [
     role: 'Senior Product Designer',
     period: '2023 — Present',
     location: 'Remote',
-    bullets: [
-      'Lead designer for Tello.ai — a voice-first customer support agent',
-      'Ship design system components consumed by 40+ engineers across 3 pods',
-      'Mentor 4 junior designers on research-driven design practice'
+    summary: 'Lead design for Tello.ai — Verizon\u2019s voice-first customer support agent — and steward the internal design system used across support tooling.',
+    highlights: [
+      { label: 'Impact', text: 'Reduced average call-resolution time by 38% in Tello.ai pilot with 4k users' },
+      { label: 'Scope', text: 'Owned end-to-end UX for turn-taking, error recovery, and persona system' },
+      { label: 'Reach', text: 'Design system consumed by 40+ engineers across 3 product pods' }
     ],
+    bullets: [
+      'Lead designer for Tello.ai — a voice-first support agent serving 100k+ subscribers monthly',
+      'Partner with PMs, ML engineers and researchers to shape turn-taking and recovery flows',
+      'Established a weekly design critique cadence and mentor 4 junior designers',
+      'Shipped a design system with 80+ tokens and 40 components in Figma + code parity'
+    ],
+    stack: ['Figma', 'Origami', 'Notion', 'Linear', 'Loom'],
+    team: '6 designers · 20+ engineers · 4 PMs',
     tags: ['ai', 'voice', 'leadership']
   },
   {
@@ -112,11 +121,20 @@ export const experience = [
     role: 'UX/UI Designer',
     period: '2022 — 2023',
     location: 'Bengaluru',
-    bullets: [
-      'Redesigned Harman Kardon companion app (iOS + Android)',
-      'Prototyped multi-room grouping flows validated with 40 users',
-      'Established motion + haptic language shipped across 3 hardware lines'
+    summary: 'Redesigned the Harman Kardon companion app for iOS + Android and established the motion language now shipped across three hardware speaker lines.',
+    highlights: [
+      { label: 'Reach', text: 'Companion app relaunch reached 400k+ MAU on iOS + Android' },
+      { label: 'Craft', text: 'Motion + haptic system reused across 3 flagship hardware lines' },
+      { label: 'Research', text: 'Prototyped multi-room grouping and validated with 40 users in 3 markets' }
     ],
+    bullets: [
+      'Owned the visual system, tone of voice and empty-state library for the app',
+      'Partnered with hardware + firmware to define first-run and connection UX',
+      'Ran 12 usability tests across audiophile and casual segments to de-risk features',
+      'Shipped multi-room grouping, EQ profiles and a redesigned Now-Playing surface'
+    ],
+    stack: ['Figma', 'Origami', 'After Effects', 'Zeplin', 'Miro'],
+    team: '4 designers · 15 engineers · 2 PMs',
     tags: ['audio', 'iot', 'mobile']
   },
   {
@@ -124,11 +142,20 @@ export const experience = [
     role: 'Product Designer',
     period: '2020 — 2022',
     location: 'New Delhi',
-    bullets: [
-      'Shipped 18+ products for early-stage startups across fintech and SaaS',
-      'Owned end-to-end design from discovery workshops to dev handoff',
-      'Built reusable systems that shortened design cycles by 3–4 weeks'
+    summary: 'Solo-consulting for early-stage startups across fintech and SaaS — discovery workshops through dev handoff, always shipped.',
+    highlights: [
+      { label: 'Volume', text: '18+ products shipped across 12 startup clients' },
+      { label: 'Speed', text: 'Reusable systems shortened design cycles by 3–4 weeks per project' },
+      { label: 'Research', text: 'Ran usability tests with 250+ participants across 12 projects' }
     ],
+    bullets: [
+      'Owned end-to-end design from discovery to dev handoff — including brand where needed',
+      'Built reusable component libraries that outlived the project scope',
+      'Coached founding teams on north-star metrics and product strategy',
+      'Notable: designed early v0.1 of Bracket, dashboards for 2 YC-backed fintech startups'
+    ],
+    stack: ['Figma', 'Notion', 'Loom', 'Miro', 'Framer'],
+    team: 'Solo (embedded with founder teams)',
     tags: ['startup', 'saas', 'systems']
   }
 ];
@@ -192,16 +219,15 @@ export const profile = {
   following: 128
 };
 
-// Tools in the current design stack
+// Tools in the current design stack (WORKBENCH)
 export const toolStack = [
   { name: 'Figma', icon: 'PenTool' },
   { name: 'Cursor', icon: 'Terminal' },
-  { name: 'Framer', icon: 'Frame' },
-  { name: 'Notion', icon: 'FileText' },
   { name: 'Linear', icon: 'GitBranch' },
-  { name: 'Loom', icon: 'Video' },
-  { name: 'Origami', icon: 'Layers' },
-  { name: 'Miro', icon: 'Grid3x3' }
+  { name: 'Notion', icon: 'FileText' },
+  { name: 'Framer', icon: 'Frame' },
+  { name: 'Miro', icon: 'Grid3x3' },
+  { name: 'Origami', icon: 'Layers' }
 ];
 
 // Design principles a product designer ships by
@@ -216,6 +242,6 @@ export const principles = [
 export const currentStatus = {
   headline: 'Building Bracket — an AI Decision OS',
   detail: 'Shipping v0.4 workspace: shareable decision docs, AI-assisted briefs, keyboard-first reviews.',
-  availability: 'Open to freelance & advisory · Q3 2026',
+  availability: 'Onboarding 3 design partners this quarter',
   responseTime: 'Usually replies within 24h'
 };

@@ -12,25 +12,11 @@ export default function Illustrations() {
       </div>
 
       <article className="rounded-sm p-5 md:p-6 flex flex-col flex-1 min-h-0 overflow-hidden" style={{ border: '1px solid var(--amber)' }}>
-        <div className="flex items-center justify-between flex-wrap gap-2 text-[13px]" style={{ color: 'var(--amber)' }}>
-          <div className="flex items-center gap-2">
-            <span>@saksham_shukla</span>
-            <span>◉</span>
-            <span>L</span>
-            <span>∽</span>
-          </div>
-          <div className="opacity-80">weekly • {digitalArt.length} pieces • 42 saves • 8 replies</div>
+        <div className="flex items-center justify-end text-[13px]" style={{ color: 'var(--amber)' }}>
+          <p className="text-[13px]" style={{ color: 'var(--amber)' }}>
+            A rotating collection of personal pieces — sketches, matte paintings, retro-wave, anime. Hover any tile to un-dither.
+          </p>
         </div>
-
-        <div className="mt-3">
-          <a href="#" className="text-[15px] font-semibold underline underline-offset-[3px]" style={{ color: 'var(--amber-2)' }}>
-            V2026.03 — Digital art & concept sketches
-          </a>
-        </div>
-
-        <p className="mt-2 text-[13px]" style={{ color: 'var(--amber)' }}>
-          A rotating collection of personal pieces — sketches, matte paintings, retro-wave, anime. Hover any tile to un-dither.
-        </p>
 
         <div className="my-3 h-px" style={{ background: 'rgba(245,165,36,0.28)' }} />
 
