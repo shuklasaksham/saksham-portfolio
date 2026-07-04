@@ -115,12 +115,37 @@ code { font-family: 'IBM Plex Mono', monospace; }
 }
 .marquee-track { animation: marquee 28s linear infinite; }
 
-/* Section fade-in when switching menu items */
-@keyframes sectionFade {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Section slide-in when switching menu items (Linear-esque, subtle) */
+@keyframes sectionSlide {
+  from { opacity: 0; transform: translateX(6px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
-.section-fade { animation: sectionFade 260ms ease-out both; }
+.section-fade { animation: sectionSlide 80ms ease-out both; }
+
+/* Soft ambient pulse for live indicators */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.9); }
+}
+.pulse-dot { animation: softPulse 1.6s ease-in-out infinite; }
+
+/* Subtle amber breathing on the section header underscore */
+@keyframes breathe {
+  0%, 100% { opacity: 0.32; }
+  50%      { opacity: 0.55; }
+}
+.breathe { animation: breathe 4s ease-in-out infinite; }
+
+/* Hover lift used on highlight/spec tiles */
+.hover-lift { transition: transform 140ms ease, border-color 140ms ease, background-color 140ms ease; }
+.hover-lift:hover {
+  transform: translateY(-2px);
+  border-color: var(--amber) !important;
+  background: rgba(245,165,36,0.05);
+}
+
+/* Hide native cursor when a custom follower is shown */
+.cursor-none, .cursor-none * { cursor: none !important; }
 
 /* Glitch */
 @keyframes glitch1 { 0%, 100% { clip-path: inset(0 0 85% 0); transform: translate(0); } 20% { clip-path: inset(20% 0 55% 0); transform: translate(-2px, 0); } 40% { clip-path: inset(60% 0 15% 0); transform: translate(2px, 0); } 60% { clip-path: inset(30% 0 45% 0); transform: translate(-1px, 0); } 80% { clip-path: inset(75% 0 5% 0); transform: translate(1px, 0); } }

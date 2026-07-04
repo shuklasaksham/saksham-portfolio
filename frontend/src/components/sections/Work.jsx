@@ -24,7 +24,7 @@ export default function Work() {
                 <li key={c.id}>
                   <button
                     onClick={() => setSelected(c.id)}
-                    className="w-full text-left px-4 py-3 flex items-center gap-3 transition-colors"
+                    className="w-full text-left px-4 py-3 flex items-center gap-3 transition-colors hover-lift"
                     style={{
                       background: isOn ? 'var(--amber)' : 'transparent',
                       color: isOn ? '#0a0704' : 'var(--amber)',
@@ -32,9 +32,12 @@ export default function Work() {
                     }}
                   >
                     <div className="flex-1 min-w-0">
-                      <div className="text-[14px] font-semibold truncate">{c.title}</div>
-                      <div className="text-[11px] mt-0.5" style={{ color: isOn ? 'rgba(10,7,4,0.7)' : 'var(--muted)', letterSpacing: '0.08em' }}>
-                        {c.category} · {c.year}
+                      <div className="text-[10px] tracking-wider mb-0.5" style={{ color: isOn ? 'rgba(10,7,4,0.75)' : 'var(--muted-2)' }}>
+                        {c.category}
+                      </div>
+                      <div className="text-[15px] font-bold truncate">{c.title}</div>
+                      <div className="text-[11px] mt-0.5" style={{ color: isOn ? 'rgba(10,7,4,0.7)' : 'var(--muted)' }}>
+                        {c.role} · {c.year}
                       </div>
                     </div>
                     <ChevronRight size={14} style={{ opacity: isOn ? 1 : 0.6 }} />

@@ -97,66 +97,69 @@ export const digitalArt = [
 export const experience = [
   {
     company: 'Verizon',
-    role: 'Senior Product Designer',
-    period: '2023 — Present',
+    role: 'Experience Specialist II',
+    period: '2025 — NOW',
+    dateShort: '[2025 - NOW]',
     location: 'Remote',
-    summary: 'Lead design for Tello.ai — Verizon\u2019s voice-first customer support agent — and steward the internal design system used across support tooling.',
+    status: 'Active',
+    summary: 'Designing AI-driven conversational and mobile experiences that simplify decision-making across Verizon\u2019s consumer telecom stack.',
     highlights: [
-      { label: 'Impact', text: 'Reduced average call-resolution time by 38% in Tello.ai pilot with 4k users' },
-      { label: 'Scope', text: 'Owned end-to-end UX for turn-taking, error recovery, and persona system' },
-      { label: 'Reach', text: 'Design system consumed by 40+ engineers across 3 product pods' }
+      { label: 'Focus', text: 'AI-driven conversational flows for plan selection & support' },
+      { label: 'Scope', text: 'End-to-end mobile UX with a bar for clarity, trust and speed' },
+      { label: 'Partners', text: 'Cross-functional pods spanning product, ML and engineering' }
     ],
     bullets: [
-      'Lead designer for Tello.ai — a voice-first support agent serving 100k+ subscribers monthly',
-      'Partner with PMs, ML engineers and researchers to shape turn-taking and recovery flows',
-      'Established a weekly design critique cadence and mentor 4 junior designers',
-      'Shipped a design system with 80+ tokens and 40 components in Figma + code parity'
+      'Designed AI-driven conversational flows to simplify telecom plan selection and reduce decision fatigue',
+      'Led end-to-end UX for mobile experiences, focusing on clarity, trust, and faster user decisions',
+      'Collaborated with product and engineering teams to translate complex requirements into scalable solutions'
     ],
     stack: ['Figma', 'Origami', 'Notion', 'Linear', 'Loom'],
     team: '6 designers · 20+ engineers · 4 PMs',
-    tags: ['ai', 'voice', 'leadership']
+    tags: ['ai', 'telecom', 'conversational']
   },
   {
     company: 'Harman International',
-    role: 'UX/UI Designer',
-    period: '2022 — 2023',
+    role: 'Experience Designer',
+    period: '2024 — 2025',
+    dateShort: '[2024 - 2025]',
     location: 'Bengaluru',
-    summary: 'Redesigned the Harman Kardon companion app for iOS + Android and established the motion language now shipped across three hardware speaker lines.',
+    status: 'Completed',
+    summary: 'Led UX for automotive infotainment across global brands — making complex in-car interactions safer and less cognitively taxing.',
     highlights: [
-      { label: 'Reach', text: 'Companion app relaunch reached 400k+ MAU on iOS + Android' },
-      { label: 'Craft', text: 'Motion + haptic system reused across 3 flagship hardware lines' },
-      { label: 'Research', text: 'Prototyped multi-room grouping and validated with 40 users in 3 markets' }
+      { label: 'Focus', text: 'Automotive infotainment for multiple global OEMs' },
+      { label: 'Craft', text: 'Reduced cognitive load and improved task efficiency in-cabin' },
+      { label: 'Delivery', text: 'Production-ready design shipped with cross-functional teams' }
     ],
     bullets: [
-      'Owned the visual system, tone of voice and empty-state library for the app',
-      'Partnered with hardware + firmware to define first-run and connection UX',
-      'Ran 12 usability tests across audiophile and casual segments to de-risk features',
-      'Shipped multi-room grouping, EQ profiles and a redesigned Now-Playing surface'
+      'Led UX design for automotive infotainment systems across global brands, focusing on safety and usability',
+      'Simplified complex in-car interactions by reducing cognitive load and improving task efficiency',
+      'Worked closely with cross-functional teams to deliver production-ready design solutions'
     ],
-    stack: ['Figma', 'Origami', 'After Effects', 'Zeplin', 'Miro'],
+    stack: ['Figma', 'Origami', 'After Effects', 'Miro'],
     team: '4 designers · 15 engineers · 2 PMs',
-    tags: ['audio', 'iot', 'mobile']
+    tags: ['automotive', 'infotainment', 'safety']
   },
   {
-    company: 'Freelance',
-    role: 'Product Designer',
-    period: '2020 — 2022',
-    location: 'New Delhi',
-    summary: 'Solo-consulting for early-stage startups across fintech and SaaS — discovery workshops through dev handoff, always shipped.',
+    company: 'Harman International',
+    role: 'Associate Experience Designer',
+    period: '2022 — 2024',
+    dateShort: '[2022 - 2024]',
+    location: 'Bengaluru',
+    status: 'Completed',
+    summary: 'Designed connected-automotive experiences from the wireframe up — validated with real users and shipped into production UI.',
     highlights: [
-      { label: 'Volume', text: '18+ products shipped across 12 startup clients' },
-      { label: 'Speed', text: 'Reusable systems shortened design cycles by 3–4 weeks per project' },
-      { label: 'Research', text: 'Ran usability tests with 250+ participants across 12 projects' }
+      { label: 'Scope', text: 'User flows & interfaces for connected-car products' },
+      { label: 'Validation', text: 'Interactive prototypes tested with real users' },
+      { label: 'Craft', text: 'End-to-end process from research to final UI execution' }
     ],
     bullets: [
-      'Owned end-to-end design from discovery to dev handoff — including brand where needed',
-      'Built reusable component libraries that outlived the project scope',
-      'Coached founding teams on north-star metrics and product strategy',
-      'Notable: designed early v0.1 of Bracket, dashboards for 2 YC-backed fintech startups'
+      'Designed user flows and interfaces for connected automotive experiences and digital products',
+      'Created wireframes and interactive prototypes to validate concepts and improve usability',
+      'Supported end-to-end design process from research to final UI execution'
     ],
-    stack: ['Figma', 'Notion', 'Loom', 'Miro', 'Framer'],
-    team: 'Solo (embedded with founder teams)',
-    tags: ['startup', 'saas', 'systems']
+    stack: ['Figma', 'Sketch', 'InVision', 'Zeplin'],
+    team: '3 designers · 10 engineers',
+    tags: ['automotive', 'prototyping', 'ui']
   }
 ];
 
