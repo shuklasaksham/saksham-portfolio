@@ -11,19 +11,89 @@ export const caseStudies = [
     id: 'hyundai-bo',
     version: 'V2024.4',
     title: 'Hyundai \u00d7 Bang & Olufsen',
+    subtitle: 'Rethinking in-car audio for safer, distraction-free driving.',
     category: 'CONCEPT',
-    role: 'UX/UI DESIGNER',
+    role: 'Lead Product Designer',
     year: '2024',
+    duration: '12 Weeks',
+    platform: 'Automotive Infotainment',
+    tools: ['Figma', 'ProtoPie', 'After Effects', 'Blender'],
     words: 68,
     saves: 24,
     replies: 12,
+    caption: 'Reimagining premium in-cabin audio for next-gen EVs.',
+    description: 'Reimagining premium in-cabin audio for the next-gen EV experience.',
+    tags: ['automotive', 'audio', 'spatial-ui'],
+    detailed: true,
+    results: [
+      { value: '40%', label: 'Faster audio interactions' },
+      { value: '3 \u2192 1', label: 'Navigation layers reduced' },
+      { value: '92%', label: 'User satisfaction' },
+      { value: '60%', label: 'Reduction in driver distraction' }
+    ],
+    overview: [
+      'Modern infotainment systems often borrow interaction patterns from smartphones \u2014 multiple menus, small touch targets, and feature-heavy interfaces. While these work on mobile devices, they become distractions inside a moving vehicle.',
+      'This concept explores how a premium audio experience for Hyundai \u00d7 Bang & Olufsen could prioritize driver attention without compromising the richness of the sound experience.'
+    ],
+    challenge: {
+      lead: 'Design an audio system that allows drivers to control music with minimal cognitive effort while maintaining Bang & Olufsen\u2019s premium brand experience.',
+      body: 'The experience needed to:',
+      items: [
+        'Reduce interaction time',
+        'Minimize visual distraction',
+        'Preserve premium audio controls',
+        'Work within real automotive constraints'
+      ]
+    },
+    research: [
+      { title: 'Touch Interfaces', text: 'Small touch targets increased interaction time and required drivers to repeatedly glance away from the road.' },
+      { title: 'Voice Controls', text: 'Voice commands became unreliable in noisy environments and while music was playing.' },
+      { title: 'Gesture Controls', text: 'Most users struggled to remember available gestures, making them difficult to discover and trust.' },
+      { title: 'Overwhelming Audio Controls', text: 'Drivers wanted music to feel better \u2014 not adjust equalizers, frequencies, or technical parameters.' }
+    ],
+    insight: 'People don\u2019t think in frequencies. They think in feelings.',
+    principles: [
+      { icon: 'Eye', title: 'Keep eyes on the road', text: 'Every interaction should require only a quick glance.' },
+      { icon: 'Zap', title: 'Reduce interaction steps', text: 'One action should accomplish one task whenever possible.' },
+      { icon: 'BrainCircuit', title: 'Adapt to context', text: 'The system should respond to driving conditions instead of relying on manual adjustments.' },
+      { icon: 'Music', title: 'Design for emotion', text: 'Expose meaningful choices while hiding unnecessary complexity.' }
+    ],
+    exploration: [
+      { ok: false, title: 'Traditional EQ Controls', text: 'Powerful but visually overwhelming.' },
+      { ok: false, title: 'Multi-level Navigation', text: 'Required too many interactions for common tasks.' },
+      { ok: false, title: 'Voice-first Experience', text: 'Promising in theory, but unreliable in noisy driving environments.' },
+      { ok: true, title: 'Emotion-based Audio Modes', text: 'Replacing technical audio settings with three simple modes \u2014 Calm, Focus, and Energize \u2014 allowed drivers to make faster decisions while the system handled the complexity behind the scenes.' }
+    ],
+    finalSolution: {
+      lead: 'Instead of exposing dozens of audio settings, the interface presents three emotion-driven listening modes.',
+      body: 'Behind each mode, the system automatically adjusts:',
+      items: ['Equalizer', 'Spatial audio', 'Dynamic range', 'Volume behavior'],
+      close: 'The result is a premium listening experience that requires almost no configuration from the driver.',
+      distraction: {
+        title: 'To further reduce distraction:',
+        items: [
+          'Frequently used controls remain accessible with a single interaction.',
+          'Volume stays on a physical haptic dial.',
+          'Ambient lighting provides subtle confirmation when switching modes.',
+          'Interface elements are optimized for quick recognition during driving.'
+        ]
+      }
+    },
+    takeaway: {
+      lead: 'This project reinforced an important lesson:',
+      quote: 'Designing for automotive experiences isn\u2019t about adding features \u2014 it\u2019s about removing unnecessary decisions.',
+      body: 'By focusing on driver attention instead of interface complexity, I was able to create an experience that feels simpler, safer, and more aligned with the way people naturally interact with music while driving.'
+    },
+    improvements: [
+      'Personalized audio recommendations based on driving behavior.',
+      'Better passenger controls without distracting the driver.',
+      'Smarter contextual automation using route and environmental data.'
+    ],
     bullets: [
       'Designed spatial audio mixer for the in-cabin experience',
       'Adaptive DSP presets react to cabin acoustics + passengers',
       'Haptic-forward controls with quiet-mode default state'
-    ],
-    caption: 'Reimagining premium in-cabin audio for next-gen EVs.',
-    tags: ['automotive', 'audio', 'spatial-ui']
+    ]
   },
   {
     id: 'bracket',
