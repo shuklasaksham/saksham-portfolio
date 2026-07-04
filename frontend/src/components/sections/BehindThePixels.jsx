@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react';
-import { Minus, Square, X } from 'lucide-react';
 
 const PROMPT = 'C:\\Users\\Saksham>';
 
@@ -18,22 +17,20 @@ const SCRIPT = [
   { kind: 'prompt' }
 ];
 
-const TYPE_SPEED = 26; // ms per char while typing the command
+const TYPE_SPEED = 26;
 
 export default function BehindThePixels() {
-  const [step, setStep] = useState(0);       // which script index is currently active
-  const [typed, setTyped] = useState('');    // typed characters for current cmd
+  const [step, setStep] = useState(0);
+  const [typed, setTyped] = useState('');
   const [cursorOn, setCursorOn] = useState(true);
   const [done, setDone] = useState(false);
   const bodyRef = useRef(null);
 
-  // Blinking cursor
   useEffect(() => {
     const t = setInterval(() => setCursorOn((v) => !v), 500);
     return () => clearInterval(t);
   }, []);
 
-  // Advance the script step-by-step (skip blanks quickly, type cmds, wait on outputs)
   useEffect(() => {
     if (step >= SCRIPT.length) { setDone(true); return; }
     const item = SCRIPT[step];
@@ -51,7 +48,6 @@ export default function BehindThePixels() {
       }, TYPE_SPEED);
       return () => clearInterval(t);
     }
-
     if (item.kind === 'out') {
       const t = setTimeout(() => setStep((s) => s + 1), 180);
       return () => clearTimeout(t);
@@ -66,7 +62,6 @@ export default function BehindThePixels() {
     }
   }, [step]);
 
-  // Auto-scroll body to bottom as content grows
   useEffect(() => {
     if (bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
   }, [step, typed]);
@@ -100,7 +95,6 @@ export default function BehindThePixels() {
       }
     }
 
-    // Currently active step (typing cmd or blinking prompt)
     const cur = SCRIPT[step];
     if (cur && cur.kind === 'cmd') {
       nodes.push(
@@ -142,79 +136,25 @@ export default function BehindThePixels() {
         </button>
       </div>
 
-      {/* CMD window */}
+      {/* CMD body — no window chrome */}
       <div
-        className="flex-1 min-h-0 flex flex-col overflow-hidden"
+        ref={bodyRef}
+        className="flex-1 min-h-0 overflow-y-auto px-6 md:px-8 py-6 text-[14px] md:text-[15px] leading-[1.6]"
         style={{
-          border: '1px solid #4a4a4a',
-          borderRadius: 4,
           background: '#000',
-          boxShadow: '0 20px 60px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(245,165,36,0.15)'
+          color: '#e5e5e5',
+          fontFamily: 'Consolas, "Cascadia Mono", "IBM Plex Mono", monospace',
+          border: '1px solid rgba(245,165,36,0.35)',
+          borderRadius: 4
         }}
       >
-        {/* Windows title bar */}
-        <div
-          className="flex items-center justify-between px-3 py-1.5"
-          style={{
-            background: 'linear-gradient(180deg, #2b2b2b 0%, #1a1a1a 100%)',
-            borderBottom: '1px solid #3a3a3a',
-            color: '#e5e5e5',
-            fontFamily: 'IBM Plex Mono, Consolas, monospace',
-            fontSize: 12
-          }}
-        >
-          <div className="flex items-center gap-2">
-            <span
-              className="inline-flex items-center justify-center w-4 h-4"
-              style={{ background: '#c0c0c0', color: '#000', borderRadius: 1, fontSize: 9, fontWeight: 700, fontFamily: 'Consolas, monospace' }}
-              aria-hidden
-            >
-              C:\
-            </span>
-            <span>C:\WINDOWS\system32\cmd.exe &nbsp; — &nbsp; saksham.exe</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <WinBtn><Minus size={11} /></WinBtn>
-            <WinBtn><Square size={9} /></WinBtn>
-            <WinBtn danger><X size={11} /></WinBtn>
-          </div>
+        <div style={{ color: '#8a8a8a' }} className="mb-3">
+          Microsoft Windows [Version 10.0.26100.2894]
+          <br />
+          (c) Microsoft Corporation. All rights reserved.
         </div>
-
-        {/* CMD body */}
-        <div
-          ref={bodyRef}
-          className="flex-1 min-h-0 overflow-y-auto px-5 py-4 text-[14px] md:text-[15px] leading-[1.55]"
-          style={{
-            background: '#000',
-            color: '#e5e5e5',
-            fontFamily: 'Consolas, "Cascadia Mono", "IBM Plex Mono", monospace'
-          }}
-        >
-          <div style={{ color: '#8a8a8a' }} className="mb-3">
-            Microsoft Windows [Version 10.0.26100.2894]
-            <br />
-            (c) Microsoft Corporation. All rights reserved.
-          </div>
-          {rendered}
-        </div>
+        {rendered}
       </div>
     </section>
-  );
-}
-
-function WinBtn({ children, danger }) {
-  return (
-    <button
-      className="w-7 h-6 inline-flex items-center justify-center transition-colors"
-      style={{
-        color: '#e5e5e5',
-        background: 'transparent',
-        borderRadius: 1
-      }}
-      onMouseEnter={(e) => { e.currentTarget.style.background = danger ? '#e81123' : '#3a3a3a'; }}
-      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
-    >
-      {children}
-    </button>
   );
 }
