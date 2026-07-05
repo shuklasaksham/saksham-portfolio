@@ -32,6 +32,8 @@ https://www.sakshamshukla.com/. Frontend-only initially.
 - 2026-02: Sidebar header updated to "SAKSHAM SHUKLA"
 - 2026-02-05: **About Me profile avatar updated to black pixel-art crab** on amber block
   (transparent PNG + `filter: brightness(0)` so only crab silhouette turns black)
+- 2026-02-05: **About Me avatar swapped to user-provided `crab_bw_shades.png`** (native grayscale/black
+  pixel-art crab, no CSS filter applied). Verified via testing_agent — 100% pass.
 
 ## Roadmap
 ### P1
