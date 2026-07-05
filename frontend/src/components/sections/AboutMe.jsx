@@ -7,15 +7,15 @@ const ICONS = { PenTool, Terminal, Frame, FileText, GitBranch, Video, Layers, Gr
 function PixelAvatar() {
   return (
     <img
-      src="https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/d43v3wwa_crab.png"
+      src="https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/q0gl16m1_crab_bw_shades.png"
       alt="Saksham pixel avatar"
       draggable={false}
       className="block select-none"
+      data-testid="about-me-avatar"
       style={{
         width: 96,
         height: 96,
-        imageRendering: 'pixelated',
-        filter: 'brightness(0) saturate(100%)'
+        imageRendering: 'pixelated'
       }}
     />
   );
