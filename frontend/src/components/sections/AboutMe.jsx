@@ -51,7 +51,7 @@ export default function AboutMe({ onNavigate }) {
       {/* Solid amber statement block */}
       <div className="rounded-md p-4 sm:p-5 md:p-6" style={{ background: 'var(--amber)', color: '#0a0704' }}>
         <div className="flex items-center gap-3 sm:gap-5">
-          <div className="shrink-0 rounded-sm p-1.5 sm:p-2" style={{ background: 'rgba(10,7,4,0.08)', border: '1px solid rgba(10,7,4,0.35)' }}>
+          <div className="shrink-0">
             <PixelAvatar />
           </div>
           <div className="flex-1 min-w-0">
