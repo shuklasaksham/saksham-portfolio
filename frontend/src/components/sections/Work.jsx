@@ -107,14 +107,14 @@ function DetailedCaseStudy({ cs }) {
       )}
 
       {cs.images && cs.images.length > 0 && (
-        <div className="mt-4 grid md:grid-cols-2 gap-3 items-start">
+        <div className="mt-4 grid md:grid-cols-2 gap-3">
           {cs.images.map((img, i) => (
-            <figure key={i} className="relative overflow-hidden" style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, background: '#050301' }}>
+            <figure key={i} className="relative overflow-hidden flex items-center justify-center h-[300px] sm:h-[360px] md:h-[420px] lg:h-[460px]" style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, background: '#050301' }}>
               {img.type === 'video' ? (
                 <video
                   src={img.src}
                   poster={img.poster}
-                  className="block w-full h-auto max-h-[70vh] object-contain"
+                  className="max-w-full max-h-full object-contain"
                   autoPlay
                   loop
                   muted
@@ -127,7 +127,7 @@ function DetailedCaseStudy({ cs }) {
                 <img
                   src={img.src}
                   alt={img.caption || 'case study image'}
-                  className="block w-full h-auto max-h-[70vh] object-contain"
+                  className="max-w-full max-h-full object-contain"
                   data-testid={`case-study-media-${cs.id}-${i}`}
                 />
               )}
