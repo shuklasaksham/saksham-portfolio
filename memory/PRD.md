@@ -105,6 +105,15 @@ https://www.sakshamshukla.com/. Frontend-only initially.
   radial gradient anchored to the bottom-right corner
   (`radial-gradient(120% 90% at 88% 92%, rgba(245,165,36,0.22) → rgba(0,0,0,0.55))`), matching the
   neon-embers reference. Backdrop blur retained.
+- 2026-02-05: **Behind The Pixels — hue softened + full height.** Reduced amber alphas
+  (0.22→0.09, 0.08→0.03) and pushed the amber core to the far bottom-right (92%/96%), giving a
+  barely-there warm ember. CMD box now `flex-1 min-h-[calc(100vh-160px)]` so it always fills the
+  section vertically (verified filling 86-90% of section area across widths).
+- 2026-02-05: **New pixel-crab avatar + favicon.** Replaced `/app/frontend/public/crab-avatar.png`
+  with the user-provided 1254×1254 orange-on-black pixel-art crab. About Me PixelAvatar rendered at
+  104×104 `object-contain`, favicon + apple-touch-icon updated with `?v=3` cache-buster. Note: CRA
+  dev server doesn't hot-reload `public/index.html`, so a frontend supervisor restart was needed
+  once; future favicon swaps will require the same.
 
 ## Roadmap
 ### P1
