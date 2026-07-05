@@ -82,7 +82,7 @@ function App() {
               mobileOpen={mobileNavOpen}
               onMobileClose={() => setMobileNavOpen(false)}
             />
-            <main className="flex-1 min-w-0 md:h-full md:overflow-hidden">
+            <main className="flex-1 min-w-0 xl:h-full xl:overflow-hidden">
               <div key={active} className="h-full w-full section-fade">
                 <Section onNavigate={setActive} />
               </div>

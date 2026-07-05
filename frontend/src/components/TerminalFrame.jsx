@@ -18,7 +18,7 @@ export default function TerminalFrame({ children }) {
         }}
       >
         {/* Desktop/tablet: fixed viewport height. Mobile: intrinsic height */}
-        <div className="h-auto md:h-[calc(100vh-24px)] w-full">{children}</div>
+        <div className="h-auto xl:h-[calc(100vh-24px)] w-full">{children}</div>
       </div>
     </div>
   );

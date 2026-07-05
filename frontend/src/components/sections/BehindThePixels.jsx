@@ -127,7 +127,7 @@ export default function BehindThePixels() {
   const restart = () => { setStep(0); setTyped(''); setDone(false); };
 
   return (
-    <section className="md:h-full w-full md:overflow-hidden px-4 sm:px-6 md:px-10 lg:px-12 py-4 md:py-6 flex flex-col">
+    <section className="xl:h-full w-full xl:overflow-hidden px-4 sm:px-6 md:px-10 lg:px-12 py-4 md:py-6 flex flex-col">
       <div className="mb-3 flex items-center gap-3 text-[12px] sm:text-[13px]" style={{ color: 'var(--amber)', letterSpacing: '0.15em' }}>
         <span className="font-semibold">BEHIND THE PIXELS</span>
         <span className="flex-1 h-px" style={{ background: 'rgba(245,165,36,0.2)' }} />
@@ -139,7 +139,7 @@ export default function BehindThePixels() {
       {/* CMD body — no window chrome */}
       <div
         ref={bodyRef}
-        className="md:flex-1 md:min-h-0 md:overflow-y-auto px-4 sm:px-6 md:px-8 py-5 md:py-6 text-[13px] sm:text-[14px] md:text-[15px] leading-[1.6] min-h-[380px]"
+        className="xl:flex-1 xl:min-h-0 xl:overflow-y-auto px-4 sm:px-6 md:px-8 py-5 md:py-6 text-[13px] sm:text-[14px] md:text-[15px] leading-[1.6] min-h-[380px]"
         style={{
           background: '#000',
           color: '#e5e5e5',

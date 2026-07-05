@@ -25,14 +25,14 @@ export default function Work() {
   }, [selectedId]);
 
   return (
-    <section className="md:h-full w-full md:overflow-hidden px-4 sm:px-6 md:px-10 lg:px-12 py-4 md:py-6 flex flex-col">
+    <section className="xl:h-full w-full xl:overflow-hidden px-4 sm:px-6 md:px-10 lg:px-12 py-4 md:py-6 flex flex-col">
       <div className="mb-3 flex items-center gap-3 text-[12px] sm:text-[13px]" style={{ color: 'var(--amber)', letterSpacing: '0.15em' }}>
         <span className="font-semibold">CASE STUDIES & PROJECTS</span>
         <span className="flex-1 h-px breathe" style={{ background: 'var(--amber)' }} />
         <span className="opacity-70 whitespace-nowrap">{caseStudies.length} of 30 shown</span>
       </div>
 
-      <div className="md:flex-1 md:min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-3 md:gap-4">
+      <div className="xl:flex-1 xl:min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-3 md:gap-4">
         <div className="lg:col-span-4 rounded-sm overflow-hidden" style={{ border: '1px solid var(--amber)' }}>
           <ul>
             {caseStudies.map((c) => {
@@ -41,12 +41,15 @@ export default function Work() {
                 <li key={c.id}>
                   <button
                     onClick={() => setSelectedId(c.id)}
-                    className="w-full text-left px-4 py-3 flex items-center gap-3 transition-colors"
+                    data-testid={`case-study-item-${c.id}`}
+                    className="group w-full text-left px-4 py-3 flex items-center gap-3 transition-all duration-150 hover:pl-5"
                     style={{
                       background: isOn ? 'var(--amber)' : 'transparent',
                       color: isOn ? '#0a0704' : 'var(--amber)',
                       borderBottom: '1px solid rgba(245,165,36,0.25)'
                     }}
+                    onMouseEnter={(e) => { if (!isOn) e.currentTarget.style.background = 'rgba(245,165,36,0.06)'; }}
+                    onMouseLeave={(e) => { if (!isOn) e.currentTarget.style.background = 'transparent'; }}
                   >
                     <div className="flex-1 min-w-0">
                       <div className="text-[10px] tracking-wider mb-0.5" style={{ color: isOn ? 'rgba(10,7,4,0.75)' : 'var(--muted-2)' }}>
@@ -57,7 +60,7 @@ export default function Work() {
                         {c.role} · {c.year}
                       </div>
                     </div>
-                    <ChevronRight size={14} style={{ opacity: isOn ? 1 : 0.6 }} />
+                    <ChevronRight size={14} style={{ opacity: isOn ? 1 : 0.6, transition: 'transform 180ms ease' }} className="group-hover:translate-x-1" />
                   </button>
                 </li>
               );
@@ -65,7 +68,7 @@ export default function Work() {
           </ul>
         </div>
 
-        <article ref={scrollerRef} className="lg:col-span-8 rounded-sm p-4 sm:p-5 md:p-6 flex flex-col md:min-h-0 md:overflow-y-auto" style={{ border: '1px solid var(--amber)' }}>
+        <article ref={scrollerRef} className="lg:col-span-8 rounded-sm p-4 sm:p-5 md:p-6 flex flex-col xl:min-h-0 xl:overflow-y-auto" style={{ border: '1px solid var(--amber)' }}>
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div className="text-[12px]" style={{ color: 'var(--muted-2)' }}>
               <span style={{ color: 'var(--amber)' }}>&gt;</span> Case study loaded.
@@ -101,20 +104,24 @@ function DetailedCaseStudy({ cs }) {
 
   return (
     <div className="mt-4">
-      <h1 className="font-bold leading-[1.1] hard-glow" style={{ color: 'var(--amber-2)', fontSize: 'clamp(24px, 2.3vw, 34px)' }}>{cs.title}</h1>
+      <h1 className="font-bold leading-[1.1] hard-glow" style={{ color: 'var(--amber-2)', fontSize: 'clamp(24px, 2.3vw, 34px)' }}>
+        {cs.id === 'bracket' ? (
+          <a href="https://use-bracket.com/" target="_blank" rel="noopener noreferrer" data-testid="bracket-link" className="link-amber">{cs.title}</a>
+        ) : cs.title}
+      </h1>
       {cs.subtitle && (
         <p className="mt-2 text-[15px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.subtitle}</p>
       )}
 
       {cs.images && cs.images.length > 0 && (
-        <div className="mt-4 grid md:grid-cols-2 gap-3">
+        <div className="mt-4 grid grid-cols-1 xl:grid-cols-2 gap-3 stagger">
           {cs.images.map((img, i) => (
-            <figure key={i} className="relative overflow-hidden flex items-center justify-center h-[300px] sm:h-[360px] md:h-[420px] lg:h-[460px]" style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, background: '#050301' }}>
+            <figure key={i} className="relative card-hover overflow-hidden" style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, background: '#050301' }}>
               {img.type === 'video' ? (
                 <video
                   src={img.src}
                   poster={img.poster}
-                  className="max-w-full max-h-full object-contain"
+                  className="block w-full h-auto"
                   autoPlay
                   loop
                   muted
@@ -127,7 +134,7 @@ function DetailedCaseStudy({ cs }) {
                 <img
                   src={img.src}
                   alt={img.caption || 'case study image'}
-                  className="max-w-full max-h-full object-contain"
+                  className="block w-full h-auto"
                   data-testid={`case-study-media-${cs.id}-${i}`}
                 />
               )}
