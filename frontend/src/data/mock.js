@@ -288,8 +288,16 @@ export const caseStudies = [
     tags: ['automotive', 'audio', 'spatial-ui'],
     detailed: true,
     images: [
-      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Hyundai+%C3%97+B%26O+%E2%80%94+In-Cabin+%28replace%29&font=roboto', caption: 'In-cabin audio UI — replace this dummy image' },
-      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Hyundai+%C3%97+B%26O+%E2%80%94+Emotion+Modes+%28replace%29&font=roboto', caption: 'Emotion-based audio modes — replace this dummy image' }
+      {
+        type: 'image',
+        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/zruozqqv_image%20400.png',
+        caption: 'System overview screens \u2014 Hyundai \u00d7 B&O'
+      },
+      {
+        type: 'video',
+        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/hhi2yolp_20260705-1424-16.3259804.mp4',
+        caption: 'In-cabin prototype walkthrough'
+      }
     ],
     results: [
       { value: '40%', label: 'Faster audio interactions' },
