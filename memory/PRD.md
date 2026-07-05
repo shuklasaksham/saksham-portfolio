@@ -96,6 +96,15 @@ https://www.sakshamshukla.com/. Frontend-only initially.
   As you type, matching items get an amber ring glow (.peek-match), non-matches fade to 22% opacity
   and desaturate (.peek-dim). Wired to case-study cards, workbench chips, and principles. Escape
   closes and clears. `/ Peek` hint added to StatusBar. Testing agent — 21/22 hard assertions pass.
+- 2026-02-05: **Case-study media flow refined.** Primary (wide) asset renders full-width right after
+  the intro. Secondary asset is now a `float: right` element inside the first Problem/Overview/Challenge
+  section — text wraps around it subtly, no whitespace gaps, aspect ratio preserved. Width scales via
+  `clamp(220px, 38%, 460px)`. `clear: both` before "The Challenge" ensures the next section starts
+  on its own line. Verified visually.
+- 2026-02-05: **Behind The Pixels refined.** Removed the heavy amber drop shadow. Background is now a
+  radial gradient anchored to the bottom-right corner
+  (`radial-gradient(120% 90% at 88% 92%, rgba(245,165,36,0.22) → rgba(0,0,0,0.55))`), matching the
+  neon-embers reference. Backdrop blur retained.
 
 ## Roadmap
 ### P1

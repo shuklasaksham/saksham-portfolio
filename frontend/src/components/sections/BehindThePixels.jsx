@@ -141,14 +141,13 @@ export default function BehindThePixels() {
         ref={bodyRef}
         className="xl:flex-1 xl:min-h-0 xl:overflow-y-auto px-4 sm:px-6 md:px-8 py-5 md:py-6 text-[13px] sm:text-[14px] md:text-[15px] leading-[1.6] min-h-[380px]"
         style={{
-          background: 'rgba(0,0,0,0.55)',
+          background: 'radial-gradient(120% 90% at 88% 92%, rgba(245,165,36,0.22) 0%, rgba(245,165,36,0.08) 22%, rgba(30,15,4,0.55) 55%, rgba(0,0,0,0.55) 100%)',
           backdropFilter: 'blur(6px)',
           WebkitBackdropFilter: 'blur(6px)',
           color: '#e5e5e5',
           fontFamily: 'Consolas, "Cascadia Mono", "IBM Plex Mono", monospace',
-          border: '1px solid rgba(245,165,36,0.45)',
-          borderRadius: 6,
-          boxShadow: '0 0 0 1px rgba(245,165,36,0.18), 0 24px 60px -20px rgba(245,165,36,0.35), 0 0 80px rgba(245,165,36,0.15), inset 0 0 40px rgba(245,165,36,0.06)'
+          border: '1px solid rgba(245,165,36,0.28)',
+          borderRadius: 6
         }}
       >
         <div style={{ color: '#8a8a8a' }} className="mb-3">

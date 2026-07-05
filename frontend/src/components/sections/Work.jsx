@@ -109,9 +109,46 @@ export default function Work() {
   );
 }
 
+function MediaTile({ img, csId, index, className = '', style = {} }) {
+  return (
+    <figure
+      className={`relative card-hover overflow-hidden self-start ${className}`}
+      style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, background: '#050301', ...style }}
+    >
+      {img.type === 'video' ? (
+        <video
+          src={img.src}
+          poster={img.poster}
+          className="block w-full h-auto"
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls
+          preload="metadata"
+          data-testid={`case-study-media-${csId}-${index}`}
+        />
+      ) : (
+        <img
+          src={img.src}
+          alt={img.caption || 'case study image'}
+          className="block w-full h-auto"
+          data-testid={`case-study-media-${csId}-${index}`}
+        />
+      )}
+      <figcaption className="absolute inset-x-0 bottom-0 px-2 py-1 text-[10px] flex items-center gap-2 pointer-events-none" style={{ color: 'var(--amber)', background: 'linear-gradient(180deg, transparent, rgba(5,5,5,0.9))', letterSpacing: '0.05em' }}>
+        <span className="opacity-70">{img.type === 'video' ? 'VID' : 'IMG'}.{String(index + 1).padStart(2, '0')}</span>
+        <span className="truncate">{img.caption}</span>
+      </figcaption>
+    </figure>
+  );
+}
+
 function DetailedCaseStudy({ cs }) {
   const hasBullets = cs.challenge && cs.challenge.items && cs.challenge.items.length > 0;
   const researchIsArray = Array.isArray(cs.research);
+  const primary = cs.images && cs.images[0];
+  const secondary = cs.images && cs.images[1];
 
   return (
     <div className="mt-4">
@@ -124,41 +161,10 @@ function DetailedCaseStudy({ cs }) {
         <p className="mt-2 text-[15px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.subtitle}</p>
       )}
 
-      {cs.images && cs.images.length > 0 && (
-        <div className="mt-4 flex flex-col gap-3 stagger">
-          {cs.images.map((img, i) => (
-            <figure
-              key={i}
-              className={`relative card-hover overflow-hidden ${i === 0 ? 'w-full' : 'w-full md:w-3/4 lg:w-2/3 xl:w-3/5'} self-start`}
-              style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, background: '#050301' }}
-            >
-              {img.type === 'video' ? (
-                <video
-                  src={img.src}
-                  poster={img.poster}
-                  className="block w-full h-auto"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls
-                  preload="metadata"
-                  data-testid={`case-study-media-${cs.id}-${i}`}
-                />
-              ) : (
-                <img
-                  src={img.src}
-                  alt={img.caption || 'case study image'}
-                  className="block w-full h-auto"
-                  data-testid={`case-study-media-${cs.id}-${i}`}
-                />
-              )}
-              <figcaption className="absolute inset-x-0 bottom-0 px-2 py-1 text-[10px] flex items-center gap-2 pointer-events-none" style={{ color: 'var(--amber)', background: 'linear-gradient(180deg, transparent, rgba(5,5,5,0.9))', letterSpacing: '0.05em' }}>
-                <span className="opacity-70">{img.type === 'video' ? 'VID' : 'IMG'}.{String(i + 1).padStart(2, '0')}</span>
-                <span className="truncate">{img.caption}</span>
-              </figcaption>
-            </figure>
-          ))}
+      {/* Primary media — full width, right after intro */}
+      {primary && (
+        <div className="mt-4">
+          <MediaTile img={primary} csId={cs.id} index={0} className="w-full" />
         </div>
       )}
 
@@ -192,6 +198,15 @@ function DetailedCaseStudy({ cs }) {
       {cs.problem && (
         <>
           <SectionLabel>{cs.problem.label || 'The Problem'}</SectionLabel>
+          {secondary && (
+            <MediaTile
+              img={secondary}
+              csId={cs.id}
+              index={1}
+              className="mb-2 ml-4 sm:ml-6"
+              style={{ float: 'right', width: 'clamp(220px, 38%, 460px)', marginTop: 8, shapeMargin: 8 }}
+            />
+          )}
           <p className="mt-2 text-[15px] leading-relaxed font-semibold" style={{ color: 'var(--amber-2)' }}>{cs.problem.lead}</p>
           <p className="mt-3 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{cs.problem.body}</p>
         </>
@@ -200,6 +215,15 @@ function DetailedCaseStudy({ cs }) {
       {cs.overview && cs.overview.length > 0 && (
         <>
           <SectionLabel>Overview</SectionLabel>
+          {!cs.problem && secondary && (
+            <MediaTile
+              img={secondary}
+              csId={cs.id}
+              index={1}
+              className="mb-2 ml-4 sm:ml-6"
+              style={{ float: 'right', width: 'clamp(220px, 38%, 460px)', marginTop: 8, shapeMargin: 8 }}
+            />
+          )}
           {cs.overview.map((p, i) => (
             <p key={i} className="mt-2 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{p}</p>
           ))}
@@ -208,7 +232,18 @@ function DetailedCaseStudy({ cs }) {
 
       {cs.challenge && (
         <>
+          {/* Clearfix so challenge starts on its own line if the floated media is tall */}
+          <div style={{ clear: 'both' }} aria-hidden />
           <SectionLabel>The Challenge</SectionLabel>
+          {!cs.problem && !cs.overview && secondary && (
+            <MediaTile
+              img={secondary}
+              csId={cs.id}
+              index={1}
+              className="mb-2 ml-4 sm:ml-6"
+              style={{ float: 'right', width: 'clamp(220px, 38%, 460px)', marginTop: 8, shapeMargin: 8 }}
+            />
+          )}
           <p className="mt-2 text-[15px] leading-relaxed font-semibold" style={{ color: 'var(--amber-2)' }}>{cs.challenge.lead}</p>
           {cs.challenge.paragraphs && cs.challenge.paragraphs.map((p, i) => (
             <p key={i} className="mt-3 text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>{p}</p>
