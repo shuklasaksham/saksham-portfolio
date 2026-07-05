@@ -4,25 +4,20 @@ import { PenTool, Terminal, Frame, FileText, GitBranch, Video, Layers, Grid3x3, 
 
 const ICONS = { PenTool, Terminal, Frame, FileText, GitBranch, Video, Layers, Grid3x3 };
 
-function AsciiAvatar() {
-  const rows = [
-    '  ░░▓▓▓▓░░  ',
-    ' ░▓▓████▓▓░ ',
-    '░▓████████▓░',
-    '░▓█░████░█▓░',
-    '░▓████████▓░',
-    '░▓██░░░░██▓░',
-    '░▓████████▓░',
-    ' ░▓▓████▓▓░ ',
-    '  ░░▓▓▓▓░░  '
-  ];
+function PixelAvatar() {
   return (
-    <pre
-      className="leading-[0.85] text-[13px] md:text-[15px] select-none"
-      style={{ color: '#0a0704', fontFamily: 'VT323, IBM Plex Mono, monospace', letterSpacing: '0.02em' }}
-    >
-      {rows.join('\n')}
-    </pre>
+    <img
+      src="https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/d43v3wwa_crab.png"
+      alt="Saksham pixel avatar"
+      draggable={false}
+      className="block select-none"
+      style={{
+        width: 96,
+        height: 96,
+        imageRendering: 'pixelated',
+        filter: 'brightness(0) saturate(100%)'
+      }}
+    />
   );
 }
 
@@ -57,7 +52,7 @@ export default function AboutMe({ onNavigate }) {
       <div className="rounded-md p-5 md:p-6" style={{ background: 'var(--amber)', color: '#0a0704' }}>
         <div className="flex items-center gap-5">
           <div className="shrink-0 rounded-sm p-2" style={{ background: 'rgba(10,7,4,0.08)', border: '1px solid rgba(10,7,4,0.35)' }}>
-            <AsciiAvatar />
+            <PixelAvatar />
           </div>
           <div className="flex-1 min-w-0">
             <h1 className="font-bold leading-[1.05]" style={{ fontSize: 'clamp(24px, 2.4vw, 36px)', letterSpacing: '-0.01em' }}>
