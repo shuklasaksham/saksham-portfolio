@@ -27,8 +27,16 @@ export const caseStudies = [
     tags: ['ai', 'saas', 'design-tools'],
     detailed: true,
     images: [
-      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Bracket+%E2%80%94+Workspace+%28replace%29&font=roboto', caption: 'Bracket workspace \u2014 replace this dummy image' },
-      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Bracket+%E2%80%94+AI+Decisions+%28replace%29&font=roboto', caption: 'AI decision flow \u2014 replace this dummy image' }
+      {
+        type: 'video',
+        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/f1qvbjnw_20260705-1413-37.3042237.mp4',
+        caption: 'Bracket workspace walkthrough'
+      },
+      {
+        type: 'video',
+        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/yxm3taiv_20260705-1417-13.2923135.mp4',
+        caption: 'AI decision flow in action'
+      }
     ],
     resultsLabel: 'Impact',
     results: [
