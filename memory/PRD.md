@@ -68,6 +68,22 @@ https://www.sakshamshukla.com/. Frontend-only initially.
   the `moov` atom sits at the head of each file for instant first-frame playback. Verified — 100%
   pass for all images (4/4). Videos verified reachable (HTTP 200 + range 206); Playwright headless
   Chromium cannot decode H.264 by design, but real user browsers will play cleanly.
+- 2026-02-05: **Media letterbox removed + aspect ratio preserved.** Removed fixed heights on case-study
+  media tiles; media now renders `w-full h-auto block` so each figure exactly hugs its media (no black
+  bars). Added `items-start` on the paired-grid so mismatched aspects don't get stretched.
+- 2026-02-05: **Bracket hyperlinks everywhere.** Every occurrence of the product noun 'Bracket' is now
+  a `<a data-testid="bracket-link" href="https://use-bracket.com/" target="_blank">` — in the About Me
+  bio paragraph, the Currently panel headline, and as the H1 title of the Bracket case study.
+- 2026-02-05: **Desktop-wide responsive polish.** Raised the viewport-locked "terminal" threshold from
+  `md` (768px) to `xl` (1280px). Widths 1024/1280 now scroll the page naturally instead of clipping;
+  ≥1280 keeps the single-screen master-detail experience. Mobile drawer + <768px unchanged.
+- 2026-02-05: **Global micro-interactions.** New utility classes in index.css: `.card-hover`, `.chip`,
+  `.press`, `.link-amber`, `.stagger` (fade-up entrance), `.boot-glow` (stat number entrance),
+  `.icon-wobble`. Applied to stat tiles, workbench chips, case-study cards, master list items, and
+  primary buttons. Case-study master list items now slide right on hover with a chevron translate.
+- 2026-02-05: **Workbench alive.** Chips animate on hover (amber fill + icon rotate/wobble), have a
+  staggered entrance, and show a 'HOVER TO INSPECT' hint in the card header. Testing agent — 100%
+  pass on all 13 sub-checks.
 
 ## Roadmap
 ### P1

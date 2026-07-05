@@ -114,7 +114,7 @@ function DetailedCaseStudy({ cs }) {
       )}
 
       {cs.images && cs.images.length > 0 && (
-        <div className="mt-4 grid grid-cols-1 xl:grid-cols-2 gap-3 stagger">
+        <div className="mt-4 grid grid-cols-1 xl:grid-cols-2 gap-3 items-start stagger">
           {cs.images.map((img, i) => (
             <figure key={i} className="relative card-hover overflow-hidden" style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, background: '#050301' }}>
               {img.type === 'video' ? (
