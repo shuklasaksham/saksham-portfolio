@@ -10,7 +10,8 @@ export const caseStudies = [
 
   {
     id: 'bracket',
-    openDesignsUrl: '#',
+    openDesignsUrl: 'https://use-bracket.com/',
+    openDesignsLabel: 'Open Bracket',
     version: 'V2026.1',
     title: 'Bracket',
     subtitle: 'An AI Decision OS for designers and freelancers that turns messy briefs into client-ready decisions, documents, and review workflows.',
@@ -31,10 +32,10 @@ export const caseStudies = [
     ],
     resultsLabel: 'Impact',
     results: [
-      { value: '2K+', label: 'Early waitlist signups' },
-      { value: '6+', label: 'Hours saved weekly per freelancer' },
-      { value: '80%', label: 'Reduction in context switching' },
-      { value: '50%', label: 'Less administrative work' }
+      { value: '123', label: 'Freelancers & Teams' },
+      { value: '68', label: 'Requirements Extracted' },
+      { value: '115', label: 'Risks Identified' },
+      { value: '90', label: 'Client Questions Generated' }
     ],
     overview: [
       'Freelancers don\u2019t struggle because they lack tools.',
@@ -134,7 +135,6 @@ export const caseStudies = [
     caption: 'Voice-first AI assistant for customer support.',
     description: 'Conversational AI turning 15-minute plan research into a 3-minute chat.',
     tags: ['ai', 'telecom', 'conversational'],
-    openDesignsUrl: '#',
     detailed: true,
     images: [
       { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Tello.ai+%E2%80%94+Conversation+%28replace%29&font=roboto', caption: 'Tello.ai conversation UI \u2014 replace this dummy image' },
@@ -254,7 +254,6 @@ export const caseStudies = [
 
   {
     id: 'hyundai-bo',
-    openDesignsUrl: '#',
     version: 'V2024.4',
     title: 'Hyundai \u00d7 Bang & Olufsen',
     subtitle: 'Rethinking in-car audio for safer, distraction-free driving.',
@@ -348,7 +347,6 @@ export const caseStudies = [
 
   {
     id: 'harman-kardon',
-    openDesignsUrl: '#',
     version: 'V2023.3',
     title: 'One Audio: Designed for Harman Kardon',
     subtitle: 'Designing a connected audio ecosystem that feels like one product \u2014 not many.',
@@ -583,10 +581,11 @@ export const navItems = [
 ];
 
 export const socials = [
-  { label: 'LinkedIn', href: '#' },
-  { label: 'Behance', href: '#' },
-  { label: 'Instagram', href: '#' },
-  { label: 'Twitter', href: '#' }
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/saksham-shuklaa/' },
+  { label: 'Behance', href: 'https://www.behance.net/sakshamshukla2' },
+  { label: 'Instagram', href: 'https://www.instagram.com/_sakshamshukla_/' },
+  { label: 'Email', href: 'mailto:shuklasaksham01@gmail.com' },
+  { label: 'Call', href: 'tel:+917318088227' }
 ];
 
 export const profile = {

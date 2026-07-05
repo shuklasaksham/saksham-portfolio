@@ -71,16 +71,19 @@ export default function Work() {
               <span style={{ color: 'var(--amber)' }}>&gt;</span> Case study loaded.
               <span aria-hidden className="inline-block ml-1 align-baseline" style={{ width: '0.5ch', height: '0.85em', background: 'var(--amber)', opacity: dotOn ? 0.9 : 0, transform: 'translateY(1px)' }} />
             </div>
-            <a
-              href={cs.openDesignsUrl || '#'}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[12px] font-semibold px-3 py-1.5"
-              style={{ background: 'var(--amber)', color: '#0a0704', borderRadius: 2 }}
-            >
-              <ExternalLink size={13} strokeWidth={2} />
-              Open Designs
-            </a>
+            {cs.openDesignsUrl && (
+              <a
+                href={cs.openDesignsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid={`open-designs-${cs.id}`}
+                className="inline-flex items-center gap-2 text-[12px] font-semibold px-3 py-1.5"
+                style={{ background: 'var(--amber)', color: '#0a0704', borderRadius: 2 }}
+              >
+                <ExternalLink size={13} strokeWidth={2} />
+                {cs.openDesignsLabel || 'Open Designs'}
+              </a>
+            )}
           </div>
 
           <div style={{ opacity: loaded ? 1 : 0, transition: 'opacity 200ms ease 80ms' }}>

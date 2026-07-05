@@ -7,7 +7,7 @@ const ICONS = { PenTool, Terminal, Frame, FileText, GitBranch, Video, Layers, Gr
 function PixelAvatar() {
   return (
     <img
-      src="https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/q0gl16m1_crab_bw_shades.png"
+      src="/crab-avatar.png"
       alt="Saksham pixel avatar"
       draggable={false}
       className="block select-none"
@@ -40,7 +40,7 @@ export default function AboutMe({ onNavigate }) {
 
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText('hello@saksham.design');
+      await navigator.clipboard.writeText('shuklasaksham01@gmail.com');
       setCopied(true);
       setTimeout(() => setCopied(false), 1400);
     } catch (_) {}
@@ -110,7 +110,7 @@ export default function AboutMe({ onNavigate }) {
               style={{ background: 'var(--amber)', color: '#0a0704', borderRadius: 2 }}
             >
               {copied ? <Check size={13} /> : <Copy size={13} />}
-              {copied ? 'Copied — hello@saksham.design' : 'Copy email'}
+              {copied ? 'Copied — shuklasaksham01@gmail.com' : 'Copy email'}
             </button>
             <button
               onClick={() => onNavigate && onNavigate('contact')}

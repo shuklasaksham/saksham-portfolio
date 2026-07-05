@@ -37,12 +37,12 @@ export default function CommandPalette({ open, onClose, onNavigate, onToggleSide
       },
       {
         id: 'copy-email',
-        label: 'Copy email — hello@saksham.design',
+        label: 'Copy email — shuklasaksham01@gmail.com',
         hint: 'Contact',
         icon: Copy,
         run: async () => {
           try {
-            await navigator.clipboard.writeText('hello@saksham.design');
+            await navigator.clipboard.writeText('shuklasaksham01@gmail.com');
             setCopied(true);
             setTimeout(() => { setCopied(false); onClose(); }, 900);
           } catch (_) { onClose(); }
