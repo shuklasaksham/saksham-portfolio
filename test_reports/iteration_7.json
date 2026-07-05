@@ -1,0 +1,52 @@
+{
+  "summary": "Frontend-only verification of 3 reported fixes on Saksham portfolio (iteration 7): (1) Behind The Pixels subtle amber hue, (2) CMD terminal full-height, (3) crab avatar + favicon at 1254x1254 with ?v=3. All 3 fixes PASS. Regression checks (peek '/', Cmd+K palette, Bracket hyperlinks, case-study media, Product Designer chip) also PASS. Frontend supervisor restart was required for public/index.html favicon change to be served (no code bug).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verified_fixes": [
+    {
+      "fix": "BEHIND THE PIXELS — subtle amber hue",
+      "status": "PASS",
+      "evidence": "computed background-image = radial-gradient(120% 90% at 92% 96%, rgba(245,165,36,0.09) 0%, rgba(245,165,36,0.03) 22%, rgba(10,7,4,0.7) 60%, rgba(0,0,0,0.75) 100%). First amber alpha=0.09 (≤0.15 required). Position 92% X, 96% Y (in 88-92%/92-96% window). box-shadow=none."
+    },
+    {
+      "fix": "BEHIND THE PIXELS — full height",
+      "status": "PASS",
+      "evidence": "@1920x900: section=836.5px, CMD box=750px (>=550 required, ratio 89.7% of section). @1280x720: section=656.5px, CMD box=570px (>=480 required, ratio 86.8%). No dead black space below terminal; remaining ~86px is section vertical padding + header row (BEHIND THE PIXELS + REPLAY)."
+    },
+    {
+      "fix": "AVATAR UPDATED — About Me",
+      "status": "PASS",
+      "evidence": "[data-testid=about-me-avatar] currentSrc='/crab-avatar.png?v=3', naturalWidth=1254, naturalHeight=1254, displayWidth=104, displayHeight=104, objectFit='contain'. File on disk is 1254x1254 RGB PNG."
+    },
+    {
+      "fix": "FAVICON UPDATED",
+      "status": "PASS (after frontend restart)",
+      "evidence": "After `supervisorctl restart frontend`, served HTML has link[rel=icon] href='/crab-avatar.png?v=3' and link[rel=apple-touch-icon] href='/crab-avatar.png?v=3'. Before restart it was still ?v=2 (public/index.html changes do not hot-reload with CRA dev server)."
+    },
+    {
+      "fix": "REGRESSION",
+      "status": "PASS",
+      "evidence": "Peek '/' opens overlay (placeholder='Type to peek — case studies, tools, principles…'). Cmd+K opens palette (placeholder='Type a command or search…'). About Me: 2 [data-testid=bracket-link] both point to https://use-bracket.com/. Bracket case-study detail: 1 bracket-link href=https://use-bracket.com/, 2 videos rendered (primary full-width walkthrough + secondary floated). Product Designer chip: background rgb(10,7,4) = black, color rgb(245,165,36) = amber."
+    }
+  ],
+  "test_report_links": [],
+  "action_items": [
+    "None from testing side — all 3 reported fixes verified. Note: frontend service was restarted once because CRA dev server does not hot-reload public/index.html; the source file already had ?v=3 correctly. Main agent may want to keep this in mind (or trigger a restart) when only public/* changes are made."
+  ],
+  "critical_code_review_comments": [
+    "BehindThePixels.jsx: cmd box uses `min-h-[calc(100vh-160px)]` at all viewports (not just <xl). This is fine for the reported requirement (fill the section) but on very short viewports (e.g., <760px tall) the box will exceed section area and force page scroll. Consider gating min-h by breakpoint if needed.",
+    "index.html: two link tags (icon + apple-touch-icon) hardcode ?v=3 — future favicon changes need to bump cache-buster and restart frontend. Non-blocking."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "skipped", "frontend": "100%"},
+  "seed_data_creation": "none",
+  "test_credentials": "none required",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All 3 fixes from user report are verified working. Preview URL: https://saksham-design-1.preview.emergentagent.com. If favicon appears stale in future tests, restart frontend (supervisorctl restart frontend) because CRA doesn't hot-reload public/index.html.",
+  "rca of the issue": "N/A — no bug found. Only observation: the discrepancy between source (?v=3) and served HTML (?v=2) before restart was due to CRA dev server not watching public/index.html, not a code defect."
+}

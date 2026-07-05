@@ -64,14 +64,15 @@ function renderWithBracketLink(text) {
 function PixelAvatar() {
   return (
     <img
-      src="/crab-avatar.png"
+      src="/crab-avatar.png?v=3"
       alt="Saksham pixel avatar"
       draggable={false}
       className="block select-none"
       data-testid="about-me-avatar"
       style={{
-        width: 96,
-        height: 96,
+        width: 104,
+        height: 104,
+        objectFit: 'contain',
         imageRendering: 'pixelated'
       }}
     />

@@ -139,9 +139,9 @@ export default function BehindThePixels() {
       {/* CMD body — no window chrome */}
       <div
         ref={bodyRef}
-        className="xl:flex-1 xl:min-h-0 xl:overflow-y-auto px-4 sm:px-6 md:px-8 py-5 md:py-6 text-[13px] sm:text-[14px] md:text-[15px] leading-[1.6] min-h-[380px]"
+        className="flex-1 min-h-[calc(100vh-160px)] xl:min-h-0 xl:overflow-y-auto px-4 sm:px-6 md:px-8 py-5 md:py-6 text-[13px] sm:text-[14px] md:text-[15px] leading-[1.6]"
         style={{
-          background: 'radial-gradient(120% 90% at 88% 92%, rgba(245,165,36,0.22) 0%, rgba(245,165,36,0.08) 22%, rgba(30,15,4,0.55) 55%, rgba(0,0,0,0.55) 100%)',
+          background: 'radial-gradient(120% 90% at 92% 96%, rgba(245,165,36,0.09) 0%, rgba(245,165,36,0.03) 22%, rgba(10,7,4,0.7) 60%, rgba(0,0,0,0.75) 100%)',
           backdropFilter: 'blur(6px)',
           WebkitBackdropFilter: 'blur(6px)',
           color: '#e5e5e5',
