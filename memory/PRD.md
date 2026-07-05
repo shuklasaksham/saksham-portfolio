@@ -34,6 +34,15 @@ https://www.sakshamshukla.com/. Frontend-only initially.
   (transparent PNG + `filter: brightness(0)` so only crab silhouette turns black)
 - 2026-02-05: **About Me avatar swapped to user-provided `crab_bw_shades.png`** (native grayscale/black
   pixel-art crab, no CSS filter applied). Verified via testing_agent — 100% pass.
+- 2026-02-05: **Avatar image path moved to local `/app/frontend/public/crab-avatar.png`** — external
+  customer-assets URL was unreachable in user's network, causing a broken image icon. Fixed.
+- 2026-02-05: **Bracket case study Impact metrics updated** → 123 Freelancers & Teams, 68 Requirements
+  Extracted, 115 Risks Identified, 90 Client Questions Generated.
+- 2026-02-05: **Removed "Open Designs" CTA from Tello, Hyundai, Harman Kardon.** Kept only on Bracket,
+  renamed to "Open Bracket" → links to https://use-bracket.com/
+- 2026-02-05: **Real social links + email + phone wired in.** LinkedIn, Instagram, Behance, mailto:
+  shuklasaksham01@gmail.com, tel:+917318088227. Old email 'hello@saksham.design' and Twitter link removed
+  from About Me, Command Palette, Contact section. Verified — 100% pass (15/15 checks).
 
 ## Roadmap
 ### P1
