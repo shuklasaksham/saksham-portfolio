@@ -59,6 +59,15 @@ https://www.sakshamshukla.com/. Frontend-only initially.
   Figma flow image (rendered with `object-contain` to show the full diagram) and (2) the prototype
   walkthrough MP4 (autoplay, muted, loop, with controls). Extended case-study media schema to accept
   `type: 'image' | 'video'` and an optional `fit: 'contain' | 'cover'` hint.
+- 2026-02-05: **Bracket, Hyundai, One Audio media populated.** Bracket → 2 videos; Hyundai → 1 image
+  + 1 video; One Audio → 2 images.
+- 2026-02-05: **BUG FIX: Case-study media not visible.** Root cause — `customer-assets.emergentagent.com`
+  was blocked in the user's network (same issue that hit the crab avatar previously). Fix: downloaded
+  all 8 media files (5 videos, 3 images) to `/app/frontend/public/media/` and pointed all `mock.js`
+  entries at same-origin `/media/*` paths. Re-muxed all 4 videos with `ffmpeg -movflags +faststart` so
+  the `moov` atom sits at the head of each file for instant first-frame playback. Verified — 100%
+  pass for all images (4/4). Videos verified reachable (HTTP 200 + range 206); Playwright headless
+  Chromium cannot decode H.264 by design, but real user browsers will play cleanly.
 
 ## Roadmap
 ### P1
