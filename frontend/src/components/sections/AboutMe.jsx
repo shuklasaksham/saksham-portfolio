@@ -47,15 +47,15 @@ export default function AboutMe({ onNavigate }) {
   };
 
   return (
-    <section className="h-full w-full overflow-hidden px-6 md:px-10 lg:px-12 py-6 flex flex-col gap-4">
+    <section className="md:h-full w-full md:overflow-hidden px-4 sm:px-6 md:px-10 lg:px-12 py-4 md:py-6 flex flex-col gap-4">
       {/* Solid amber statement block */}
-      <div className="rounded-md p-5 md:p-6" style={{ background: 'var(--amber)', color: '#0a0704' }}>
-        <div className="flex items-center gap-5">
-          <div className="shrink-0 rounded-sm p-2" style={{ background: 'rgba(10,7,4,0.08)', border: '1px solid rgba(10,7,4,0.35)' }}>
+      <div className="rounded-md p-4 sm:p-5 md:p-6" style={{ background: 'var(--amber)', color: '#0a0704' }}>
+        <div className="flex items-center gap-3 sm:gap-5">
+          <div className="shrink-0 rounded-sm p-1.5 sm:p-2" style={{ background: 'rgba(10,7,4,0.08)', border: '1px solid rgba(10,7,4,0.35)' }}>
             <PixelAvatar />
           </div>
           <div className="flex-1 min-w-0">
-            <h1 className="font-bold leading-[1.05]" style={{ fontSize: 'clamp(24px, 2.4vw, 36px)', letterSpacing: '-0.01em' }}>
+            <h1 className="font-bold leading-[1.05]" style={{ fontSize: 'clamp(20px, 4.5vw, 36px)', letterSpacing: '-0.01em' }}>
               Designing products that simplify complexity.
               <span
                 aria-hidden
@@ -63,7 +63,7 @@ export default function AboutMe({ onNavigate }) {
                 style={{ width: '0.55ch', height: '0.9em', background: '#0a0704', opacity: showCaret ? 1 : 0, transform: 'translateY(2px)' }}
               />
             </h1>
-            <div className="mt-3 flex items-center gap-3 text-[13px]">
+            <div className="mt-3 flex items-center flex-wrap gap-2 sm:gap-3 text-[12px] sm:text-[13px]">
               <span className="inline-flex items-center gap-2 px-2 py-0.5" style={{ background: 'rgba(10,7,4,0.12)', border: '1px solid rgba(10,7,4,0.35)', borderRadius: 2 }}>
                 <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#0a0704' }} />
                 Product Designer
@@ -75,9 +75,9 @@ export default function AboutMe({ onNavigate }) {
       </div>
 
       {/* Body: two columns */}
-      <div className="grid lg:grid-cols-12 gap-4 flex-1 min-h-0">
+      <div className="grid lg:grid-cols-12 gap-4 md:flex-1 md:min-h-0">
         {/* Left: Bio + Stats */}
-        <div className="lg:col-span-7 rounded-sm p-5 md:p-6 flex flex-col min-h-0 overflow-hidden" style={{ border: '1px solid var(--amber)' }}>
+        <div className="lg:col-span-7 rounded-sm p-4 sm:p-5 md:p-6 flex flex-col md:min-h-0 md:overflow-hidden" style={{ border: '1px solid var(--amber)' }}>
           <p className="text-[14px] leading-relaxed" style={{ color: 'var(--amber)' }}>
             I&apos;m Saksham, a Product Designer with 4.5+ years of experience creating enterprise and AI-powered products across telecom and automotive. Currently at Verizon, and building <span className="underline underline-offset-[3px]" style={{ color: 'var(--amber-2)' }}>Bracket</span> — an AI Decision OS that transforms messy briefs into structured decisions, documentation, and collaborative workflows.
           </p>
@@ -130,7 +130,7 @@ export default function AboutMe({ onNavigate }) {
         </div>
 
         {/* Right: Currently + Tool stack + Principles */}
-        <div className="lg:col-span-5 flex flex-col gap-3 min-h-0">
+        <div className="lg:col-span-5 flex flex-col gap-3 md:min-h-0">
           {/* Currently */}
           <div className="rounded-sm p-4" style={{ border: '1px solid var(--amber)' }}>
             <div className="flex items-center gap-2 text-[11px]" style={{ color: 'var(--muted-2)', letterSpacing: '0.18em' }}>
@@ -162,9 +162,9 @@ export default function AboutMe({ onNavigate }) {
           </div>
 
           {/* Principles */}
-          <div className="rounded-sm p-4 flex-1 min-h-0 flex flex-col" style={{ border: '1px solid var(--amber)' }}>
+          <div className="rounded-sm p-4 md:flex-1 md:min-h-0 flex flex-col" style={{ border: '1px solid var(--amber)' }}>
             <div className="text-[11px] mb-2" style={{ color: 'var(--muted-2)', letterSpacing: '0.18em' }}>PRINCIPLES</div>
-            <ul className="space-y-2 flex-1 min-h-0 overflow-hidden">
+            <ul className="space-y-2 md:flex-1 md:min-h-0 md:overflow-hidden">
               {principles.map((p) => (
                 <li key={p.n} className="flex items-start gap-3">
                   <span className="text-[11px] pt-0.5" style={{ color: 'var(--muted)' }}>{p.n}</span>

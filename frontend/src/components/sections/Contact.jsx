@@ -15,14 +15,14 @@ export default function Contact() {
   };
 
   return (
-    <section className="h-full w-full overflow-hidden px-6 md:px-10 lg:px-12 py-6 flex flex-col">
-      <div className="mb-3 flex items-center gap-3 text-[13px]" style={{ color: 'var(--amber)', letterSpacing: '0.15em' }}>
+    <section className="md:h-full w-full md:overflow-hidden px-4 sm:px-6 md:px-10 lg:px-12 py-4 md:py-6 flex flex-col">
+      <div className="mb-3 flex items-center gap-3 text-[12px] sm:text-[13px]" style={{ color: 'var(--amber)', letterSpacing: '0.15em' }}>
         <span className="font-semibold">CONTACT</span>
         <span className="flex-1 h-px" style={{ background: 'rgba(245,165,36,0.2)' }} />
         <span className="opacity-70">inbox open</span>
       </div>
 
-      <article className="rounded-sm p-5 md:p-6 flex-1 min-h-0 overflow-hidden flex flex-col" style={{ border: '1px solid var(--amber)' }}>
+      <article className="rounded-sm p-4 sm:p-5 md:p-6 md:flex-1 md:min-h-0 md:overflow-hidden flex flex-col" style={{ border: '1px solid var(--amber)' }}>
         <h1 className="font-bold leading-[1.1] hard-glow" style={{ color: 'var(--amber-2)', fontSize: 'clamp(22px, 2vw, 32px)' }}>
           Say hi — or send a wild idea.
         </h1>
@@ -36,8 +36,8 @@ export default function Contact() {
           ))}
         </div>
 
-        <form onSubmit={submit} className="mt-3 flex-1 min-h-0 flex flex-col">
-          <div className="flex gap-2 px-3 py-3 flex-1 min-h-0" style={{ border: '1px solid rgba(245,165,36,0.4)', borderRadius: 2 }}>
+        <form onSubmit={submit} className="mt-3 md:flex-1 md:min-h-0 flex flex-col">
+          <div className="flex gap-2 px-3 py-3 min-h-[160px] md:flex-1 md:min-h-0" style={{ border: '1px solid rgba(245,165,36,0.4)', borderRadius: 2 }}>
             <span className="pt-1" style={{ color: 'var(--amber)' }}>&gt;</span>
             <textarea value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Start typing or pick a sentence above…" className="w-full h-full bg-transparent outline-none resize-none text-[14px] placeholder:opacity-50" style={{ color: 'var(--amber-2)', caretColor: 'var(--amber)' }} />
           </div>
@@ -47,15 +47,22 @@ export default function Contact() {
               {sent ? <Check size={14} /> : <Send size={14} />}
               {sent ? 'Sent — will reply in 24h' : 'Send it →'}
             </button>
-            <span className="text-[12px]" style={{ color: 'var(--muted)' }}>
+            <span className="text-[12px] hidden sm:inline" style={{ color: 'var(--muted)' }}>
               or press <span style={{ color: 'var(--amber)' }}>[⌘ + Enter]</span>
             </span>
-            <div className="ml-auto text-[13px]" style={{ color: 'var(--amber)' }}>
-              {socials.map((s, i) => (
-                <React.Fragment key={s.label}>
-                  <a href={s.href} className="underline underline-offset-[3px]" style={{ color: 'var(--amber-2)' }}>{s.label}</a>
-                  {i < socials.length - 1 ? '  ·  ' : ''}
-                </React.Fragment>
+            <div className="w-full sm:w-auto sm:ml-auto text-[12px] sm:text-[13px] flex flex-wrap gap-x-3 gap-y-1" style={{ color: 'var(--amber)' }}>
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith('http') ? '_blank' : undefined}
+                  rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  data-testid={`social-${s.label.toLowerCase()}`}
+                  className="underline underline-offset-[3px]"
+                  style={{ color: 'var(--amber-2)' }}
+                >
+                  {s.label}
+                </a>
               ))}
             </div>
           </div>

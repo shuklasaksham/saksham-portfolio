@@ -87,7 +87,7 @@ export default function CommandPalette({ open, onClose, onNavigate, onToggleSide
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4"
+      className="fixed inset-0 z-[60] flex items-start justify-center pt-14 md:pt-24 px-3 md:px-4"
       style={{ background: 'rgba(0,0,0,0.55)' }}
       onMouseDown={onClose}
     >

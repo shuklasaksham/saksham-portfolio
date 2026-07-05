@@ -258,7 +258,7 @@ export const caseStudies = [
     title: 'Hyundai \u00d7 Bang & Olufsen',
     subtitle: 'Rethinking in-car audio for safer, distraction-free driving.',
     category: 'CONCEPT',
-    role: 'Lead Product Designer',
+    role: 'Experience Designer',
     year: '2024',
     duration: '12 Weeks',
     platform: 'Automotive Infotainment',
@@ -351,7 +351,7 @@ export const caseStudies = [
     title: 'One Audio: Designed for Harman Kardon',
     subtitle: 'Designing a connected audio ecosystem that feels like one product \u2014 not many.',
     category: 'CONNECTED AUDIO',
-    role: 'UX/UI Designer',
+    role: 'Designer',
     year: '2023',
     duration: '2023',
     platform: 'IoT \u00b7 Connected Audio',
@@ -619,6 +619,6 @@ export const principles = [
 export const currentStatus = {
   headline: 'Building Bracket — an AI Decision OS',
   detail: 'Shipping v0.4 workspace: shareable decision docs, AI-assisted briefs, keyboard-first reviews.',
-  availability: 'Onboarding 3 design partners this quarter',
+  availability: 'Open to Product Designer roles + collaborations',
   responseTime: 'Usually replies within 24h'
 };

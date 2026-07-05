@@ -4,6 +4,7 @@ import TerminalFrame from './components/TerminalFrame';
 import Sidebar from './components/Sidebar';
 import StatusBar from './components/StatusBar';
 import CommandPalette from './components/CommandPalette';
+import MobileTopBar from './components/MobileTopBar';
 import AboutMe from './components/sections/AboutMe';
 import Work from './components/sections/Work';
 import Illustrations from './components/sections/Illustrations';
@@ -25,6 +26,7 @@ function App() {
   const [active, setActive] = useState('about');
   const [collapsed, setCollapsed] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   useEffect(() => {
     const handler = (e) => {
@@ -63,15 +65,24 @@ function App() {
   return (
     <div className="App min-h-screen">
       <TerminalFrame>
-        <div className="flex flex-col h-full min-h-0">
+        <div className="flex flex-col h-auto md:h-full min-h-0">
+          {/* Mobile only: top bar with hamburger */}
+          <MobileTopBar
+            active={active}
+            onOpenSidebar={() => setMobileNavOpen(true)}
+            onOpenPalette={() => setPaletteOpen(true)}
+          />
+
           <div className="flex flex-1 min-h-0">
             <Sidebar
               active={active}
               onNavigate={setActive}
               collapsed={collapsed}
               onToggle={() => setCollapsed((v) => !v)}
+              mobileOpen={mobileNavOpen}
+              onMobileClose={() => setMobileNavOpen(false)}
             />
-            <main className="flex-1 min-w-0 h-full overflow-hidden">
+            <main className="flex-1 min-w-0 md:h-full md:overflow-hidden">
               <div key={active} className="h-full w-full section-fade">
                 <Section onNavigate={setActive} />
               </div>
