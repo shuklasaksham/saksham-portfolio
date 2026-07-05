@@ -21,18 +21,18 @@ export default function Sidebar({ active, onNavigate, collapsed, onToggle }) {
             className="text-[22px] leading-none hard-glow"
             style={{ color: 'var(--amber)', fontFamily: 'VT323, IBM Plex Mono, monospace' }}
           >
-            S
+            SS
           </div>
         ) : (
           <div
-            className="text-[22px] leading-none hard-glow whitespace-nowrap"
+            className="text-[20px] leading-none hard-glow whitespace-nowrap"
             style={{
               color: 'var(--amber)',
               fontFamily: 'VT323, IBM Plex Mono, monospace',
-              letterSpacing: '0.02em'
+              letterSpacing: '0.06em'
             }}
           >
-            S¥βSH¥¢E
+            SAKSHAM SHUKLA
           </div>
         )}
       </div>
