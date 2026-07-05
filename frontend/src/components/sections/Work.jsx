@@ -109,10 +109,30 @@ function DetailedCaseStudy({ cs }) {
       {cs.images && cs.images.length > 0 && (
         <div className="mt-4 grid md:grid-cols-2 gap-3">
           {cs.images.map((img, i) => (
-            <figure key={i} className="relative overflow-hidden" style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, aspectRatio: '16/10' }}>
-              <img src={img.src} alt={img.caption || 'case study image'} className="w-full h-full object-cover" />
-              <figcaption className="absolute inset-x-0 bottom-0 px-2 py-1 text-[10px] flex items-center gap-2" style={{ color: 'var(--amber)', background: 'linear-gradient(180deg, transparent, rgba(5,5,5,0.9))', letterSpacing: '0.05em' }}>
-                <span className="opacity-70">IMG.{String(i + 1).padStart(2, '0')}</span>
+            <figure key={i} className="relative overflow-hidden" style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, aspectRatio: '16/10', background: '#050301' }}>
+              {img.type === 'video' ? (
+                <video
+                  src={img.src}
+                  poster={img.poster}
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  preload="metadata"
+                  data-testid={`case-study-media-${cs.id}-${i}`}
+                />
+              ) : (
+                <img
+                  src={img.src}
+                  alt={img.caption || 'case study image'}
+                  className={`w-full h-full ${img.fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                  data-testid={`case-study-media-${cs.id}-${i}`}
+                />
+              )}
+              <figcaption className="absolute inset-x-0 bottom-0 px-2 py-1 text-[10px] flex items-center gap-2 pointer-events-none" style={{ color: 'var(--amber)', background: 'linear-gradient(180deg, transparent, rgba(5,5,5,0.9))', letterSpacing: '0.05em' }}>
+                <span className="opacity-70">{img.type === 'video' ? 'VID' : 'IMG'}.{String(i + 1).padStart(2, '0')}</span>
                 <span className="truncate">{img.caption}</span>
               </figcaption>
             </figure>

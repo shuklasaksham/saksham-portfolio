@@ -137,8 +137,17 @@ export const caseStudies = [
     tags: ['ai', 'telecom', 'conversational'],
     detailed: true,
     images: [
-      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Tello.ai+%E2%80%94+Conversation+%28replace%29&font=roboto', caption: 'Tello.ai conversation UI \u2014 replace this dummy image' },
-      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=Tello.ai+%E2%80%94+Recommendation+%28replace%29&font=roboto', caption: 'Recommendation card \u2014 replace this dummy image' }
+      {
+        type: 'image',
+        fit: 'contain',
+        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/gjtzjh15_Activation%20_%20pSIM%20%26%20eSIM%201.png',
+        caption: 'Activation flow — pSIM & eSIM (Figma)'
+      },
+      {
+        type: 'video',
+        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/t8qthhi7_20260705-1406-53.2072577.mp4',
+        caption: 'Tello.ai prototype walkthrough'
+      }
     ],
     resultsLabel: 'Results',
     results: [

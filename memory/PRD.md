@@ -51,8 +51,14 @@ https://www.sakshamshukla.com/. Frontend-only initially.
   390 / 820 / 1024 / 1440 / 1920 viewports.
 - 2026-02-05: **About Me availability copy updated.** 'Onboarding 3 design partners this quarter' →
   'Open to Product Designer roles + collaborations'.
-- 2026-02-05: **Case study role fixes.** Hyundai × Bang & Olufsen → 'Experience Designer'. One Audio
+- 2026-02-05: **Case study roles fixed.** Hyundai × Bang & Olufsen → 'Experience Designer'. One Audio
   (Harman Kardon) → 'Designer'.
+- 2026-02-05: **Browser chrome polish.** `<title>` set to `Saksham Shukla | Product Designer`; favicon
+  swapped to `/crab-avatar.png`. Removed the dark rectangle wrapper around the crab avatar in About Me.
+- 2026-02-05: **Tello.ai media populated.** Replaced 2 placeholders with (1) the Activation | pSIM & eSIM
+  Figma flow image (rendered with `object-contain` to show the full diagram) and (2) the prototype
+  walkthrough MP4 (autoplay, muted, loop, with controls). Extended case-study media schema to accept
+  `type: 'image' | 'video'` and an optional `fit: 'contain' | 'cover'` hint.
 
 ## Roadmap
 ### P1
