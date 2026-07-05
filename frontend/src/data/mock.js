@@ -29,12 +29,12 @@ export const caseStudies = [
     images: [
       {
         type: 'video',
-        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/f1qvbjnw_20260705-1413-37.3042237.mp4',
+        src: '/media/bracket-1.mp4',
         caption: 'Bracket workspace walkthrough'
       },
       {
         type: 'video',
-        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/yxm3taiv_20260705-1417-13.2923135.mp4',
+        src: '/media/bracket-2.mp4',
         caption: 'AI decision flow in action'
       }
     ],
@@ -148,12 +148,12 @@ export const caseStudies = [
       {
         type: 'image',
         fit: 'contain',
-        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/gjtzjh15_Activation%20_%20pSIM%20%26%20eSIM%201.png',
+        src: '/media/tello-flow.png',
         caption: 'Activation flow — pSIM & eSIM (Figma)'
       },
       {
         type: 'video',
-        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/t8qthhi7_20260705-1406-53.2072577.mp4',
+        src: '/media/tello-video.mp4',
         caption: 'Tello.ai prototype walkthrough'
       }
     ],
@@ -290,12 +290,12 @@ export const caseStudies = [
     images: [
       {
         type: 'image',
-        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/zruozqqv_image%20400.png',
+        src: '/media/hyundai-screens.png',
         caption: 'System overview screens \u2014 Hyundai \u00d7 B&O'
       },
       {
         type: 'video',
-        src: 'https://customer-assets.emergentagent.com/job_saksham-design-1/artifacts/hhi2yolp_20260705-1424-16.3259804.mp4',
+        src: '/media/hyundai-video.mp4',
         caption: 'In-cabin prototype walkthrough'
       }
     ],
@@ -387,8 +387,16 @@ export const caseStudies = [
     tags: ['audio', 'iot', 'ecosystem'],
     detailed: true,
     images: [
-      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=One+Audio+%E2%80%94+Space+View+%28replace%29&font=roboto', caption: 'One Audio space view \u2014 replace this dummy image' },
-      { src: 'https://placehold.co/1200x720/0a0704/f5a524.png?text=One+Audio+%E2%80%94+Handoff+%28replace%29&font=roboto', caption: 'Instant audio handoff \u2014 replace this dummy image' }
+      {
+        type: 'image',
+        src: '/media/oneaudio-1.png',
+        caption: 'Sound & Seat Audio experience'
+      },
+      {
+        type: 'image',
+        src: '/media/oneaudio-2.png',
+        caption: 'Mood scenes \u2014 Pacific Whisper & Metropolitan Buzz'
+      }
     ],
     resultsLabel: 'Results',
     results: [

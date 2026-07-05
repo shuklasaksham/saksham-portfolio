@@ -1,0 +1,59 @@
+{
+  "summary": "Iteration 4 targeted media-visibility bug-fix verification for Saksham Shukla portfolio. Verified that all 8 case-study media assets are now served same-origin from /media/*. All 4 images (tello-flow.png, hyundai-screens.png, oneaudio-1.png, oneaudio-2.png) load successfully with naturalWidth > 0 and complete === true. All 4 videos are being requested from same-origin paths (no more customer-assets.emergentagent.com), files return HTTP 200 with content-type video/mp4, and range requests work. However, the videos FAIL to decode in the headless Chromium used by Playwright (canPlayType returns '' for avc1.42E01E — Chromium lacks proprietary H.264/AAC codecs). This is a Chromium-only limitation — real user browsers (Chrome, Firefox, Safari, Edge) should decode H.264 fine. Additionally, all 4 .mp4 files have the `moov` atom at the END of the file (not faststart-optimised), which can delay first-frame in real browsers. Regressions (crab avatar, Bracket CTA, socials, title, mobile drawer at 390px) all PASS.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Work.jsx / /public/media/*.mp4",
+        "issue": "All 4 MP4 files have the `moov` atom at the END of the file (grep confirmed: bracket-2.mp4 moov@11065108/11087772, bracket-1.mp4 moov@65907575/65934545, tello-video.mp4 moov@11404218/11423882, hyundai-video.mp4 moov@26046093/26062863). With preload='metadata', browsers must issue a second range request to fetch the moov atom at the tail before decoding — this delays first-frame and, on slow networks, may fail. Strongly recommend re-encoding with `ffmpeg -i in.mp4 -c copy -movflags +faststart out.mp4` so the moov box is at the start.",
+        "selector": "[data-testid^=case-study-media-] (video variants)",
+        "priority": "MEDIUM"
+      },
+      {
+        "component": "nginx/express response headers for /media/*",
+        "issue": "All /media/* responses carry `cache-control: no-store, no-cache, must-revalidate`. This forces the browser to redownload the 66MB bracket-1.mp4 on every navigation (and every partial range request), hurting perceived load time. Should be `public, max-age=31536000, immutable` for static media.",
+        "selector": "GET /media/*",
+        "priority": "LOW"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "OPTIONAL BUT RECOMMENDED: Run `ffmpeg -i <src>.mp4 -c copy -movflags +faststart <dst>.mp4` on all 4 videos in /app/frontend/public/media/ (bracket-1.mp4, bracket-2.mp4, tello-video.mp4, hyundai-video.mp4). This makes videos playable without the browser first fetching the tail of the file, improving reliability + first-frame time in real user browsers.",
+    "OPTIONAL: Add long-cache headers for /media/* (public, max-age=31536000, immutable) so 66MB bracket-1.mp4 isn't re-downloaded on every visit.",
+    "HUMAN VERIFICATION NEEDED: Ask the user to reload the page and confirm they can now see videos in the 4 case studies. Testing agent cannot verify H.264 playback via Playwright's headless Chromium (missing proprietary codecs) — but images (which use the same /media/ path and were also affected by the user's blocked customer-assets domain) DO render correctly, which strongly indicates the /media/ path is reachable in the user's environment."
+  ],
+  "critical_code_review_comments": [
+    "Videos are set to `autoPlay loop muted playsInline controls preload='metadata'`. Consider `preload='auto'` for the initially-visible case study if you want stronger guarantees the first frame renders — currently the browser only fetches metadata until user interaction.",
+    "mock.js is 657 lines and mixes 8+ unrelated exports (caseStudies, digitalArt, experience, skillsData, contactPrompts, navItems, socials, profile, toolStack, principles, currentStatus). Not blocking for this iteration but consider splitting into per-section files (>700-line threshold approaching).",
+    "Work.jsx renders full-height videos with `controls` attribute + autoplay — the browser's default controls overlay on top of the media caption may look off-brand for the terminal aesthetic; consider hiding controls or using a custom minimal control bar."
+  ],
+  "updated_files": [],
+  "success_rate": {
+    "backend": "n/a (frontend-only iteration)",
+    "frontend": "images 4/4 (100%); videos 0/4 verified in Playwright due to Chromium codec limitation (files are reachable & served correctly, so real-browser success is expected)"
+  },
+  "test_credentials": "none required",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "The videos in /app/frontend/public/media/ have moov atom at EOF and Chromium (which Playwright uses) does not support H.264 by default, so `canPlayType('video/mp4;codecs=\"avc1.42E01E\"')` returns ''. Do NOT interpret video.error===4 in Playwright as a real-browser failure — verify via curl HEAD (should return 200 video/mp4) and via range GET (should return 206) instead. Images work perfectly in Chromium so they are a reliable proxy for whether /media/ is reachable.",
+  "rca of the issue": {
+    "original_problem": "User reported no images/videos visible in any case study. Root cause: customer-assets.emergentagent.com was blocked in the user's network.",
+    "fix_applied_by_main_agent": "Downloaded all 8 media files to /app/frontend/public/media/ and updated mock.js to reference /media/* paths (same-origin). Also added 2 new Harman Kardon images.",
+    "verification_done_this_iteration": [
+      "curl -I confirmed https://.../media/bracket-2.mp4 returns HTTP/2 200 with content-type video/mp4 and content-length 11087772",
+      "Range requests (Range: bytes=0-1023 and bytes=11060000-11087772) return HTTP/2 206 with correct content-range headers",
+      "Playwright DOM assertion: all 4 case-study images (tello-flow.png, hyundai-screens.png, oneaudio-1.png, oneaudio-2.png) have naturalWidth > 0 and complete === true",
+      "No case-study media element has a currentSrc pointing to customer-assets.emergentagent.com",
+      "Regression suite passes: crab avatar (naturalWidth=509), Bracket CTA (https://use-bracket.com/), socials (LinkedIn/Behance/Instagram/Email/Call), page title, mobile drawer at 390px"
+    ],
+    "residual_concern": "Video decode failed under Playwright headless Chromium (error code 4 = MEDIA_ERR_SRC_NOT_SUPPORTED). Confirmed via canPlayType probe that Chromium reports NO support for avc1.42E01E — this is a well-documented Chromium limitation (proprietary codecs are excluded from open-source Chromium builds). Real user browsers (Chrome, Firefox, Safari, Edge) DO ship H.264 decoders and will play the videos. Additionally, moov atom placement at EOF may cause a small startup delay; a `-movflags +faststart` re-encode is recommended but not required."
+  }
+}
