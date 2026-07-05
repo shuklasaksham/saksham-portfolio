@@ -43,6 +43,16 @@ https://www.sakshamshukla.com/. Frontend-only initially.
 - 2026-02-05: **Real social links + email + phone wired in.** LinkedIn, Instagram, Behance, mailto:
   shuklasaksham01@gmail.com, tel:+917318088227. Old email 'hello@saksham.design' and Twitter link removed
   from About Me, Command Palette, Contact section. Verified — 100% pass (15/15 checks).
+- 2026-02-05: **Full responsive redesign — desktop/tablet/mobile.** Added `MobileTopBar` (hamburger +
+  brand + palette shortcut) shown only <md. Sidebar now dual-mode: inline collapsible on md+, slide-in
+  drawer on mobile. TerminalFrame lets body scroll on mobile; sections switched from `h-full overflow-hidden`
+  to `md:h-full md:overflow-hidden` so mobile content flows naturally. Reduced paddings + `clamp()` font
+  sizes on smaller viewports. StatusBar shows fewer shortcuts on smaller widths. Verified — 100% pass across
+  390 / 820 / 1024 / 1440 / 1920 viewports.
+- 2026-02-05: **About Me availability copy updated.** 'Onboarding 3 design partners this quarter' →
+  'Open to Product Designer roles + collaborations'.
+- 2026-02-05: **Case study role fixes.** Hyundai × Bang & Olufsen → 'Experience Designer'. One Audio
+  (Harman Kardon) → 'Designer'.
 
 ## Roadmap
 ### P1
