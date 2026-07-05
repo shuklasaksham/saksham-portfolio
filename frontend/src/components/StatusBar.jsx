@@ -40,6 +40,10 @@ export default function StatusBar({ onOpenPalette }) {
           <kbd className="px-1.5 py-0.5 text-[11px]" style={{ border: '1px solid rgba(245,165,36,0.4)', borderRadius: 3, color: 'var(--amber)' }}>[</kbd>
           <span className="opacity-80">Toggle sidebar</span>
         </span>
+        <span className="hidden lg:flex items-center gap-2">
+          <kbd className="px-1.5 py-0.5 text-[11px]" style={{ border: '1px solid rgba(245,165,36,0.4)', borderRadius: 3, color: 'var(--amber)' }}>/</kbd>
+          <span className="opacity-80">Peek</span>
+        </span>
       </div>
 
       <div className="flex items-center gap-3 md:gap-4 shrink-0">

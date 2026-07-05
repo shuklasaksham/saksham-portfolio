@@ -1,10 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { toolStack, principles, currentStatus } from '../../data/mock';
+import { usePeekTarget } from '../../context/PeekContext';
 import { PenTool, Terminal, Frame, FileText, GitBranch, Video, Layers, Grid3x3, Copy, ArrowUpRight, Check } from 'lucide-react';
 
 const ICONS = { PenTool, Terminal, Frame, FileText, GitBranch, Video, Layers, Grid3x3 };
 
 const BRACKET_URL = 'https://use-bracket.com/';
+
+// Individual peek-aware Workbench chip
+function WorkbenchChip({ t }) {
+  const Icon = ICONS[t.icon];
+  const peekClass = usePeekTarget(t.name);
+  return (
+    <span
+      className={`chip cursor-pointer inline-flex items-center gap-1.5 px-2 py-1 text-[11px] relative ${peekClass}`}
+      style={{ border: '1px solid rgba(245,165,36,0.45)', color: 'var(--amber)', borderRadius: 2 }}
+      title={t.proficiency ? `${t.name} · ${t.proficiency}` : t.name}
+      data-testid={`workbench-chip-${t.name.toLowerCase()}`}
+    >
+      {Icon && <Icon size={11} strokeWidth={1.75} className="icon-wobble" />}
+      {t.name}
+    </span>
+  );
+}
+
+// Individual peek-aware Principle row
+function PrincipleRow({ p }) {
+  const peekClass = usePeekTarget(`${p.title} ${p.text || ''}`);
+  return (
+    <li className={`flex items-start gap-3 ${peekClass}`} data-testid={`principle-${p.n}`}>
+      <span className="text-[11px] pt-0.5" style={{ color: 'var(--muted)' }}>{p.n}</span>
+      <div className="flex-1 min-w-0">
+        <div className="text-[13px] font-semibold" style={{ color: 'var(--amber-2)' }}>{p.title}</div>
+        <div className="text-[11px] leading-relaxed" style={{ color: 'var(--amber)' }}>{p.text}</div>
+      </div>
+    </li>
+  );
+}
 
 // Inline anchor for the "Bracket" product noun
 function BracketLink({ children = 'Bracket', className = '' }) {
@@ -89,8 +121,8 @@ export default function AboutMe({ onNavigate }) {
               />
             </h1>
             <div className="mt-3 flex items-center flex-wrap gap-2 sm:gap-3 text-[12px] sm:text-[13px]">
-              <span className="inline-flex items-center gap-2 px-2 py-0.5" style={{ background: 'rgba(10,7,4,0.12)', border: '1px solid rgba(10,7,4,0.35)', borderRadius: 2 }}>
-                <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#0a0704' }} />
+              <span className="inline-flex items-center gap-2 px-2 py-0.5" style={{ background: '#0a0704', color: 'var(--amber)', borderRadius: 2 }}>
+                <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'var(--amber)' }} />
                 Product Designer
               </span>
               <span className="opacity-80">Simplifying complexity, one pixel at a time.</span>
@@ -178,21 +210,9 @@ export default function AboutMe({ onNavigate }) {
               <span className="text-[10px] opacity-70">HOVER TO INSPECT</span>
             </div>
             <div className="flex flex-wrap gap-1.5 stagger">
-              {toolStack.map((t) => {
-                const Icon = ICONS[t.icon];
-                return (
-                  <span
-                    key={t.name}
-                    className="chip cursor-pointer inline-flex items-center gap-1.5 px-2 py-1 text-[11px] relative"
-                    style={{ border: '1px solid rgba(245,165,36,0.45)', color: 'var(--amber)', borderRadius: 2 }}
-                    title={t.proficiency ? `${t.name} · ${t.proficiency}` : t.name}
-                    data-testid={`workbench-chip-${t.name.toLowerCase()}`}
-                  >
-                    {Icon && <Icon size={11} strokeWidth={1.75} className="icon-wobble" />}
-                    {t.name}
-                  </span>
-                );
-              })}
+              {toolStack.map((t) => (
+                <WorkbenchChip key={t.name} t={t} />
+              ))}
             </div>
           </div>
 
@@ -201,13 +221,7 @@ export default function AboutMe({ onNavigate }) {
             <div className="text-[11px] mb-2" style={{ color: 'var(--muted-2)', letterSpacing: '0.18em' }}>PRINCIPLES</div>
             <ul className="space-y-2 xl:flex-1 xl:min-h-0 xl:overflow-hidden stagger">
               {principles.map((p) => (
-                <li key={p.n} className="flex items-start gap-3">
-                  <span className="text-[11px] pt-0.5" style={{ color: 'var(--muted)' }}>{p.n}</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-[13px] font-semibold" style={{ color: 'var(--amber-2)' }}>{p.title}</div>
-                    <div className="text-[11px] leading-relaxed" style={{ color: 'var(--amber)' }}>{p.text}</div>
-                  </div>
-                </li>
+                <PrincipleRow key={p.n} p={p} />
               ))}
             </ul>
           </div>

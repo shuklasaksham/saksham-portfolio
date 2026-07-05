@@ -1,8 +1,41 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { caseStudies } from '../../data/mock';
+import { usePeekTarget } from '../../context/PeekContext';
 import { ChevronRight, Eye, Zap, BrainCircuit, Music, Check, X, ArrowRight, Sparkles, Wrench, Clock, Cpu, Database, Route, Bot, FileText, RefreshCw, LineChart, Users, Home, SlidersHorizontal, BarChart3, Store, Phone, Frown, HelpCircle, Search, Minimize2, DoorOpen, ExternalLink } from 'lucide-react';
 
 const ICONS = { Eye, Zap, BrainCircuit, Music, Database, Sparkles, Route, Bot, FileText, RefreshCw, LineChart, Users, Home, SlidersHorizontal, BarChart3, Store, Phone, Frown, HelpCircle, Search, Minimize2, DoorOpen };
+
+function CaseStudyListItem({ c, isOn, onSelect }) {
+  const searchText = `${c.title} ${c.category} ${c.role} ${(c.tags || []).join(' ')} ${c.subtitle || ''}`;
+  const peekClass = usePeekTarget(searchText);
+  return (
+    <li className={peekClass}>
+      <button
+        onClick={onSelect}
+        data-testid={`case-study-item-${c.id}`}
+        className="group w-full text-left px-4 py-3 flex items-center gap-3 transition-all duration-150 hover:pl-5"
+        style={{
+          background: isOn ? 'var(--amber)' : 'transparent',
+          color: isOn ? '#0a0704' : 'var(--amber)',
+          borderBottom: '1px solid rgba(245,165,36,0.25)'
+        }}
+        onMouseEnter={(e) => { if (!isOn) e.currentTarget.style.background = 'rgba(245,165,36,0.06)'; }}
+        onMouseLeave={(e) => { if (!isOn) e.currentTarget.style.background = 'transparent'; }}
+      >
+        <div className="flex-1 min-w-0">
+          <div className="text-[10px] tracking-wider mb-0.5" style={{ color: isOn ? 'rgba(10,7,4,0.75)' : 'var(--muted-2)' }}>
+            {c.category}
+          </div>
+          <div className="text-[15px] font-bold truncate">{c.title}</div>
+          <div className="text-[11px] mt-0.5" style={{ color: isOn ? 'rgba(10,7,4,0.7)' : 'var(--muted)' }}>
+            {c.role} · {c.year}
+          </div>
+        </div>
+        <ChevronRight size={14} style={{ opacity: isOn ? 1 : 0.6, transition: 'transform 180ms ease' }} className="group-hover:translate-x-1" />
+      </button>
+    </li>
+  );
+}
 
 export default function Work() {
   const [selectedId, setSelectedId] = useState(caseStudies[0].id);
@@ -35,36 +68,14 @@ export default function Work() {
       <div className="xl:flex-1 xl:min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-3 md:gap-4">
         <div className="lg:col-span-4 rounded-sm overflow-hidden" style={{ border: '1px solid var(--amber)' }}>
           <ul>
-            {caseStudies.map((c) => {
-              const isOn = selectedId === c.id;
-              return (
-                <li key={c.id}>
-                  <button
-                    onClick={() => setSelectedId(c.id)}
-                    data-testid={`case-study-item-${c.id}`}
-                    className="group w-full text-left px-4 py-3 flex items-center gap-3 transition-all duration-150 hover:pl-5"
-                    style={{
-                      background: isOn ? 'var(--amber)' : 'transparent',
-                      color: isOn ? '#0a0704' : 'var(--amber)',
-                      borderBottom: '1px solid rgba(245,165,36,0.25)'
-                    }}
-                    onMouseEnter={(e) => { if (!isOn) e.currentTarget.style.background = 'rgba(245,165,36,0.06)'; }}
-                    onMouseLeave={(e) => { if (!isOn) e.currentTarget.style.background = 'transparent'; }}
-                  >
-                    <div className="flex-1 min-w-0">
-                      <div className="text-[10px] tracking-wider mb-0.5" style={{ color: isOn ? 'rgba(10,7,4,0.75)' : 'var(--muted-2)' }}>
-                        {c.category}
-                      </div>
-                      <div className="text-[15px] font-bold truncate">{c.title}</div>
-                      <div className="text-[11px] mt-0.5" style={{ color: isOn ? 'rgba(10,7,4,0.7)' : 'var(--muted)' }}>
-                        {c.role} · {c.year}
-                      </div>
-                    </div>
-                    <ChevronRight size={14} style={{ opacity: isOn ? 1 : 0.6, transition: 'transform 180ms ease' }} className="group-hover:translate-x-1" />
-                  </button>
-                </li>
-              );
-            })}
+            {caseStudies.map((c) => (
+              <CaseStudyListItem
+                key={c.id}
+                c={c}
+                isOn={selectedId === c.id}
+                onSelect={() => setSelectedId(c.id)}
+              />
+            ))}
           </ul>
         </div>
 
@@ -114,9 +125,13 @@ function DetailedCaseStudy({ cs }) {
       )}
 
       {cs.images && cs.images.length > 0 && (
-        <div className="mt-4 grid grid-cols-1 xl:grid-cols-2 gap-3 items-start stagger">
+        <div className="mt-4 flex flex-col gap-3 stagger">
           {cs.images.map((img, i) => (
-            <figure key={i} className="relative card-hover overflow-hidden" style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, background: '#050301' }}>
+            <figure
+              key={i}
+              className={`relative card-hover overflow-hidden ${i === 0 ? 'w-full' : 'w-full md:w-3/4 lg:w-2/3 xl:w-3/5'} self-start`}
+              style={{ border: '1px solid rgba(245,165,36,0.45)', borderRadius: 4, background: '#050301' }}
+            >
               {img.type === 'video' ? (
                 <video
                   src={img.src}

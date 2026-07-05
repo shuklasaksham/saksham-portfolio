@@ -5,6 +5,8 @@ import Sidebar from './components/Sidebar';
 import StatusBar from './components/StatusBar';
 import CommandPalette from './components/CommandPalette';
 import MobileTopBar from './components/MobileTopBar';
+import PeekSearch from './components/PeekSearch';
+import { PeekProvider } from './context/PeekContext';
 import AboutMe from './components/sections/AboutMe';
 import Work from './components/sections/Work';
 import Illustrations from './components/sections/Illustrations';
@@ -63,41 +65,44 @@ function App() {
   const Section = SECTION_MAP[active] || AboutMe;
 
   return (
-    <div className="App min-h-screen">
-      <TerminalFrame>
-        <div className="flex flex-col h-auto md:h-full min-h-0">
-          {/* Mobile only: top bar with hamburger */}
-          <MobileTopBar
-            active={active}
-            onOpenSidebar={() => setMobileNavOpen(true)}
-            onOpenPalette={() => setPaletteOpen(true)}
-          />
-
-          <div className="flex flex-1 min-h-0">
-            <Sidebar
+    <PeekProvider>
+      <div className="App min-h-screen">
+        <TerminalFrame>
+          <div className="flex flex-col h-auto md:h-full min-h-0">
+            {/* Mobile only: top bar with hamburger */}
+            <MobileTopBar
               active={active}
-              onNavigate={setActive}
-              collapsed={collapsed}
-              onToggle={() => setCollapsed((v) => !v)}
-              mobileOpen={mobileNavOpen}
-              onMobileClose={() => setMobileNavOpen(false)}
+              onOpenSidebar={() => setMobileNavOpen(true)}
+              onOpenPalette={() => setPaletteOpen(true)}
             />
-            <main className="flex-1 min-w-0 xl:h-full xl:overflow-hidden">
-              <div key={active} className="h-full w-full section-fade">
-                <Section onNavigate={setActive} />
-              </div>
-            </main>
+
+            <div className="flex flex-1 min-h-0">
+              <Sidebar
+                active={active}
+                onNavigate={setActive}
+                collapsed={collapsed}
+                onToggle={() => setCollapsed((v) => !v)}
+                mobileOpen={mobileNavOpen}
+                onMobileClose={() => setMobileNavOpen(false)}
+              />
+              <main className="flex-1 min-w-0 xl:h-full xl:overflow-hidden">
+                <div key={active} className="h-full w-full section-fade">
+                  <Section onNavigate={setActive} />
+                </div>
+              </main>
+            </div>
+            <StatusBar onOpenPalette={() => setPaletteOpen(true)} />
           </div>
-          <StatusBar onOpenPalette={() => setPaletteOpen(true)} />
-        </div>
-      </TerminalFrame>
-      <CommandPalette
-        open={paletteOpen}
-        onClose={() => setPaletteOpen(false)}
-        onNavigate={setActive}
-        onToggleSidebar={() => setCollapsed((v) => !v)}
-      />
-    </div>
+        </TerminalFrame>
+        <CommandPalette
+          open={paletteOpen}
+          onClose={() => setPaletteOpen(false)}
+          onNavigate={setActive}
+          onToggleSidebar={() => setCollapsed((v) => !v)}
+        />
+        <PeekSearch />
+      </div>
+    </PeekProvider>
   );
 }
 

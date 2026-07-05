@@ -214,6 +214,20 @@ code { font-family: 'IBM Plex Mono', monospace; }
 }
 .chip:hover .icon-wobble { animation: iconWobble 500ms ease; }
 
+/* Peek mode — global search dim/highlight */
+.peek-dim {
+  opacity: 0.22;
+  filter: saturate(0.4);
+  transition: opacity 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+.peek-match {
+  transition: box-shadow 200ms ease, transform 200ms ease, background-color 200ms ease;
+  box-shadow: 0 0 0 1px var(--amber), 0 0 22px rgba(245,165,36,0.45), 0 0 60px rgba(245,165,36,0.18);
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+}
+
 /* Hide native cursor when a custom follower is shown */
 .cursor-none, .cursor-none * { cursor: none !important; }
 
