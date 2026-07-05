@@ -84,6 +84,18 @@ https://www.sakshamshukla.com/. Frontend-only initially.
 - 2026-02-05: **Workbench alive.** Chips animate on hover (amber fill + icon rotate/wobble), have a
   staggered entrance, and show a 'HOVER TO INSPECT' hint in the card header. Testing agent — 100%
   pass on all 13 sub-checks.
+- 2026-02-05: **Case-study media stacked (not side-by-side).** First figure renders full-width, second
+  figure at ~60% width below, so nothing is squeezed or letterboxed. Verified across all 4 studies.
+- 2026-02-05: **Product Designer chip → solid black + amber content.** On the amber statement block
+  chip now has background #0a0704 with amber text and amber dot for stronger contrast.
+- 2026-02-05: **Behind The Pixels — translucent CMD box.** Background is now `rgba(0,0,0,0.55)` with
+  `backdrop-filter: blur(6px)` and a 4-layer amber drop shadow (`#f5a524` @ 0.18 ring, 0.35 drop,
+  0.15 glow, 0.06 inset) for the neon-CRT vibe.
+- 2026-02-05: **NEW: Peek mode (`/` search).** Global keyboard-driven live filter (like Linear/Raycast)
+  — press `/` to open a floating top-center search bar (`data-testid="peek-overlay"` + `peek-input`).
+  As you type, matching items get an amber ring glow (.peek-match), non-matches fade to 22% opacity
+  and desaturate (.peek-dim). Wired to case-study cards, workbench chips, and principles. Escape
+  closes and clears. `/ Peek` hint added to StatusBar. Testing agent — 21/22 hard assertions pass.
 
 ## Roadmap
 ### P1
