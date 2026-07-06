@@ -20,10 +20,11 @@ export default function Experience() {
   // "Experience loaded." effect when switching
   useEffect(() => {
     setLoaded(false);
-    timers.current.forEach(clearTimeout);
+    const bucket = timers.current;
+    bucket.forEach(clearTimeout);
     const t = setTimeout(() => setLoaded(true), 220);
-    timers.current.push(t);
-    return () => timers.current.forEach(clearTimeout);
+    bucket.push(t);
+    return () => bucket.forEach(clearTimeout);
   }, [selected]);
 
   return (
