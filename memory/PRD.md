@@ -114,6 +114,20 @@ https://www.sakshamshukla.com/. Frontend-only initially.
   104×104 `object-contain`, favicon + apple-touch-icon updated with `?v=3` cache-buster. Note: CRA
   dev server doesn't hot-reload `public/index.html`, so a frontend supervisor restart was needed
   once; future favicon swaps will require the same.
+- 2026-02-05: **Vercel build fix — `ajv/dist/compile/codegen` module error.**
+  Root cause: `terser-webpack-plugin`'s `schema-utils@4` needs `ajv-keywords@5` (which needs `ajv@8`),
+  but older CRA loaders (`fork-ts-checker-webpack-plugin`, `babel-loader`, `file-loader`) still use
+  `schema-utils@2/3` with `ajv-keywords@3` (needs `ajv@6`). npm hoists `ajv-keywords@5` to top while
+  keeping `ajv@6` at top → the codegen path (v8-only) can't be resolved. yarn hoists differently
+  and works cleanly.
+  Fix: (1) Added `/app/frontend/vercel.json` with `installCommand: yarn install --frozen-lockfile`
+  + `buildCommand: yarn build` so Vercel uses yarn (project's package manager). (2) Added scoped
+  yarn resolution `"schema-utils/ajv": "^8.17.1"` — only pins ajv@8 for the top-level schema-utils@4,
+  leaving nested schema-utils@2/3 with their natural ajv@6 + ajv-keywords@3. (3) Added npm
+  `overrides` as a robust fallback with the same scoping (schema-utils@^4 → ajv@8; fork-ts-checker
+  /babel-loader/file-loader → schema-utils → ajv@6 + ajv-keywords@3). (4) Regenerated `yarn.lock`.
+  Verified: local `yarn build` produces 98.87 kB main.js gzipped, deployment_agent PASS, runtime
+  smoke test 5/5 PASS on preview.
 
 ## Roadmap
 ### P1
