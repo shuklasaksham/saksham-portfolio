@@ -128,6 +128,14 @@ https://www.sakshamshukla.com/. Frontend-only initially.
   /babel-loader/file-loader → schema-utils → ajv@6 + ajv-keywords@3). (4) Regenerated `yarn.lock`.
   Verified: local `yarn build` produces 98.87 kB main.js gzipped, deployment_agent PASS, runtime
   smoke test 5/5 PASS on preview.
+- 2026-02-05: **Vercel build fix v2 — ESLint warning as error (CI=true).**
+  Root cause: after switching Vercel to yarn, the build got past ajv but failed on
+  `Experience.jsx:26 — react-hooks/exhaustive-deps: ref value 'timers.current' will likely have
+  changed by the time this effect cleanup function runs`. CRA/CRA sets `CI=true` on Vercel which
+  treats ESLint warnings as errors. Fix: captured `const bucket = timers.current;` inside the
+  useEffect body and used `bucket` in the cleanup (idiomatic React pattern). Zero behavior change.
+  Verified: `CI=true yarn build` succeeds locally (98.88 kB gz, 0 warnings). Testing agent
+  iteration_9 — 100% pass on Experience section + full regression suite.
 
 ## Roadmap
 ### P1
