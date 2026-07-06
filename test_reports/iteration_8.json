@@ -1,0 +1,25 @@
+{
+  "summary": "Post-build-tooling-fix smoke test. Verified runtime app still works after vercel.json addition, yarn resolutions scoped ajv pin, and yarn.lock regeneration. All 5 smoke assertions PASS on preview URL.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "smoke_test_results": {
+    "smoke_1_about_me_default": "PASS - About Me renders by default, [data-testid=about-me-avatar] present, 'SAKSHAM SHUKLA' header rendered, 6 nav items found (nav-about, nav-work, nav-illustrations, nav-experience, nav-pixels, nav-contact)",
+    "smoke_2_case_studies_bracket": "PASS - Pressing '2' navigates to Case Studies, 'Open Bracket' CTA present with href='https://use-bracket.com/'",
+    "smoke_3_behind_the_pixels": "PASS - Pressing '5' opens Behind the Pixels, CMD/terminal element (data-testid contains 'pixels') renders with terminal content visible",
+    "smoke_4_peek_mode": "PASS - Pressing '/' opens [data-testid=peek-overlay]",
+    "smoke_5_command_palette": "PASS - Ctrl+K opens command palette dialog with 13 commands (Go to About Me, Case Studies, Illustrations, Experience, Behind the Pixels, Contact, Toggle sidebar, Copy email, Open LinkedIn, etc.)"
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "100% (5/5 smoke)"},
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Build-tooling fix (vercel.json + scoped ajv resolutions) does not affect runtime behavior. Preview at https://saksham-design-1.preview.emergentagent.com/ is healthy. Prior iterations 1-7 covered deep regression."
+}
